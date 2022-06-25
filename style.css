@@ -1,0 +1,237 @@
+body {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 400;
+    padding-bottom: 5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* navbar styles start */
+a.navbar-link {
+    color: black !important;
+    font-size: 20px;
+}
+
+#navbar-div {
+    display: none;
+    justify-content: flex-end;
+    column-gap: 20px;
+    padding: 10px 40px;
+    font-weight: 500;
+}
+
+/* navbar styles end */
+
+
+/* backdrop style start */
+#backdrop {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    column-gap: 25px;
+    padding: 3% 8%;
+    margin-top: 4%;
+    text-align: center;
+}
+
+img.dp {
+    width: 200px;
+    height: auto;
+}
+
+@media screen and (min-width:500px) {
+    #backdrop {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    #backdrop-left-column {
+        width: 50%;
+    }
+
+    #backdrop-left-column>h1 {
+        font-size: 44px;
+    }
+
+    #backdrop-right-column {
+        width: 45%;
+    }
+
+    img.dp {
+        width: 300px;
+    }
+
+    #navbar-div {
+        display: flex;
+    }
+}
+
+/* #backdrop>div {
+    border: 1px solid red;
+} */
+
+/* backdrop left column styles start */
+#backdrop-left-column {
+    width: 100%;
+    color: #21243D;
+}
+
+#backdrop-left-column>h1 {
+    font-weight: 700;
+    font-size: 32px;
+}
+
+#backdrop-left-column>p {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+#backdrop-left-button {
+    background-color: #FF6464;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 0;
+}
+
+/* backdrop left column styles end */
+#backdrop-right-column {
+    width: 100%;
+    text-align: center;
+}
+
+/* backdrop styles end */
+
+/* recent blogs starts */
+
+#recent-blog-posts-section {
+    background-color: #EDF7FA;
+    padding: 5% 2%;
+}
+
+#recent-posts-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-h4 {
+    font-weight: 400;
+    font-size: 22px;
+    color: #21243D;
+    margin: 0;
+}
+
+#card-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+@media screen and (min-width:500px) {
+    #recent-blog-posts-section {
+        padding: 1.5% 8%;
+    }
+
+    #card-container {
+        flex-direction: row;
+        column-gap: 1%;
+    }
+}
+
+div.card {
+    color: #21243D;
+    font-weight: 400;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px 22px;
+}
+
+h2.my-h2 {
+    color: #21243D;
+    font-weight: 700;
+    font-size: 26px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.card>span {
+    font-size: 18px;
+    padding: 5px 10px;
+}
+
+div.card>p {
+    font-size: 16px;
+}
+
+/* recent blogs ends */
+
+
+/* featured works starts */
+
+section.featured-works {
+    background-color: white;
+    padding: 5% 8%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+div.horizontal-card {
+    display: flex;
+    flex-direction: column;
+    column-gap: 3%;
+}
+
+@media screen and (min-width:500px) {
+    div.horizontal-card {
+        row-gap: 20px;
+        flex-direction: row;
+    }
+}
+
+span.pill {
+    background-color: #142850;
+    padding: 1.5px 15px;
+    color: white;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+span.secondary-text {
+    color: #8695A4;
+    font-size: 20px;
+    margin-left: 16px;
+}
+
+div.horizontal-card>div>p {
+    color: #21243D;
+    font-size: 16px;
+}
+
+div.horizontal-card>img {
+    border-radius: 6px;
+}
+
+/* featured works ends */
+
+/* social media links starts */
+
+#social-media-links-section {
+    font-size: 30px;
+    color: #142850;
+    display: flex;
+    column-gap: 15px;
+    justify-content: center;
+    align-items: baseline;
+}
+
+#social-media-links-section>a {
+    color: #142850;
+}
+
+
+/* social media links ends */
