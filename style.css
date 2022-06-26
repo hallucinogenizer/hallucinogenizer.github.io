@@ -31,41 +31,14 @@ a.navbar-link {
     flex-direction: column-reverse;
     justify-content: space-around;
     column-gap: 25px;
-    padding: 3% 8%;
-    margin-top: 4%;
+    padding: 4% 8%;
+    margin-top: 1%;
     text-align: center;
 }
 
 img.dp {
     width: 200px;
     height: auto;
-}
-
-@media screen and (min-width:500px) {
-    #backdrop {
-        flex-direction: row;
-        text-align: left;
-    }
-
-    #backdrop-left-column {
-        width: 50%;
-    }
-
-    #backdrop-left-column>h1 {
-        font-size: 44px;
-    }
-
-    #backdrop-right-column {
-        width: 45%;
-    }
-
-    img.dp {
-        width: 300px;
-    }
-
-    #navbar-div {
-        display: flex;
-    }
 }
 
 /* #backdrop>div {
@@ -83,9 +56,16 @@ img.dp {
     font-size: 32px;
 }
 
+#backdrop-left-column>h2 {
+    margin-bottom: 0px;
+    font-weight: 500;
+}
+
 #backdrop-left-column>p {
     font-weight: 400;
     font-size: 16px;
+    margin-top: 5px;
+    text-align: justify;
 }
 
 #backdrop-left-button {
@@ -97,10 +77,42 @@ img.dp {
     border: 0;
 }
 
+#backdrop-left-button:hover {
+    background-color: #df5353;
+    cursor: pointer;
+}
+
 /* backdrop left column styles end */
 #backdrop-right-column {
     width: 100%;
     text-align: center;
+}
+
+@media screen and (min-width:500px) {
+    #backdrop {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    #backdrop-left-column {
+        flex-basis: 60%;
+    }
+
+    #backdrop-left-column>h1 {
+        font-size: 44px;
+    }
+
+    #backdrop-right-column {
+        flex-basis: 35%;
+    }
+
+    img.dp {
+        width: 350px;
+    }
+
+    #navbar-div {
+        display: flex;
+    }
 }
 
 /* backdrop styles end */
@@ -121,7 +133,8 @@ img.dp {
     font-weight: 400;
     font-size: 22px;
     color: #21243D;
-    margin: 0;
+    margin-bottom: 15px;
+    margin-top: 0;
 }
 
 #card-container {
@@ -172,8 +185,8 @@ div.card>p {
 /* featured works starts */
 
 section.featured-works {
-    background-color: white;
-    padding: 5% 8%;
+    background-color: #EDF7FA;
+    padding: 2% 8%;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
@@ -203,11 +216,12 @@ span.pill {
 
 span.secondary-text {
     color: #8695A4;
-    font-size: 20px;
-    margin-left: 16px;
+    font-size: 18px;
+    margin-left: 12px;
 }
 
-div.horizontal-card>div>p {
+div.horizontal-card>div>p,
+div.horizontal-card li {
     color: #21243D;
     font-size: 16px;
 }
@@ -223,13 +237,17 @@ div.horizontal-card>img {
 #social-media-links-section {
     font-size: 30px;
     color: #142850;
+    padding: 2% 0%;
+}
+
+#icons-div {
     display: flex;
     column-gap: 15px;
     justify-content: center;
     align-items: baseline;
 }
 
-#social-media-links-section>a {
+#icons-div>a {
     color: #142850;
 }
 
