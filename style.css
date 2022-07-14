@@ -10,11 +10,11 @@ a {
 /* navbar styles start */
 a.navbar-link {
     color: black !important;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 #navbar-div {
-    display: none;
+    display: flex;
     justify-content: flex-end;
     column-gap: 20px;
     padding: 10px 40px;
@@ -109,8 +109,8 @@ img.dp {
         width: 350px;
     }
 
-    #navbar-div {
-        display: flex;
+    a.navbar-link {
+        font-size:20px;
     }
 }
 
