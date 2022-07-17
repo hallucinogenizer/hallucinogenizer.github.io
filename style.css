@@ -169,6 +169,10 @@ h2.my-h2 {
     margin-bottom: 10px;
 }
 
+h2.my-h2:hover {
+    text-decoration: underline;
+}
+
 div.card>span {
     font-size: 18px;
     padding: 5px 10px;
