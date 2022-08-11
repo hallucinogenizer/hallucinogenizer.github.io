@@ -1,6 +1,7 @@
 body {
     font-family: 'Heebo', sans-serif;
     font-weight: 400;
+    margin:0;
 }
 
 a {
@@ -9,7 +10,7 @@ a {
 
 /* navbar styles start */
 a.navbar-link {
-    color: black !important;
+    color: white;
     font-size: 14px;
 }
 
@@ -18,7 +19,7 @@ a.navbar-link {
     justify-content: flex-end;
     column-gap: 20px;
     padding: 10px 40px;
-    font-weight: 500;
+    background-color: #142850;
 }
 
 /* navbar styles end */
@@ -110,7 +111,7 @@ img.dp {
     }
 
     a.navbar-link {
-        font-size:20px;
+        font-size:18px;
     }
 }
 
@@ -256,3 +257,31 @@ div.horizontal-card>img {
 
 
 /* social media links ends */
+
+
+/* Contacts Page Table */
+#contacts-table {
+    width:50%;
+    margin:auto;
+}
+
+#contacts-table td, #contacts-table th {
+    padding: 5px 20px;
+}
+
+#contacts-table thead {
+    background-color:#142850;
+    color:white;
+}
+
+th:first-child, td:first-child {
+    float:right;
+}
+
+th:nth-child(2), td:nth-child(2) {
+    text-align:left;
+}
+
+tbody> tr:nth-child(even) {
+    background-color:#f3f3f3;
+}
