@@ -51,9 +51,10 @@ img.dp {
     color: #21243D;
 }
 
-#backdrop-left-column>h1 {
+#intro-heading {
     font-weight: 700;
     font-size: 32px;
+    min-height:190px;
 }
 
 #backdrop-left-column>h2 {
@@ -88,6 +89,25 @@ img.dp {
     text-align: center;
 }
 
+#dp-container {
+    position:relative;
+    height:min-content;
+}
+
+#profession-icon {
+    position:absolute;
+    background-color:#21243D;
+    color:white;
+    right:20%;
+    bottom:2%;
+    font-size:xx-large;
+    height:80px;
+    width:80px;
+    border-radius:80px;
+    text-align:center;
+    line-height:80px;
+}
+
 @media screen and (min-width:500px) {
     #backdrop {
         flex-direction: row;
@@ -98,8 +118,9 @@ img.dp {
         flex-basis: 60%;
     }
 
-    #backdrop-left-column>h1 {
+    #intro-heading {
         font-size: 44px;
+        min-height:130px;
     }
 
     #backdrop-right-column {
