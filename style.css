@@ -148,9 +148,11 @@ img.dp {
 
 /* recent blogs starts */
 
+section {
+    padding: 1.5% 8%;
+}
 #recent-blog-posts-section {
     background-color: #EDF7FA;
-    padding: 5% 2%;
 }
 
 #recent-posts-header {
@@ -313,4 +315,38 @@ th:nth-child(2), td:nth-child(2) {
 
 tbody> tr:nth-child(even) {
     background-color:#f3f3f3;
+}
+
+details {
+    padding: 0.5rem;
+    cursor: pointer;
+    border: 1px solid #8695A4;
+    border-radius: 4px;
+    margin-top:1rem;
+}
+
+/* Experience */
+#experience-header {
+    margin-bottom:2rem;
+}
+
+div.experience-item {
+    display:flex;
+    align-items: flex-start;
+    column-gap: 2rem;
+    margin-bottom:1.5rem;
+}
+
+
+div.experience-item-details > h2, div.experience-item-details > h3 {
+    margin:0;
+}
+
+p.experience-item-tenure {
+    color:#8695A4;
+    margin:0 !important;
+}
+
+p.experience-item-description {
+    margin-top:0.3rem !important;
 }
