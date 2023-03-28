@@ -44,7 +44,6 @@ const growTitle = () => {
       shrink_title_interval = window.setInterval(shrinkTitle, typing_speed);
     }, 1000);
   } else {
-    console.log(titles[cur_title_index][title_display_index]);
     h1.innerHTML += titles[cur_title_index][title_display_index];
     title_display_index++;
   }
