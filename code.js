@@ -32,7 +32,7 @@ const initial_increasing_interval_function = () => {
     cur_display_length++;
 
     if (full_html[cur_display_length - 1] == "^") h1.innerHTML += "<br>";
-    else h1.innerHTML += full_html[cur_display_length - 1];
+    else if (h1) h1.innerHTML += full_html[cur_display_length - 1];
   }
 };
 
