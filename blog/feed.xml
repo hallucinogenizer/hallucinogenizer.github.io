@@ -1,0 +1,64 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Rohan Hussain&#39;s Blog</title>
+      <link>https://rohanhussain.com/blog/blog</link>
+      <description>Rohan Hussain&#39;s blog</description>
+      <language>en-us</language>
+      <managingEditor>contact@rohanhussain.com (Rohan Hussain)</managingEditor>
+      <webMaster>contact@rohanhussain.com (Rohan Hussain)</webMaster>
+      <lastBuildDate>Sat, 12 Aug 2023 15:14:24 GMT</lastBuildDate>
+      <atom:link href="https://rohanhussain.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/supertokens-with-nextjs-and-expressjs</guid>
+    <title>Setting up Supertokens with a NextJS 13 Frontend and an ExpressJS Backend</title>
+    <link>https://rohanhussain.com/blog/blog/post/supertokens-with-nextjs-and-expressjs</link>
+    <description>This article teaches you how to locally set up a **NextJS 13** frontend (with **App Router** as well as **Pages Router**) and a separate **ExpressJS backend** and also explains how the whole setup works.</description>
+    <pubDate>Sat, 12 Aug 2023 15:14:24 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/react-state-management-tools</guid>
+    <title>State Management Tools in React</title>
+    <link>https://rohanhussain.com/blog/blog/post/react-state-management-tools</link>
+    <description>ContextAPI, Redux, Jotai, what to use?</description>
+    <pubDate>Mon, 08 May 2023 09:56:02 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/typescript-like-types-in-python</guid>
+    <title>Typescript-like Types in Python 3</title>
+    <link>https://rohanhussain.com/blog/blog/post/typescript-like-types-in-python</link>
+    <description>`def sum(x: int, y: int) -&gt; int`</description>
+    <pubDate>Tue, 14 Feb 2023 08:40:59 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/javascript-functions-returning-functions</guid>
+    <title>Curried Functions in JavaScript</title>
+    <link>https://rohanhussain.com/blog/blog/post/javascript-functions-returning-functions</link>
+    <description>Functions that are called like this: `sum(a)(b)(c)`</description>
+    <pubDate>Sat, 08 Oct 2022 06:35:18 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/understanding-large-codebases</guid>
+    <title>Understanding Large Unfamiliar Codebases</title>
+    <link>https://rohanhussain.com/blog/blog/post/understanding-large-codebases</link>
+    <description>There are several things you can do to ease your way into an unfamiliar codebase:</description>
+    <pubDate>Fri, 23 Sep 2022 10:51:58 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    
+  </item>
+
+    </channel>
+  </rss>
