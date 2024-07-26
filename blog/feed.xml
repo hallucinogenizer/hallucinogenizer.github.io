@@ -12,7 +12,7 @@
       
   <item>
     <guid>https://rohanhussain.com/blog/blog/post/how-to-incrementally-introduce-strong-typing-to-your-api-fetches-in-react</guid>
-    <title>How to incrementally add TypeScript response-types to your React API data fetching</title>
+    <title>How to incrementally add TypeScript response-types to your React/Svelte/Vue/Angular API data fetching</title>
     <link>https://rohanhussain.com/blog/blog/post/how-to-incrementally-introduce-strong-typing-to-your-api-fetches-in-react</link>
     <description>This will help reduce frontend-backend incompatibilities. We will explore the Orval project in this blog post</description>
     <pubDate>Fri, 26 Jul 2024 06:35:18 GMT</pubDate>
