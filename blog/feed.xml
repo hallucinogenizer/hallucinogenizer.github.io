@@ -7,9 +7,19 @@
       <language>en-us</language>
       <managingEditor>contact@rohanhussain.com (Rohan Hussain)</managingEditor>
       <webMaster>contact@rohanhussain.com (Rohan Hussain)</webMaster>
-      <lastBuildDate>Sun, 17 Mar 2024 09:56:02 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 26 Jul 2024 06:35:18 GMT</lastBuildDate>
       <atom:link href="https://rohanhussain.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/how-to-incrementally-introduce-strong-typing-to-your-api-fetches-in-react</guid>
+    <title>How to incrementally add TypeScript response-types to your React API data fetching</title>
+    <link>https://rohanhussain.com/blog/blog/post/how-to-incrementally-introduce-strong-typing-to-your-api-fetches-in-react</link>
+    <description>This will help reduce frontend-backend incompatibilities. We will explore the Orval project in this blog post</description>
+    <pubDate>Fri, 26 Jul 2024 06:35:18 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    
+  </item>
+
   <item>
     <guid>https://rohanhussain.com/blog/blog/post/nextjs-app-router-loading-indicator</guid>
     <title>How to show a Loading Indicator on route change in NextJS 13/14 App Router</title>
