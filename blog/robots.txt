@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://rohanhussain.com/blog
+Sitemap: https://rohanhussain.com/blog/sitemap.xml
