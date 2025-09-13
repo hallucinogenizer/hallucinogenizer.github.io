@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Rohan Hussain&#39;s Blog</title>
+      <link>https://rohanhussain.com/blog/blog</link>
+      <description>Rohan Hussain&#39;s blog</description>
+      <language>en-us</language>
+      <managingEditor>contact@rohanhussain.com (Rohan Hussain)</managingEditor>
+      <webMaster>contact@rohanhussain.com (Rohan Hussain)</webMaster>
+      <lastBuildDate>Mon, 08 May 2023 09:56:02 GMT</lastBuildDate>
+      <atom:link href="https://rohanhussain.com/blog/tags/contextapi/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/react-state-management-tools</guid>
+    <title>State Management Tools in React</title>
+    <link>https://rohanhussain.com/blog/blog/post/react-state-management-tools</link>
+    <description>ContextAPI, Redux, Jotai, what to use?</description>
+    <pubDate>Mon, 08 May 2023 09:56:02 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    <category>React</category><category>State Management</category><category>ContextAPI</category>
+  </item>
+
+    </channel>
+  </rss>

@@ -17,7 +17,7 @@
     <description>This will help reduce frontend-backend incompatibilities. We will explore the Orval project in this blog post</description>
     <pubDate>Fri, 26 Jul 2024 06:35:18 GMT</pubDate>
     <author>contact@rohanhussain.com (Rohan Hussain)</author>
-    
+    <category>TypeScript</category><category>API</category><category>React</category><category>Strong Typing</category><category>OpenAPI</category><category>Orval</category><category>Frontend</category><category>Backend</category>
   </item>
 
   <item>
@@ -27,7 +27,7 @@
     <description>Once you&#39;ve followed this guide, when a user clicks a button or link that initiates a route change, an NProgress loading indicator will show up instantaneously on the top of the viewport just under the address bar.</description>
     <pubDate>Sun, 17 Mar 2024 09:56:02 GMT</pubDate>
     <author>contact@rohanhussain.com (Rohan Hussain)</author>
-    
+    <category>NextJS</category><category>App Router</category><category>React</category>
   </item>
 
   <item>
@@ -37,7 +37,7 @@
     <description>This article teaches you how to locally set up a **NextJS 13** frontend (with **App Router** as well as **Pages Router**) and a separate **ExpressJS backend** and also explains how the whole setup works.</description>
     <pubDate>Sat, 12 Aug 2023 15:14:24 GMT</pubDate>
     <author>contact@rohanhussain.com (Rohan Hussain)</author>
-    
+    <category>NextJS</category><category>expressjs</category><category>supertokens</category><category>authentication</category><category>fullstack</category>
   </item>
 
   <item>
@@ -47,7 +47,7 @@
     <description>ContextAPI, Redux, Jotai, what to use?</description>
     <pubDate>Mon, 08 May 2023 09:56:02 GMT</pubDate>
     <author>contact@rohanhussain.com (Rohan Hussain)</author>
-    
+    <category>React</category><category>State Management</category><category>ContextAPI</category>
   </item>
 
   <item>
@@ -57,7 +57,7 @@
     <description>`def sum(x: int, y: int) -&gt; int`</description>
     <pubDate>Tue, 14 Feb 2023 08:40:59 GMT</pubDate>
     <author>contact@rohanhussain.com (Rohan Hussain)</author>
-    
+    <category>Python</category>
   </item>
 
   <item>
@@ -67,7 +67,7 @@
     <description>Functions that are called like this: `sum(a)(b)(c)`</description>
     <pubDate>Sat, 08 Oct 2022 06:35:18 GMT</pubDate>
     <author>contact@rohanhussain.com (Rohan Hussain)</author>
-    
+    <category>JavaScript</category><category>Functional Programming</category>
   </item>
 
   <item>

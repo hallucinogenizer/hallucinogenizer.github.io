@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Rohan Hussain&#39;s Blog</title>
+      <link>https://rohanhussain.com/blog/blog</link>
+      <description>Rohan Hussain&#39;s blog</description>
+      <language>en-us</language>
+      <managingEditor>contact@rohanhussain.com (Rohan Hussain)</managingEditor>
+      <webMaster>contact@rohanhussain.com (Rohan Hussain)</webMaster>
+      <lastBuildDate>Fri, 26 Jul 2024 06:35:18 GMT</lastBuildDate>
+      <atom:link href="https://rohanhussain.com/blog/tags/orval/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/how-to-incrementally-introduce-strong-typing-to-your-api-fetches-in-react</guid>
+    <title>How to incrementally add TypeScript response-types to your React/Svelte/Vue/Angular API data fetching</title>
+    <link>https://rohanhussain.com/blog/blog/post/how-to-incrementally-introduce-strong-typing-to-your-api-fetches-in-react</link>
+    <description>This will help reduce frontend-backend incompatibilities. We will explore the Orval project in this blog post</description>
+    <pubDate>Fri, 26 Jul 2024 06:35:18 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    <category>TypeScript</category><category>API</category><category>React</category><category>Strong Typing</category><category>OpenAPI</category><category>Orval</category><category>Frontend</category><category>Backend</category>
+  </item>
+
+    </channel>
+  </rss>

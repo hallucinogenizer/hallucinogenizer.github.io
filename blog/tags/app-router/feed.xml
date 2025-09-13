@@ -1,0 +1,34 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Rohan Hussain&#39;s Blog</title>
+      <link>https://rohanhussain.com/blog/blog</link>
+      <description>Rohan Hussain&#39;s blog</description>
+      <language>en-us</language>
+      <managingEditor>contact@rohanhussain.com (Rohan Hussain)</managingEditor>
+      <webMaster>contact@rohanhussain.com (Rohan Hussain)</webMaster>
+      <lastBuildDate>Sat, 13 Sep 2025 06:35:18 GMT</lastBuildDate>
+      <atom:link href="https://rohanhussain.com/blog/tags/app-router/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/how-to-improve-lcp-performance-score-in-nextjs-15-app-router</guid>
+    <title>How to Improve LCP Performance Score in NextJS 15 App Router</title>
+    <link>https://rohanhussain.com/blog/blog/post/how-to-improve-lcp-performance-score-in-nextjs-15-app-router</link>
+    <description>Learn practical techniques to optimize Largest Contentful Paint (LCP) in NextJS 13, 14, 15 applications using the App Router</description>
+    <pubDate>Sat, 13 Sep 2025 06:35:18 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    <category>NextJS</category><category>React</category><category>LCP</category><category>Performance</category><category>App Router</category><category>Web Vitals and Optimization</category>
+  </item>
+
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/nextjs-app-router-loading-indicator</guid>
+    <title>How to show a Loading Indicator on route change in NextJS 13/14 App Router</title>
+    <link>https://rohanhussain.com/blog/blog/post/nextjs-app-router-loading-indicator</link>
+    <description>Once you&#39;ve followed this guide, when a user clicks a button or link that initiates a route change, an NProgress loading indicator will show up instantaneously on the top of the viewport just under the address bar.</description>
+    <pubDate>Sun, 17 Mar 2024 09:56:02 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    <category>NextJS</category><category>App Router</category><category>React</category>
+  </item>
+
+    </channel>
+  </rss>

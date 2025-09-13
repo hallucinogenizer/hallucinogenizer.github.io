@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Rohan Hussain&#39;s Blog</title>
+      <link>https://rohanhussain.com/blog/blog</link>
+      <description>Rohan Hussain&#39;s blog</description>
+      <language>en-us</language>
+      <managingEditor>contact@rohanhussain.com (Rohan Hussain)</managingEditor>
+      <webMaster>contact@rohanhussain.com (Rohan Hussain)</webMaster>
+      <lastBuildDate>Sat, 12 Aug 2023 15:14:24 GMT</lastBuildDate>
+      <atom:link href="https://rohanhussain.com/blog/tags/authentication/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/supertokens-with-nextjs-and-expressjs</guid>
+    <title>Setting up Supertokens with a NextJS 13 Frontend and an ExpressJS Backend</title>
+    <link>https://rohanhussain.com/blog/blog/post/supertokens-with-nextjs-and-expressjs</link>
+    <description>This article teaches you how to locally set up a **NextJS 13** frontend (with **App Router** as well as **Pages Router**) and a separate **ExpressJS backend** and also explains how the whole setup works.</description>
+    <pubDate>Sat, 12 Aug 2023 15:14:24 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    <category>NextJS</category><category>expressjs</category><category>supertokens</category><category>authentication</category><category>fullstack</category>
+  </item>
+
+    </channel>
+  </rss>
