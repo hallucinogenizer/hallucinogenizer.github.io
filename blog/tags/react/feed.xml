@@ -7,9 +7,19 @@
       <language>en-us</language>
       <managingEditor>contact@rohanhussain.com (Rohan Hussain)</managingEditor>
       <webMaster>contact@rohanhussain.com (Rohan Hussain)</webMaster>
-      <lastBuildDate>Sat, 13 Sep 2025 06:35:18 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 16 Oct 2025 11:13:00 GMT</lastBuildDate>
       <atom:link href="https://rohanhussain.com/blog/tags/react/feed.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/how-to-decrease-the-number-of-useStates-and-useEffects-in-your-react-codebase-by-alot</guid>
+    <title>How to Decrease the Number of useState() and useEffect() calls in your React Codebase by a lot</title>
+    <link>https://rohanhussain.com/blog/blog/post/how-to-decrease-the-number-of-useStates-and-useEffects-in-your-react-codebase-by-alot</link>
+    <description>This article delves into derived state and how to avoid creating new state variables and effects to manage derived state.</description>
+    <pubDate>Thu, 16 Oct 2025 11:13:00 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    <category>NextJS</category><category>React</category><category>App Router</category><category>useState</category><category>useEffect</category><category>Remix</category><category>Optimization</category><category>Clean Code</category>
+  </item>
+
   <item>
     <guid>https://rohanhussain.com/blog/blog/post/how-to-improve-lcp-performance-score-in-nextjs-15-app-router</guid>
     <title>How to Improve LCP Performance Score in NextJS 15 App Router</title>
