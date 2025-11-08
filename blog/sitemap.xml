@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://rohanhussain.com/blog/</loc>
-<lastmod>2025-10-16</lastmod>
+<lastmod>2025-11-08</lastmod>
 </url>
 <url>
 <loc>https://rohanhussain.com/blog/blog</loc>
-<lastmod>2025-10-16</lastmod>
+<lastmod>2025-11-08</lastmod>
 </url>
 <url>
 <loc>https://rohanhussain.com/blog/projects</loc>
-<lastmod>2025-10-16</lastmod>
+<lastmod>2025-11-08</lastmod>
 </url>
 <url>
 <loc>https://rohanhussain.com/blog/tags</loc>
-<lastmod>2025-10-16</lastmod>
+<lastmod>2025-11-08</lastmod>
 </url>
 <url>
 <loc>https://rohanhussain.com/blog/blog/post/how-to-decrease-the-number-of-useStates-and-useEffects-in-your-react-codebase-by-alot</loc>
@@ -27,6 +27,10 @@
 <url>
 <loc>https://rohanhussain.com/blog/blog/post/javascript-functions-returning-functions</loc>
 <lastmod>2022-10-08T06:35:18.000Z</lastmod>
+</url>
+<url>
+<loc>https://rohanhussain.com/blog/blog/post/my-two-cents-on-burnout-in-software-engineers</loc>
+<lastmod>2025-11-08T06:35:18.000Z</lastmod>
 </url>
 <url>
 <loc>https://rohanhussain.com/blog/blog/post/nextjs-app-router-loading-indicator</loc>
