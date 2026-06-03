@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="referrer" content="no-referrer">
+<title>Hisaab — A Year in Numbers (Jun 2025 → Jun 2026)</title>
+<style>
+:root {
+  --bg: #0a0a0c; --bg-2: #131317; --bg-3: #1c1c22;
+  --ink: #f5f1e8; --ink-2: #b8b3a8; --ink-3: #6b6960;
+  --gold: #d4a347; --gold-2: #f0c878;
+  --crimson: #c84444; --teal: #4a9b8e;
+  --line: rgba(245, 241, 232, 0.08); --line-2: rgba(245, 241, 232, 0.04);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.55; font-size: 16px;
+  font-feature-settings: 'ss01', 'cv11', 'tnum';
+  background-image: radial-gradient(ellipse at top, rgba(212, 163, 71, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(74, 155, 142, 0.04) 0%, transparent 50%);
+}
+.serif { font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; }
+.mono { font-family: 'JetBrains Mono', 'Menlo', monospace; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+.hero { padding: 80px 0 60px; border-bottom: 1px solid var(--line); position: relative; }
+.hero .eyebrow { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; font-weight: 500; }
+.hero h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(48px, 7vw, 88px); line-height: 0.98; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 18px; }
+.hero h1 em { color: var(--gold); font-style: italic; }
+.hero .lede { font-size: 19px; max-width: 760px; color: var(--ink-2); line-height: 1.6; }
+.hero .meta { margin-top: 32px; display: flex; gap: 32px; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-3); flex-wrap: wrap; }
+
+.bigstat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; margin: 60px 0; }
+.bigstat .cell { background: var(--bg-2); padding: 28px 26px; }
+.bigstat .label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+.bigstat .value { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 500; line-height: 1; letter-spacing: -0.02em; }
+.bigstat .value .currency { color: var(--ink-3); font-size: 18px; margin-right: 4px; font-style: italic; }
+.bigstat .sub { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+.bigstat .value.pos { color: var(--gold); }
+.bigstat .value.teal { color: var(--teal); }
+
+section { padding: 80px 0; border-bottom: 1px solid var(--line); }
+.sec-num { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 14px; color: var(--gold); margin-bottom: 12px; letter-spacing: 0.05em; }
+.sec-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 14px; }
+.sec-title em { color: var(--gold); font-style: italic; }
+.sec-lede { font-size: 17px; color: var(--ink-2); max-width: 740px; margin-bottom: 48px; }
+
+.insight { background: linear-gradient(135deg, rgba(212, 163, 71, 0.08) 0%, rgba(212, 163, 71, 0.02) 100%); border-left: 3px solid var(--gold); padding: 28px 32px; margin: 32px 0; border-radius: 0 4px 4px 0; }
+.insight.teal { background: linear-gradient(135deg, rgba(74, 155, 142, 0.1) 0%, rgba(74, 155, 142, 0.02) 100%); border-left-color: var(--teal); }
+.insight.teal .insight-num { color: var(--teal); }
+.insight .insight-num { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 11px; color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 8px; }
+.insight .insight-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 12px; }
+.insight .insight-body { font-size: 16px; color: var(--ink-2); line-height: 1.7; }
+.insight .insight-body strong { color: var(--ink); font-weight: 600; }
+.insight .insight-body .pkr-num { color: var(--gold-2); font-family: 'JetBrains Mono', monospace; font-size: 0.95em; }
+
+.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 40px 0; }
+.chart-grid.single { grid-template-columns: 1fr; }
+.chart { background: var(--bg-2); border: 1px solid var(--line); border-radius: 4px; padding: 28px; }
+.chart h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 500; margin-bottom: 6px; }
+.chart .subtitle { font-size: 13px; color: var(--ink-3); margin-bottom: 24px; }
+
+.bars { display: flex; gap: 4px; align-items: flex-end; height: 200px; padding-top: 20px; border-bottom: 1px solid var(--line); position: relative; }
+.bars .bar { flex: 1; background: linear-gradient(180deg, var(--gold) 0%, rgba(212, 163, 71, 0.4) 100%); border-radius: 2px 2px 0 0; position: relative; min-height: 2px; }
+.bars .bar .tt { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: var(--bg-3); padding: 6px 10px; border-radius: 3px; font-size: 11px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; margin-bottom: 4px; }
+.bars .bar:hover .tt { opacity: 1; z-index: 10; }
+.bars-labels { display: flex; gap: 4px; padding-top: 8px; }
+.bars-labels span { flex: 1; text-align: center; font-size: 10px; color: var(--ink-3); }
+
+.monthly-bars { display: flex; gap: 12px; height: 240px; align-items: flex-end; padding-top: 24px; }
+.month-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.month-bars { display: flex; gap: 3px; height: 200px; align-items: flex-end; width: 100%; justify-content: center; }
+.mb-in, .mb-out { width: 12px; border-radius: 2px 2px 0 0; }
+.mb-in { background: var(--teal); }
+.mb-out { background: var(--gold); }
+.month-col .lbl { font-size: 10px; color: var(--ink-3); margin-top: 6px; transform: rotate(-30deg); transform-origin: top center; white-space: nowrap; }
+.legend { display: flex; gap: 20px; font-size: 12px; color: var(--ink-2); margin-bottom: 16px; }
+.legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+
+.cat-bar { margin-bottom: 16px; }
+.cat-bar .cat-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.cat-bar .cat-name { font-size: 14px; color: var(--ink); }
+.cat-bar .cat-pct { font-size: 11px; color: var(--ink-3); margin-left: 8px; }
+.cat-bar .cat-amt { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--gold-2); }
+.cat-bar .cat-track { height: 6px; background: var(--bg-3); border-radius: 3px; overflow: hidden; }
+.cat-bar .cat-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-2)); border-radius: 3px; }
+
+.t-list { width: 100%; border-collapse: collapse; font-size: 14px; }
+.t-list th, .t-list td { text-align: left; padding: 12px 8px; border-bottom: 1px solid var(--line); }
+.t-list th { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; }
+.t-list td.num { font-family: 'JetBrains Mono', monospace; text-align: right; color: var(--gold-2); }
+.t-list td.muted { color: var(--ink-3); font-size: 12px; }
+.t-list td.pos { color: var(--teal); }
+.t-list td.neg { color: var(--crimson); }
+
+.pq { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(28px, 4vw, 44px); line-height: 1.2; font-style: italic; color: var(--ink); padding: 40px 0; text-align: center; max-width: 900px; margin: 0 auto; font-weight: 400; }
+.pq::before { content: '\201C'; color: var(--gold); font-size: 1.5em; line-height: 0; vertical-align: -0.2em; }
+.pq::after { content: '\201D'; color: var(--gold); font-size: 1.5em; line-height: 0; vertical-align: -0.2em; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0; }
+
+.verdict-card { background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%); border: 1px solid var(--line); border-radius: 4px; padding: 36px; margin: 20px 0; }
+.verdict-card h4 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; color: var(--gold); margin-bottom: 12px; font-weight: 500; }
+.verdict-card p { color: var(--ink-2); margin-bottom: 8px; font-size: 15px; line-height: 1.6; }
+.verdict-card p strong { color: var(--ink); }
+.verdict-card .number { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; line-height: 1; color: var(--ink); margin: 12px 0; }
+.verdict-card .number .small { font-size: 18px; color: var(--ink-3); }
+
+footer { padding: 60px 0 80px; text-align: center; color: var(--ink-3); font-size: 13px; }
+footer .ornament { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; color: var(--gold); margin-bottom: 20px; }
+
+.ornament-hr { text-align: center; margin: 50px 0; color: var(--gold); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; letter-spacing: 1em; }
+
+@media (max-width: 880px) {
+  .bigstat { grid-template-columns: repeat(2, 1fr) !important; }
+  .chart-grid, .two-col { grid-template-columns: 1fr; }
+  .month-bars { height: 140px; }
+  .monthly-bars { height: 200px; }
+  .flow-diagram { grid-template-columns: 1fr; gap: 12px; }
+  .flow-arrow { display: none; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 15px; }
+  .wrap { padding: 0 18px; }
+  .hero { padding: 56px 0 40px; }
+  .hero .lede { font-size: 16px; }
+  .hero .meta { gap: 16px; font-size: 10px; }
+  section { padding: 56px 0; }
+  .sec-lede { font-size: 15px; margin-bottom: 32px; }
+  .bigstat { grid-template-columns: 1fr !important; }
+  .bigstat .cell { padding: 22px 20px; }
+  .bigstat .value { font-size: 32px; }
+  .insight { padding: 22px 20px; }
+  .insight .insight-title { font-size: 22px; }
+  .insight .insight-body { font-size: 15px; }
+  .chart { padding: 20px 18px; }
+  .chart h3 { font-size: 18px; }
+  .verdict-card { padding: 24px 20px; }
+  .verdict-card .number { font-size: 42px; }
+  .t-list { font-size: 12px; }
+  .t-list th, .t-list td { padding: 10px 6px; }
+  .pq { padding: 28px 0; }
+  .monthly-bars { gap: 6px; height: 180px; }
+  .month-bars { gap: 2px; }
+  .mb-in, .mb-out { width: 7px; }
+  .month-col .lbl { font-size: 9px; }
+  .bars { height: 180px; }
+  .bars .bar .tt { font-size: 10px; padding: 4px 6px; }
+  .bars-labels span { font-size: 8px; }
+  /* horizontally scroll tables on tiny screens */
+  .chart { overflow-x: auto; }
+}
+
+@media (max-width: 380px) {
+  .hero h1 { font-size: 38px; }
+  .sec-title { font-size: 30px; }
+  .bigstat .value { font-size: 28px; }
+}
+
+/* PIN LOCK */
+.pinlock {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse at top, rgba(212, 163, 71, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(74, 155, 142, 0.05) 0%, transparent 50%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.35s ease;
+  padding: 24px;
+}
+.pinbox {
+  text-align: center;
+  max-width: 380px;
+  width: 100%;
+}
+.pinbrand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 56px;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.pinsub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-2);
+  margin-bottom: 36px;
+}
+.pinhint {
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+#pininput {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 18px 20px;
+  width: 100%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 26px;
+  text-align: center;
+  border-radius: 6px;
+  letter-spacing: 0.8em;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  caret-color: var(--gold);
+}
+#pininput:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 163, 71, 0.15);
+}
+#pininput.shake {
+  animation: shake 0.4s;
+  border-color: var(--crimson);
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(4px); }
+}
+.pinerror {
+  height: 18px;
+  font-size: 11px;
+  color: var(--crimson);
+  margin-top: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.pinfoot {
+  margin-top: 40px;
+  font-size: 10px;
+  color: var(--ink-3);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.pinlock.hide { opacity: 0; pointer-events: none; }
+body.locked { overflow: hidden; height: 100vh; }
+@media (max-width: 560px) {
+  .pinbrand { font-size: 44px; }
+  .pinsub { font-size: 15px; margin-bottom: 28px; }
+  #pininput { font-size: 22px; padding: 16px; letter-spacing: 0.6em; }
+}
+
+.flow-diagram {
+  display: grid;
+  grid-template-columns: 1fr 0.6fr 1fr;
+  gap: 20px;
+  align-items: center;
+  margin: 32px 0;
+}
+.flow-box {
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 18px 20px;
+}
+.flow-box .h { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.flow-box .b { font-family: 'JetBrains Mono', monospace; font-size: 18px; color: var(--ink); }
+.flow-arrow { text-align: center; color: var(--gold); font-size: 24px; font-family: 'Cormorant Garamond', serif; }
+
+.callout-note { font-size: 13px; color: var(--ink-3); font-style: italic; margin-top: 12px; line-height: 1.6; }
+
+/* Caveat tag */
+.caveat { display: inline-block; background: rgba(74, 155, 142, 0.2); color: var(--teal); font-size: 10px; padding: 3px 8px; border-radius: 3px; letter-spacing: 0.1em; text-transform: uppercase; margin-left: 8px; vertical-align: middle; }
+</style>
+</head>
+<body class="locked">
+
+<!-- PIN LOCK -->
+<div class="pinlock" id="pinlock">
+  <div class="pinbox">
+    <div class="pinbrand">Hisaab</div>
+    <div class="pinsub">A year in numbers · 2025–26</div>
+    <div class="pinhint">Enter PIN to view</div>
+    <input type="password" id="pininput" maxlength="5" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="PIN" />
+    <div class="pinerror" id="pinerror">&nbsp;</div>
+    <div class="pinfoot">⁂ Private Report</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var PIN = '55555';
+  var lock = document.getElementById('pinlock');
+  var input = document.getElementById('pininput');
+  var err = document.getElementById('pinerror');
+  var body = document.body;
+
+  function unlock() {
+    lock.classList.add('hide');
+    body.classList.remove('locked');
+    setTimeout(function () { lock.style.display = 'none'; }, 360);
+  }
+
+  try {
+    if (sessionStorage.getItem('hisaab_unlocked') === '1') { unlock(); return; }
+  } catch (e) {}
+
+  setTimeout(function () { try { input.focus(); } catch (e) {} }, 60);
+
+  input.addEventListener('input', function () {
+    err.innerHTML = '&nbsp;';
+    // strip non-digits
+    var v = input.value.replace(/\D/g, '');
+    if (v !== input.value) input.value = v;
+    if (input.value.length === 5) {
+      if (input.value === PIN) {
+        try { sessionStorage.setItem('hisaab_unlocked', '1'); } catch (e) {}
+        unlock();
+      } else {
+        err.textContent = 'Incorrect PIN';
+        input.classList.add('shake');
+        setTimeout(function () {
+          input.classList.remove('shake');
+          input.value = '';
+          input.focus();
+        }, 420);
+      }
+    }
+  });
+})();
+</script>
+
+<!-- HERO -->
+<div class="wrap">
+<div class="hero">
+  <div class="eyebrow">Annual Hisaab · Jun 2025 – Jun 2026</div>
+  <h1>The year you built a flat, fought FIP for JJ, fixed a streak, <em>and never missed a day of tracking.</em></h1>
+  <p class="lede">
+    Your Money Manager captured 2,210 expenses, 245 income events, and 2,347 transfers across 366 days &mdash; every roti, every PKR 75 bank fee, every kaffara, every shared bill.
+    What follows isn't a category breakdown. It's the patterns hiding between the lines: the people you support, the assets you're quietly building, the habits that drain you, and the one number that says everything about who you are this year.
+  </p>
+  <div class="meta">
+    <span>366 / 366 days</span>
+    <span>2,210 Expenses</span>
+    <span>29.5% Net Saved</span>
+    <span>3 Investment Vehicles</span>
+  </div>
+</div>
+</div>
+
+<!-- BIG NUMBERS (REVISED) -->
+<div class="wrap">
+<div class="bigstat">
+  <div class="cell">
+    <div class="label">Net Income</div>
+    <div class="value pos"><span class="currency">PKR</span>1.83<span style="font-size:18px;color:var(--ink-3)"> cr</span></div>
+    <div class="sub">after Turing contractor payouts of PKR 10.4 L netted out</div>
+  </div>
+  <div class="cell">
+    <div class="label">Personal Spend</div>
+    <div class="value"><span class="currency">PKR</span>1.29<span style="font-size:18px;color:var(--ink-3)"> cr</span></div>
+    <div class="sub">excluding business COGS &amp; routing transfers</div>
+  </div>
+  <div class="cell">
+    <div class="label">Net Saved</div>
+    <div class="value pos"><span class="currency">PKR</span>54.1<span style="font-size:18px;color:var(--ink-3)"> L</span></div>
+    <div class="sub">29.5% &mdash; an enviable rate at any income</div>
+  </div>
+  <div class="cell">
+    <div class="label">Deployed to Assets</div>
+    <div class="value teal"><span class="currency">PKR</span>38.3<span style="font-size:18px;color:var(--ink-3)"> L</span></div>
+    <div class="sub">Spring + Marina + MCF + Finqalab (net)</div>
+  </div>
+</div>
+</div>
+
+<!-- SECTION 1: THE OPENER (Family) -->
+<section>
+<div class="wrap">
+  <div class="sec-num">i. the headline</div>
+  <h2 class="sec-title">You spent <em>44 paise of every rupee</em> on family &mdash; and almost two-thirds of that is <em>your wife</em>.</h2>
+  <p class="sec-lede">
+    Of PKR 1.29 crore in personal expenses, PKR 56.9 lakh went to the Family bucket. The dominant figure inside it is Alishba.
+  </p>
+
+  <div class="insight">
+    <div class="insight-num">Insight One</div>
+    <div class="insight-title">Alishba (your wife) is, in financial terms, the largest single relationship in your year.</div>
+    <div class="insight-body">
+      <span class="pkr-num">PKR 33,99,415</span> spent on or with Alishba across 333 transactions &mdash; <strong>26.3% of every rupee you spent personally</strong>.
+      Pocket money to her alone: <span class="pkr-num">PKR 16,09,922</span>, ramping from PKR 1.0 L/month in Sept 2025 to PKR 1.5 L/month by Feb 2026.
+      The iPhone 15 Pro Max in October was PKR 3.4 L. The Skardu trip in May was PKR 86,000.
+      And 95 entries are food spent on or with her.
+      <br><br>
+      That escalation in monthly stipend tracks neatly with your income arc &mdash; FleetGlue's
+      stable PKR 6.9 L take-home arriving fortnightly let you index her allowance upward by 50% without straining the savings rate.
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Insight Two</div>
+    <div class="insight-title">Abujan's stipend is the most metronomic line in your entire ledger.</div>
+    <div class="insight-body">
+      Your father received <span class="pkr-num">PKR 6,94,997</span> across 9 monthly transfers &mdash;
+      almost exactly <span class="pkr-num">PKR 80,000/month</span>, eight months running, never late.
+      Add another <span class="pkr-num">PKR 8.86 L</span> that routed through the Abujan Loans hisaab account (mostly for his prescriptions, vehicle and groceries), and his total annual care figure is closer to <span class="pkr-num">PKR 15.8 L</span>.
+      Even if every other family obligation got cut, this one wouldn't.
+    </div>
+  </div>
+
+  <div class="chart-grid single">
+    <div class="chart">
+      <h3>Where every personal rupee went</h3>
+      <p class="subtitle">Top 12 personal categories. Turing contractor payouts (PKR 10.4 L) are excluded as business COGS.</p>
+
+      <div class="cat-bar">
+        <div class="cat-head">
+          <div><span class="cat-name">Family</span><span class="cat-pct">44.0% · 487 txns</span></div>
+          <div class="cat-amt">PKR   5,691,534</div>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:100.0%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head">
+          <div><span class="cat-name">Technology</span><span class="cat-pct">10.0% · 138 txns</span></div>
+          <div class="cat-amt">PKR   1,285,999</div>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:22.59494540487679%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head">
+          <div><span class="cat-name">Household</span><span class="cat-pct">9.3% · 283 txns</span></div>
+          <div class="cat-amt">PKR   1,196,208</div>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:21.017321516483957%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head">
+          <div><span class="cat-name">Transportation</span><span class="cat-pct">8.8% · 161 txns</span></div>
+          <div class="cat-amt">PKR   1,141,370</div>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:20.053820288168357%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head">
+          <div><span class="cat-name">Food</span><span class="cat-pct">6.5% · 580 txns</span></div>
+          <div class="cat-amt">PKR     833,545</div>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:14.645348688068982%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head">
+          <div><span class="cat-name">Miscellaneous</span><span class="cat-pct">5.3% · 75 txns</span></div>
+          <div class="cat-amt">PKR     686,089</div>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:12.054553306718365%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head">
+          <div><span class="cat-name">Donation</span><span class="cat-pct">4.1% · 117 txns</span></div>
+          <div class="cat-amt">PKR     529,373</div>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:9.301060135984429%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head">
+          <div><span class="cat-name">Beauty</span><span class="cat-pct">2.8% · 10 txns</span></div>
+          <div class="cat-amt">PKR     359,021</div>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:6.307983049912378%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head">
+          <div><span class="cat-name">Apparel</span><span class="cat-pct">1.6% · 24 txns</span></div>
+          <div class="cat-amt">PKR     209,065</div>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:3.6732627794193973%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head">
+          <div><span class="cat-name">Social Life</span><span class="cat-pct">1.5% · 64 txns</span></div>
+          <div class="cat-amt">PKR     196,565</div>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:3.4536383337075733%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head">
+          <div><span class="cat-name">Health</span><span class="cat-pct">1.4% · 44 txns</span></div>
+          <div class="cat-amt">PKR     185,935</div>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:3.266869705074239%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head">
+          <div><span class="cat-name">Tax</span><span class="cat-pct">1.1% · 4 txns</span></div>
+          <div class="cat-amt">PKR     148,548</div>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:2.6099817729280015%"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 2: THE HISAAB SYSTEM -->
+<section>
+<div class="wrap">
+  <div class="sec-num">ii. the hisaab system</div>
+  <h2 class="sec-title">Your Loan accounts move <em>PKR 2.85 crore</em> &mdash; and net to <em>almost zero</em>.</h2>
+  <p class="sec-lede">
+    On the surface this looks like a sprawling personal lending operation. It isn't.
+    Each "X Loan" account is a running settlement ledger with one person &mdash; X pays a bill, his balance dips, you wire the amount back to clear it. Most accounts end the year within PKR 50k of zero.
+  </p>
+
+  <div class="flow-diagram">
+    <div class="flow-box">
+      <div class="h">Step 1</div>
+      <div class="b">Bhatti pays PKR 2,520 at Hardees</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box">
+      <div class="h">Step 2</div>
+      <div class="b">You wire PKR 2,520 to Bhatti</div>
+    </div>
+  </div>
+  <p class="callout-note">Expense logged from <em>Ahmad Bhatti Loans → Food</em>. Settlement logged from <em>Meezan Bank → Ahmad Bhatti Loans</em>. Bhatti's balance: 0. Hisaab: clear.</p>
+
+  <div class="chart-grid single">
+    <div class="chart">
+      <h3>Net loan positions, end of year</h3>
+      <p class="subtitle">Positive = they owe you. Negative = you owe them. Most accounts are tight to zero.</p>
+      <table class="t-list">
+        <tr><th>Account</th><th style="text-align:right">Routed (PKR)</th><th style="text-align:right">Settled (PKR)</th><th style="text-align:right">Net Balance</th></tr>
+
+        <tr>
+          <td>Parents Spring Loan</td>
+          <td class="num">1,504,980</td>
+          <td class="num">0</td>
+          <td class="num neg">-1,504,980</td>
+        </tr>
+        <tr>
+          <td>Danish Loan</td>
+          <td class="num">427,279</td>
+          <td class="num">1,918,689</td>
+          <td class="num pos">+1,491,410</td>
+        </tr>
+        <tr>
+          <td>Tabish Loan</td>
+          <td class="num">113,366</td>
+          <td class="num">1,119,950</td>
+          <td class="num pos">+1,006,584</td>
+        </tr>
+        <tr>
+          <td>Abdul Sami Loans</td>
+          <td class="num">25,000</td>
+          <td class="num">305,000</td>
+          <td class="num pos">+280,000</td>
+        </tr>
+        <tr>
+          <td>Office Loans</td>
+          <td class="num">624,899</td>
+          <td class="num">479,565</td>
+          <td class="num neg">-145,334</td>
+        </tr>
+        <tr>
+          <td>Fahad Loan</td>
+          <td class="num">269,693</td>
+          <td class="num">159,136</td>
+          <td class="num neg">-110,557</td>
+        </tr>
+        <tr>
+          <td>Alishba Loans</td>
+          <td class="num">649,280</td>
+          <td class="num">566,247</td>
+          <td class="num neg">-83,033</td>
+        </tr>
+        <tr>
+          <td>Abujan Loans</td>
+          <td class="num">927,764</td>
+          <td class="num">886,801</td>
+          <td class="num neg">-40,963</td>
+        </tr>
+        <tr>
+          <td>Loans</td>
+          <td class="num">13,919,073</td>
+          <td class="num">13,885,015</td>
+          <td class="num neg">-34,058</td>
+        </tr>
+        <tr>
+          <td>Ahmad Bhatti Loans</td>
+          <td class="num">2,783,499</td>
+          <td class="num">2,756,182</td>
+          <td class="num neg">-27,317</td>
+        </tr>
+        <tr>
+          <td>Aun Loan</td>
+          <td class="num">153,126</td>
+          <td class="num">128,257</td>
+          <td class="num neg">-24,869</td>
+        </tr>
+        <tr>
+          <td>Umaid Loan</td>
+          <td class="num">3,931,111</td>
+          <td class="num">3,923,973</td>
+          <td class="num neg">-7,138</td>
+        </tr>
+        <tr>
+          <td>Wasiq Loan</td>
+          <td class="num">1,186,912</td>
+          <td class="num">1,190,990</td>
+          <td class="num pos">+4,078</td>
+        </tr>
+        <tr>
+          <td>Mama Loan</td>
+          <td class="num">588,850</td>
+          <td class="num">592,850</td>
+          <td class="num pos">+4,000</td>
+        </tr>
+        <tr>
+          <td>Abdul Wahab Loan</td>
+          <td class="num">101,230</td>
+          <td class="num">103,867</td>
+          <td class="num pos">+2,637</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Insight Three</div>
+    <div class="insight-title">Umaid's PKR 39 lakh isn't a loan &mdash; it's a wire to Pakistan.</div>
+    <div class="insight-body">
+      Your brother lives in the UK and co-invested in Spring Apartments. When his installments fall due, he sends rupees into your Meezan account, you forward them to Spring. Net Umaid Loan position at year-end: <span class="pkr-num">−PKR 7,138</span>.
+      Practically zero. Almost every rupee that looks like "lending" in the raw category totals is actually routing &mdash; family transit, office split bills, Bhatti's coffee tab.
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Insight Four</div>
+    <div class="insight-title">Three real loans &mdash; each one a friend in a tight spot.</div>
+    <div class="insight-body">
+      Three accounts ended the year materially positive (someone owes you) &mdash; and each was money you put up to help someone through a moment of need:
+      <br><br>
+      &mdash; <strong>Danish</strong>: <span class="pkr-num">+PKR 14.91 L</span>. Includes his Marina co-investment carry and other support balances.<br>
+      &mdash; <strong>Tabish</strong>: <span class="pkr-num">+PKR 10.07 L</span>. The largest single act of help in the file; tied to his school priorities.<br>
+      &mdash; <strong>Abdul Sami</strong>: <span class="pkr-num">+PKR 2.80 L</span>. Newer and smaller, same spirit.
+      <br><br>
+      Against that, you owe your parents <span class="pkr-num">PKR 15.05 L</span> through the Parents Spring Loan &mdash; cash they put up for your Spring apartment down payment in July–November 2025. Net you are owed: <span class="pkr-num">PKR 12.73 L</span>. <strong>None of this is casual debt &mdash; it's friendship and family capital, moving in both directions.</strong>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 3: INVESTMENTS -->
+<section>
+<div class="wrap">
+  <div class="sec-num">iii. the wealth being built</div>
+  <h2 class="sec-title">You deployed <em>PKR 38.3 lakh</em> to assets this year &mdash; the headline behind every other number.</h2>
+  <p class="sec-lede">
+    Spring Apartments, Marina Sports City, Al Meezan MCF and Finqalab. Property accounts for almost everything; the funds act as a liquidity buffer. MCF in particular saw 56 withdrawals across the year &mdash; not a discipline lapse, but the mature use of a high-yield account as working capital.
+  </p>
+
+  <div class="bigstat" style="grid-template-columns:repeat(2,1fr)">
+    <div class="cell">
+      <div class="label">Spring Apartments (1-bed)</div>
+      <div class="value pos"><span class="currency">PKR</span>40.49<span style="font-size:18px;color:var(--ink-3)"> L</span></div>
+      <div class="sub">Token + down payment + 9 monthly installments of PKR 4.05 L. <br>Of which: <strong>PKR 30.94 L from your cash</strong>, PKR 9.05 L from a parents loan, PKR 0.50 L routed via Bhatti.</div>
+    </div>
+    <div class="cell">
+      <div class="label">Marina Sports City Plot File</div>
+      <div class="value pos"><span class="currency">PKR</span>2.19<span style="font-size:18px;color:var(--ink-3)"> L</span></div>
+      <div class="sub">Co-investment with Danish (his half lives in Danish Loan). Three payments: June (split with Danish), Nov 21 (PKR 1.06 L solo), Feb 7 (PKR 42k).</div>
+    </div>
+  </div>
+
+  <div class="bigstat" style="grid-template-columns:repeat(2,1fr);margin-top:1px">
+    <div class="cell">
+      <div class="label">Al Meezan Mutual Funds <span class="caveat">working capital</span></div>
+      <div class="value pos"><span class="currency">PKR</span>4.83<span style="font-size:18px;color:var(--ink-3)"> L net added</span></div>
+      <div class="sub">Deposits PKR 33.38 L. Withdrawals PKR 28.56 L (56 times). Current balance PKR 7.3 L &mdash; you've used this as a high-yield emergency account.</div>
+    </div>
+    <div class="cell">
+      <div class="label">Finqalab (brokerage)</div>
+      <div class="value pos"><span class="currency">PKR</span>0.31<span style="font-size:18px;color:var(--ink-3)"> L net</span></div>
+      <div class="sub">Modest exploration. Profit + loss recorded honestly: PKR 4.5k profit, PKR 3.5k loss across the year. Calibrating, not committing.</div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Insight Five</div>
+    <div class="insight-title">Spring is the year's defining asset move &mdash; PKR 30.9 L of your own cash into a real estate position.</div>
+    <div class="insight-body">
+      A one-bed apartment, paid into nine times in 2025–26, with a PKR 1.5 L bridge from your parents that you'll work off. Combined with the parents loan, you've put PKR 40.5 L into Spring this year alone. <strong>This single decision quietly reshapes your balance sheet for the next decade</strong> &mdash; not as cash, but as appreciating, illiquid, real-economy ownership.
+    </div>
+  </div>
+
+  <div class="insight teal">
+    <div class="insight-num">Insight Six</div>
+    <div class="insight-title">MCF is your working capital account, not your retirement fortress.</div>
+    <div class="insight-body">
+      Of the PKR 28.56 L withdrawn from MCF this year:<br>
+      &mdash; PKR 4.05 L funded Spring installments<br>
+      &mdash; PKR 1.45 L funded Alishba's iPhone<br>
+      &mdash; PKR 1.14 L funded the OnePlus PTA tax<br>
+      &mdash; PKR 1.06 L funded Marina<br>
+      &mdash; PKR 0.50 L funded Danish (Marina-related)<br>
+      &mdash; PKR 0.68 L funded the Tabish loan to support his school<br>
+      &mdash; PKR 0.60 L funded a salary-delay bridge to Alishba<br>
+      <br>
+      MCF is your <strong>shock absorber</strong>: it earned profits 8 times (you recorded each), absorbed losses twice (you recorded those too), and most importantly, kept you out of high-friction credit when month-end timing went sideways. Current PKR 7.3 L balance is what's left after a year of doing real work.
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 4: TURING NET -->
+<section>
+<div class="wrap">
+  <div class="sec-num">iv. the side hustle, netted</div>
+  <h2 class="sec-title">Turing earned you <em>PKR 18.4 lakh</em>, not PKR 28.8 &mdash; the difference is your team.</h2>
+  <p class="sec-lede">
+    The first report mistook your Turing operation for a single-headed engineering job. It isn't. You sub-contract work to Hammad, Maryam Shakeel, Xoraiz, Haroon and Umair. Their payouts are properly cost-of-revenue, not personal expenses.
+  </p>
+
+  <div class="flow-diagram">
+    <div class="flow-box">
+      <div class="h">Turing pays you (gross)</div>
+      <div class="b">PKR 28.80 L</div>
+    </div>
+    <div class="flow-arrow">−</div>
+    <div class="flow-box">
+      <div class="h">Contractor payouts</div>
+      <div class="b">PKR 10.37 L</div>
+    </div>
+  </div>
+  <div class="flow-diagram">
+    <div class="flow-box" style="background:linear-gradient(135deg,rgba(74,155,142,0.12),rgba(74,155,142,0.02));border-color:var(--teal)">
+      <div class="h" style="color:var(--teal)">Your net profit from Turing</div>
+      <div class="b" style="color:var(--teal)">PKR 18.43 L</div>
+    </div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Insight Seven</div>
+    <div class="insight-title">Turing is a 64% gross margin business inside your salary income.</div>
+    <div class="insight-body">
+      You keep PKR 64 of every PKR 100 Turing pays. That's a healthy services-business margin &mdash; the kind of number SaaS founders chase &mdash; and you built it as a side venture alongside two day jobs (Beyond ONE, then FleetGlue).
+      Hammad alone took PKR 4.10 L across the year; Maryam, Xoraiz, Haroon and Umair shared the rest.
+      <br><br>
+      If you ever scale this beyond "side income," that 64% margin is the key number to defend.
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 5: MONTHLY (revised) -->
+<section>
+<div class="wrap">
+  <div class="sec-num">v. the year, month by month</div>
+  <h2 class="sec-title">Two months ran negative &mdash; <em>both were planned</em>.</h2>
+  <p class="sec-lede">
+    Income held steady around PKR 12–14 L/month after the Beyond ONE → FleetGlue switch in November. Expense swings tell the story.
+  </p>
+
+  <div class="chart-grid single">
+    <div class="chart">
+      <h3>Income vs personal expense, monthly</h3>
+      <p class="subtitle"><span class="legend"><span><span class="dot" style="background:var(--teal)"></span>Income (gross)</span><span><span class="dot" style="background:var(--gold)"></span>Personal expense (ex. Turing COGS)</span></span></p>
+      <div class="monthly-bars">
+
+        <div class="month-col">
+          <div class="month-bars">
+            <div class="mb-in" style="height:93.99362093258932px" title="Income: PKR 1,618,017"></div>
+            <div class="mb-out" style="height:38.22310934950765px" title="Expense: PKR 657,977"></div>
+          </div>
+          <div class="lbl">Jun 25</div>
+        </div>
+        <div class="month-col">
+          <div class="month-bars">
+            <div class="mb-in" style="height:73.45355831537084px" title="Income: PKR 1,264,438"></div>
+            <div class="mb-out" style="height:43.818459444473326px" title="Expense: PKR 754,296"></div>
+          </div>
+          <div class="lbl">Jul 25</div>
+        </div>
+        <div class="month-col">
+          <div class="month-bars">
+            <div class="mb-in" style="height:51.30661669217383px" title="Income: PKR 883,198"></div>
+            <div class="mb-out" style="height:34.86981468405433px" title="Expense: PKR 600,253"></div>
+          </div>
+          <div class="lbl">Aug 25</div>
+        </div>
+        <div class="month-col">
+          <div class="month-bars">
+            <div class="mb-in" style="height:145.72425012845562px" title="Income: PKR 2,508,514"></div>
+            <div class="mb-out" style="height:61.89077974673691px" title="Expense: PKR 1,065,395"></div>
+          </div>
+          <div class="lbl">Sep 25</div>
+        </div>
+        <div class="month-col">
+          <div class="month-bars">
+            <div class="mb-in" style="height:75.51215964340892px" title="Income: PKR 1,299,875"></div>
+            <div class="mb-out" style="height:61.52491719731162px" title="Expense: PKR 1,059,097"></div>
+          </div>
+          <div class="lbl">Oct 25</div>
+        </div>
+        <div class="month-col">
+          <div class="month-bars">
+            <div class="mb-in" style="height:75.43559456875941px" title="Income: PKR 1,298,557"></div>
+            <div class="mb-out" style="height:68.23888419474368px" title="Expense: PKR 1,174,672"></div>
+          </div>
+          <div class="lbl">Nov 25</div>
+        </div>
+        <div class="month-col">
+          <div class="month-bars">
+            <div class="mb-in" style="height:80.64486614618295px" title="Income: PKR 1,388,230"></div>
+            <div class="mb-out" style="height:63.056392965888755px" title="Expense: PKR 1,085,460"></div>
+          </div>
+          <div class="lbl">Dec 25</div>
+        </div>
+        <div class="month-col">
+          <div class="month-bars">
+            <div class="mb-in" style="height:200.0px" title="Income: PKR 3,442,823"></div>
+            <div class="mb-out" style="height:92.63514273025363px" title="Expense: PKR 1,594,632"></div>
+          </div>
+          <div class="lbl">Jan 26</div>
+        </div>
+        <div class="month-col">
+          <div class="month-bars">
+            <div class="mb-in" style="height:81.60535699918353px" title="Income: PKR 1,404,764"></div>
+            <div class="mb-out" style="height:73.93601123264251px" title="Expense: PKR 1,272,743"></div>
+          </div>
+          <div class="lbl">Feb 26</div>
+        </div>
+        <div class="month-col">
+          <div class="month-bars">
+            <div class="mb-in" style="height:85.18544229546508px" title="Income: PKR 1,466,392"></div>
+            <div class="mb-out" style="height:62.786672448743374px" title="Expense: PKR 1,080,817"></div>
+          </div>
+          <div class="lbl">Mar 26</div>
+        </div>
+        <div class="month-col">
+          <div class="month-bars">
+            <div class="mb-in" style="height:81.61645254490283px" title="Income: PKR 1,404,955"></div>
+            <div class="mb-out" style="height:51.82926917822961px" title="Expense: PKR 892,195"></div>
+          </div>
+          <div class="lbl">Apr 26</div>
+        </div>
+        <div class="month-col">
+          <div class="month-bars">
+            <div class="mb-in" style="height:80.74699164029055px" title="Income: PKR 1,389,988"></div>
+            <div class="mb-out" style="height:93.38481821458727px" title="Expense: PKR 1,607,537"></div>
+          </div>
+          <div class="lbl">May 26</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top:50px">
+    <div class="insight">
+      <div class="insight-num">Insight Eight · Aug 2025</div>
+      <div class="insight-title">The first dip wasn't real.</div>
+      <div class="insight-body">
+        August showed a small deficit only because of timing &mdash; Beyond ONE's August salary landed Sept 2, and Turing payouts (gross) were under-reported in the month. After netting contractor payouts properly, August was roughly flat.
+      </div>
+    </div>
+    <div class="insight">
+      <div class="insight-num">Insight Nine · May 2026</div>
+      <div class="insight-title">The hair transplant. Worth it.</div>
+      <div class="insight-body">
+        May went PKR 2.3 L negative. The hair transplant on May 30 (PKR 3 L final payment + PKR 0.67 L surrounding costs) absorbed nearly all of it.
+        This isn't a budget failure &mdash; it's an investment month, paid out of accumulated savings. The MCF buffer absorbed PKR 1 L of the strain without touching your salary cushion.
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 6: PETS -->
+<section>
+<div class="wrap">
+  <div class="sec-num">vi. jj &amp; lily</div>
+  <h2 class="sec-title">PKR 6.45 lakh for the cats &mdash; <em>and FIP is most of why</em>.</h2>
+  <p class="sec-lede">
+    JJ and Lily appear 121 times across the file. The heaviest line is JJ's fight with <strong>Feline Infectious Peritonitis</strong>, and the "GS injections" are the GS-441524 protocol &mdash; the antiviral that, until recently, was the only real chance.
+  </p>
+
+  <div class="insight">
+    <div class="insight-num">Insight Ten</div>
+    <div class="insight-title">PKR 2.10 lakh in eight FIP injections.</div>
+    <div class="insight-body">
+      The GS-441524 doses ran PKR 30,000 → 45,000 → 60,000 → 75,000 from March through April 2026. Plus PKR 18,000 for spay and boarding, PKR 18,350 for the joint Aliyan Vets visit with Lily in Sept 2025, multiple JJ Edibles refills, the epets supply runs &mdash; this is the most expensive medical category in your year, full stop.
+      <br><br>
+      If this was a treatment that saved her, every rupee was right. If it was a treatment that bought her time, every rupee was still right. There is nothing else in the file that comes close in moral weight per PKR.
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 7: THE BIG TICKETS -->
+<section>
+<div class="wrap">
+  <div class="sec-num">vii. the year's biggest decisions</div>
+  <h2 class="sec-title">Three single transactions account for <em>over a million rupees</em>.</h2>
+  <p class="sec-lede">
+    The Macbook M3 Pro (final installment to Abdullah Shahzad, PKR 3.6 L), Alishba's iPhone (PKR 3.4 L), and the hair transplant (PKR 3.0 L). Each one was deliberate, none were impulsive, all were paid from accumulated savings rather than credit.
+  </p>
+
+  <div class="chart">
+    <h3>Top 12 single expenses (excluding contractor payouts)</h3>
+    <p class="subtitle">These are decisions, not patterns.</p>
+    <table class="t-list">
+      <tr><th>Date</th><th>Item</th><th>Category</th><th style="text-align:right">Amount</th></tr>
+
+      <tr>
+        <td class="muted">2026-01-27</td>
+        <td>To Abdullah Shahzad for Macbook Pro M3 Pro Purchase</td>
+        <td class="muted">Technology · Purchases</td>
+        <td class="num">PKR 360,000</td>
+      </tr>
+      <tr>
+        <td class="muted">2025-10-13</td>
+        <td>Alishba iPhone 15 Pro Max</td>
+        <td class="muted">Family · Gift</td>
+        <td class="num">PKR 340,000</td>
+      </tr>
+      <tr>
+        <td class="muted">2026-05-30</td>
+        <td>Hair Transplant Remaining Payment</td>
+        <td class="muted">Beauty · </td>
+        <td class="num">PKR 300,000</td>
+      </tr>
+      <tr>
+        <td class="muted">2025-09-29</td>
+        <td>OnePlus 13 Purchase (later moved to installments)</td>
+        <td class="muted">Technology · Purchases</td>
+        <td class="num">PKR 239,060</td>
+      </tr>
+      <tr>
+        <td class="muted">2026-05-08</td>
+        <td>Alishba Pocket Money May 2026</td>
+        <td class="muted">Family · Pocket Money</td>
+        <td class="num">PKR 150,000</td>
+      </tr>
+      <tr>
+        <td class="muted">2026-03-27</td>
+        <td>Alishba Pocket Money April 2026</td>
+        <td class="muted">Family · Pocket Money</td>
+        <td class="num">PKR 150,000</td>
+      </tr>
+      <tr>
+        <td class="muted">2026-02-27</td>
+        <td>Alishba Pocket Money Mar 2026</td>
+        <td class="muted">Family · Pocket Money</td>
+        <td class="num">PKR 150,000</td>
+      </tr>
+      <tr>
+        <td class="muted">2026-01-28</td>
+        <td>Alishba Pocket Money Feb 2026</td>
+        <td class="muted">Family · Pocket Money</td>
+        <td class="num">PKR 150,000</td>
+      </tr>
+      <tr>
+        <td class="muted">2026-01-06</td>
+        <td>Yaris insurance</td>
+        <td class="muted">Transportation · Insurance</td>
+        <td class="num">PKR 135,100</td>
+      </tr>
+      <tr>
+        <td class="muted">2025-12-02</td>
+        <td>PTA Tax OnePlus 13</td>
+        <td class="muted">Tax · </td>
+        <td class="num">PKR 114,000</td>
+      </tr>
+      <tr>
+        <td class="muted">2025-11-03</td>
+        <td>Yaris new yokohama tyres</td>
+        <td class="muted">Transportation · Car Maintenance</td>
+        <td class="num">PKR 102,000</td>
+      </tr>
+      <tr>
+        <td class="muted">2025-11-25</td>
+        <td>Alishba Pocket Money Dec 2025 Part 1</td>
+        <td class="muted">Family · Pocket Money</td>
+        <td class="num">PKR 100,000</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="two-col" style="margin-top:50px">
+    <div class="insight">
+      <div class="insight-num">Insight Eleven</div>
+      <div class="insight-title">Most of the tech spend is professional capex, not consumption.</div>
+      <div class="insight-body">
+        The PKR 4.10 L Macbook M3 Pro is the tool that earns FleetGlue's PKR 6.9 L/fortnight + your Turing margin. The PKR 1.00 L Windows laptop replaced the one that died. The 2 monitors (PKR 59,694 Lenovo at home, PKR 47,595 Asus at the Cubicle) and LAN switch are home/office work setup.
+        <br><br>
+        And on the other side &mdash; the Cubicle co-working payments (~PKR 53k/month, routed via Office Loans for advance-then-reimbursement timing) are <strong>not actually personal expenses</strong>; FleetGlue reimburses them. The "Office Loans" balance you carry is just timing &mdash; the office space costs you zero in the long run.
+        <br><br>
+        Add OnePlus 13 + PTA tax (PKR 3.53 L) and the gross tech-for-self total reaches <span class="pkr-num">~PKR 9.6 L</span>. <strong>Treat tools-of-trade as a separate line</strong> and your "Technology consumption" number drops below PKR 2 L &mdash; closer to the spending pattern of a much lower-income person, because the rest paid for itself within months of being switched on.
+      </div>
+    </div>
+    <div class="insight">
+      <div class="insight-num">Insight Twelve</div>
+      <div class="insight-title">PTA Tax was 47.7% of the OnePlus 13 price. That is the Pakistan phone tax.</div>
+      <div class="insight-body">
+        Phone PKR 2.39 L, PTA Tax PKR 1.14 L, total entry-cost PKR 3.53 L. The PTA payment came from MCF on Nov 24 &mdash; a clean illustration of why you kept the buffer.
+        For your next imported device, this is the math to do <em>before</em> you order: anything imported pays roughly half its price again to land.
+      </div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Insight Thirteen</div>
+    <div class="insight-title">The Hair Transplant: PKR 3.67 lakh, executed exactly as you planned.</div>
+    <div class="insight-body">
+      May 24 &mdash; advance PKR 30,000. May 28 &mdash; Chughtai workup PKR 19,000. May 30 &mdash; surgery shirt PKR 3,126, final payment PKR 3,00,000. May 31 &mdash; tips to technicians Imran and Mazhar, PKR 7,500 each.
+      <br><br>
+      You filed those technician tips under <strong>Donation</strong>, not Beauty. That single choice tells me you don't view this as cosmetic spend &mdash; you view the procedure as a service rendered, and the people who rendered it as worthy of explicit gratitude beyond the institution's invoice. It is one of the most considered acts of money this year.
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="ornament-hr">⁂</div>
+
+<!-- SECTION 8: SILENT COMPOUNDERS -->
+<section>
+<div class="wrap">
+  <div class="sec-num">viii. the silent compounders</div>
+  <h2 class="sec-title">The bills that <em>don't announce themselves</em>.</h2>
+  <p class="sec-lede">
+    Behind every headline expense, the recurring drains. Here are the five lines you stop noticing.
+  </p>
+
+  <div class="bigstat" style="grid-template-columns:repeat(3,1fr);margin-top:40px">
+    <div class="cell">
+      <div class="label">The Yaris</div>
+      <div class="value pos"><span class="currency">PKR</span>10.01 L</div>
+      <div class="sub">108 entries. Fuel 5.57L · Insurance 1.35L · New tyres 1.02L · Maintenance + accessories 2.07L</div>
+    </div>
+    <div class="cell">
+      <div class="label">JJ &amp; Lily</div>
+      <div class="value pos"><span class="currency">PKR</span>6.45 L</div>
+      <div class="sub">121 entries. ~PKR 54k/month. FIP treatment dominates. The most ethically loaded line in your file.</div>
+    </div>
+    <div class="cell">
+      <div class="label">Electricity (Bahria)</div>
+      <div class="value pos"><span class="currency">PKR</span>3.16 L</div>
+      <div class="sub">12 monthly bills, ~PKR 26k/month, peak PKR 51k in July's AC-season. A quietly fixed cost of living.</div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Insight Fourteen</div>
+    <div class="insight-title">JJ &amp; Lily cost more per month than every digital subscription you pay, combined.</div>
+    <div class="insight-body">
+      PTCL Bahria + Jazz + Zong + Spotify Duo + Google One + Cursor Pro + Bitwarden + Netflix + AWS &mdash; roughly PKR 14.5k/month combined.
+      Pet care averages PKR 54k/month, dominated by the FIP injections. The math isn't a complaint &mdash; it's a frame: <strong>the most expensive subscription on your roster is a being you chose to love.</strong>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 9: CREDIT CARD -->
+<section>
+<div class="wrap">
+  <div class="sec-num">ix. the card behind it all</div>
+  <h2 class="sec-title">Your <em>Faysal Noor</em> card moved <em>PKR 32.6 lakh</em> &mdash; 23% of everything you spent.</h2>
+  <p class="sec-lede">
+    692 charges, averaging PKR 4,715 a swipe (median PKR 1,768). It's your second-most-used account after Meezan Bank, and it touches every part of your life &mdash; Yaris fuel, Alishba's purchases, monitors, restaurants, household runs. The interesting story is in how you manage the bill.
+  </p>
+
+  <div class="bigstat" style="grid-template-columns:repeat(3,1fr)">
+    <div class="cell">
+      <div class="label">Card Spend</div>
+      <div class="value pos"><span class="currency">PKR</span>32.6 L</div>
+      <div class="sub">692 transactions, 23.4% of your total annual expense</div>
+    </div>
+    <div class="cell">
+      <div class="label">Card Bills Paid</div>
+      <div class="value pos"><span class="currency">PKR</span>47.4 L</div>
+      <div class="sub">Includes installment routing (OnePlus, Yokohama tyres) settled separately</div>
+    </div>
+    <div class="cell">
+      <div class="label">Avg Ticket</div>
+      <div class="value"><span class="currency">PKR</span>4,715</div>
+      <div class="sub">Median PKR 1,768 &mdash; a true daily-driver card, not a special-occasion one</div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="chart">
+      <h3>Where the card got swiped</h3>
+      <p class="subtitle">Top 8 categories charged to Faysal Noor World.</p>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Family</span><span class="cat-pct">174 txns</span></div><div class="cat-amt">PKR 862,155</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:100%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Transportation</span><span class="cat-pct">60 txns</span></div><div class="cat-amt">PKR 595,655</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:69%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Technology</span><span class="cat-pct">42 txns</span></div><div class="cat-amt">PKR 529,432</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:61%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Food</span><span class="cat-pct">236 txns</span></div><div class="cat-amt">PKR 383,410</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:44%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Household</span><span class="cat-pct">80 txns</span></div><div class="cat-amt">PKR 273,919</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:32%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Miscellaneous</span><span class="cat-pct">7 txns</span></div><div class="cat-amt">PKR 161,107</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:19%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Apparel</span><span class="cat-pct">16 txns</span></div><div class="cat-amt">PKR 125,839</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:15%"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Health</span><span class="cat-pct">16 txns</span></div><div class="cat-amt">PKR 109,181</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:13%"></div></div>
+      </div>
+    </div>
+    <div class="chart">
+      <h3>Card spend by month</h3>
+      <p class="subtitle">Spikiness comes from one-off purchases (OnePlus, monitors, tyres) and the Nov outstanding clearance.</p>
+      <div class="monthly-bars">
+        <div class="month-col"><div class="month-bars"><div class="mb-out" style="height:36px" title="Aug 25: PKR 110,922"></div></div><div class="lbl">Aug 25</div></div>
+        <div class="month-col"><div class="month-bars"><div class="mb-out" style="height:116px" title="Sep 25: PKR 353,484"></div></div><div class="lbl">Sep 25</div></div>
+        <div class="month-col"><div class="month-bars"><div class="mb-out" style="height:69px" title="Oct 25: PKR 209,468"></div></div><div class="lbl">Oct 25</div></div>
+        <div class="month-col"><div class="month-bars"><div class="mb-out" style="height:200px" title="Nov 25: PKR 607,871"></div></div><div class="lbl">Nov 25</div></div>
+        <div class="month-col"><div class="month-bars"><div class="mb-out" style="height:117px" title="Dec 25: PKR 355,908"></div></div><div class="lbl">Dec 25</div></div>
+        <div class="month-col"><div class="month-bars"><div class="mb-out" style="height:117px" title="Jan 26: PKR 355,150"></div></div><div class="lbl">Jan 26</div></div>
+        <div class="month-col"><div class="month-bars"><div class="mb-out" style="height:199px" title="Feb 26: PKR 603,787"></div></div><div class="lbl">Feb 26</div></div>
+        <div class="month-col"><div class="month-bars"><div class="mb-out" style="height:81px" title="Mar 26: PKR 247,155"></div></div><div class="lbl">Mar 26</div></div>
+        <div class="month-col"><div class="month-bars"><div class="mb-out" style="height:44px" title="Apr 26: PKR 132,525"></div></div><div class="lbl">Apr 26</div></div>
+        <div class="month-col"><div class="month-bars"><div class="mb-out" style="height:93px" title="May 26: PKR 282,095"></div></div><div class="lbl">May 26</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Insight Fifteen</div>
+    <div class="insight-title">The Nov 27 swing: PKR 5.73 lakh outstanding, cleared the same day.</div>
+    <div class="insight-body">
+      On Nov 27 you logged: <em>"Helpline said current outstanding is 573k excluding installments"</em> &mdash; then transferred PKR 537,000 + 36,000 from Meezan to clear it. That was your biggest single card-payment day of the year.
+      The OnePlus 13 in late September (PKR 2.39 L) and the Yokohama tyres in November (PKR 1.02 L) were both routed to installments rather than carried as revolving debt &mdash; <strong>you didn't pay interest, but you used the float window deliberately</strong>.
+    </div>
+  </div>
+
+  <div class="insight teal">
+    <div class="insight-num">Insight Sixteen</div>
+    <div class="insight-title">A card used in every category &mdash; but almost zero foreign currency.</div>
+    <div class="insight-body">
+      Of 692 card swipes, exactly two were in foreign currency: <strong>Bitwarden Premium</strong> at $19 (May 29) and <strong>Alishba's Google One</strong> at £2 (Apr 13). PKR 6,164 total in non-PKR charges.
+      In other words, the card is a domestic tool. The Pakistan-Asia-Indo flagship-phone tax (PKR 1.14 L PTA on the OnePlus) didn't change that &mdash; you paid from MCF, not the card.
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 10: TIME PATTERNS -->
+<section>
+<div class="wrap">
+  <div class="sec-num">x. when money moves</div>
+  <h2 class="sec-title">21% of your spending happens between <em>11 PM and 4 AM</em>.</h2>
+  <p class="sec-lede">
+    PKR 29.34 lakh across 505 transactions hit after dark. The 1 AM hour is your single largest spending hour of the day &mdash; bigger than your 3 PM peak. Some of this is tracking-before-bed for daytime events; some of it is real midnight commerce. Both shape the year.
+  </p>
+
+  <div class="chart-grid single">
+    <div class="chart">
+      <h3>Spend by hour of day</h3>
+      <p class="subtitle">Red bars = late-night hours (11 PM to 4 AM). Hover any bar for detail.</p>
+      <div class="bars" style="height:240px">
+
+        <div class="bar" style="height:104.47940720378438px;background:linear-gradient(180deg,var(--crimson) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">00h<br>PKR 533,488<br>142 txns</div>
+        </div>
+        <div class="bar" style="height:143.15880835426768px;background:linear-gradient(180deg,var(--crimson) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">01h<br>PKR 730,991<br>121 txns</div>
+        </div>
+        <div class="bar" style="height:112.3264082381867px;background:linear-gradient(180deg,var(--crimson) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">02h<br>PKR 573,556<br>64 txns</div>
+        </div>
+        <div class="bar" style="height:80.28997092635092px;background:linear-gradient(180deg,var(--crimson) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">03h<br>PKR 409,973<br>19 txns</div>
+        </div>
+        <div class="bar" style="height:3.9101832547887843px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">04h<br>PKR 19,966<br>4 txns</div>
+        </div>
+        <div class="bar" style="height:18.770093843970823px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">05h<br>PKR 95,843<br>7 txns</div>
+        </div>
+        <div class="bar" style="height:12.233080578339507px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">06h<br>PKR 62,464<br>7 txns</div>
+        </div>
+        <div class="bar" style="height:2px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">07h<br>PKR 6,031<br>5 txns</div>
+        </div>
+        <div class="bar" style="height:20.044438351579288px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">08h<br>PKR 102,350<br>12 txns</div>
+        </div>
+        <div class="bar" style="height:133.0715696031705px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">09h<br>PKR 679,484<br>32 txns</div>
+        </div>
+        <div class="bar" style="height:24.646335883434787px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">10h<br>PKR 125,848<br>33 txns</div>
+        </div>
+        <div class="bar" style="height:74.96424101396354px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">11h<br>PKR 382,779<br>53 txns</div>
+        </div>
+        <div class="bar" style="height:153.5043628277462px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">12h<br>PKR 783,817<br>95 txns</div>
+        </div>
+        <div class="bar" style="height:151.73767129506817px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">13h<br>PKR 774,796<br>143 txns</div>
+        </div>
+        <div class="bar" style="height:147.45166706131815px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">14h<br>PKR 752,911<br>167 txns</div>
+        </div>
+        <div class="bar" style="height:220.0px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">15h<br>PKR 1,123,354<br>146 txns</div>
+        </div>
+        <div class="bar" style="height:211.68944072839014px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">16h<br>PKR 1,080,919<br>151 txns</div>
+        </div>
+        <div class="bar" style="height:138.6056755038928px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">17h<br>PKR 707,742<br>125 txns</div>
+        </div>
+        <div class="bar" style="height:160.45793222795308px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">18h<br>PKR 819,323<br>128 txns</div>
+        </div>
+        <div class="bar" style="height:196.90943371368243px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">19h<br>PKR 1,005,450<br>160 txns</div>
+        </div>
+        <div class="bar" style="height:208.78549415411348px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">20h<br>PKR 1,066,091<br>154 txns</div>
+        </div>
+        <div class="bar" style="height:152.8128443927738px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">21h<br>PKR 780,286<br>138 txns</div>
+        </div>
+        <div class="bar" style="height:128.22976550579781px;background:linear-gradient(180deg,var(--gold) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">22h<br>PKR 654,761<br>145 txns</div>
+        </div>
+        <div class="bar" style="height:134.44853536819204px;background:linear-gradient(180deg,var(--crimson) 0%,rgba(212,163,71,0.3) 100%)">
+          <div class="tt">23h<br>PKR 686,515<br>159 txns</div>
+        </div>
+      </div>
+      <div class="bars-labels"><span>00</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 10: FOOD UNNECESSARY -->
+<section>
+<div class="wrap">
+  <div class="sec-num">xi. the food line, honestly</div>
+  <h2 class="sec-title">You tagged <em>76.4%</em> of your food "Unnecessary." But that label is, by your own admission, <em>blunt</em>.</h2>
+  <p class="sec-lede">
+    A PKR 2,000 burger isn't 100% unnecessary &mdash; if you'd have eaten anyway, only the excess over a PKR 500 meal was truly the indulgence. Applying your own 75% rule to the Unnecessary bucket, the "indulgence" portion is PKR 4.77 L, not PKR 6.37 L. But even that framing misses the bigger point.
+  </p>
+
+  <div class="chart">
+    <h3>The Necessary / Unnecessary split &mdash; raw vs honest</h3>
+    <p class="subtitle">Raw tagging (left) vs adjusted for your 75% rule (right). The 57.3% is real spend, but only a fraction of it is regret.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px">
+      <div>
+        <div style="font-size:11px;color:var(--ink-3);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px">Raw tags</div>
+        <div style="display:flex;height:200px;border-radius:4px;overflow:hidden;border:1px solid var(--line)">
+          <div style="background:linear-gradient(135deg,var(--crimson),rgba(200,68,68,0.5));flex:76.4;padding:18px;display:flex;flex-direction:column;justify-content:flex-end">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1">76.4%</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.9);margin-top:6px">Unnecessary · PKR 6.37 L</div>
+          </div>
+          <div style="background:linear-gradient(135deg,var(--teal),rgba(74,155,142,0.5));flex:22.4;padding:18px;display:flex;flex-direction:column;justify-content:flex-end">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1">22.4%</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.9);margin-top:6px">Necessary</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:var(--ink-3);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px">Adjusted (75% of "unnecessary" is true waste)</div>
+        <div style="display:flex;height:200px;border-radius:4px;overflow:hidden;border:1px solid var(--line)">
+          <div style="background:linear-gradient(135deg,var(--crimson),rgba(200,68,68,0.5));flex:57.3;padding:18px;display:flex;flex-direction:column;justify-content:flex-end">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1">57.3%</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.9);margin-top:6px">True waste · PKR 4.77 L</div>
+          </div>
+          <div style="background:linear-gradient(135deg,var(--teal),rgba(74,155,142,0.5));flex:42.7;padding:18px;display:flex;flex-direction:column;justify-content:flex-end">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1">42.7%</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.9);margin-top:6px">Necessary food + sunk floor</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight teal">
+    <div class="insight-num">Insight Seventeen</div>
+    <div class="insight-title">Those coffees and lunches aren't waste &mdash; they're load-bearing.</div>
+    <div class="insight-body">
+      You work a night-shifted job until around midnight. The Extraction lunches with office friends, the FP coffees, the dinners after a Friday close &mdash; these are how a person survives a year of 19 lakh on Alishba's care, FIP injections, monthly Spring installments, two day-jobs and a Turing side venture.
+      <br><br>
+      You don't expense your way to ruin with PKR 1,800 dinners. You expense your way to <strong>still being here, still capable, still kind</strong>. The PKR 4.77 L "indulgence" line is mostly the price of staying functional under that load &mdash; <em>and that is itself an investment</em>, just one that compounds in your nervous system instead of a fund balance.
+      <br><br>
+      The honest read: the only line in this bucket worth a second look is the 1 AM impulse food &mdash; the order you'd undo by morning. The 7 PM dinner with a friend? Keep it. The 11 PM coffee finishing a deploy? Keep it. The Spring apartment doesn't get built if you don't.
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 11: DONATIONS / KAFFARA -->
+<section>
+<div class="wrap">
+  <div class="sec-num">xii. the moral ledger</div>
+  <h2 class="sec-title">PKR 5.29 lakh in donations. Some of it as <em>kaffara</em>.</h2>
+
+  <div class="insight">
+    <div class="insight-num">Insight Eighteen</div>
+    <div class="insight-title">The Kaffara system &mdash; financial accountability as private discipline.</div>
+    <div class="insight-body">
+      You moved <span class="pkr-num">PKR 71,000</span> as kaffara to Sundas Foundation, JFK Animal Shelter, Akhuwat, Al Khidmat and (once) to Alishba directly, each tied to a specific personal commitment.
+      Most people promise themselves change; you tax yourself when you slip, payable to causes that reduce suffering. Few financial behaviors I've seen are more uniquely yours.
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Insight Nineteen</div>
+    <div class="insight-title">Maryam's wedding cost PKR 1.86 lakh &mdash; categorised as Donation, not Family.</div>
+    <div class="insight-body">
+      PKR 94,296 for "Maryam Jahez My Half" + PKR 50,000 to Mama for further jahez + PKR 30,000 to Alishba for parlour day-of + a birthday cake and a pizza.
+      The largest tagged as <em>donation</em>, not <em>gift</em>. You're framing it as charity to a family setting out, not a social obligation. That framing matters &mdash; it shows up nowhere except in how you categorised it.
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 13: LIQUIDITY AUDIT -->
+<section>
+<div class="wrap">
+  <div class="sec-num">xiii. the liquidity audit</div>
+  <h2 class="sec-title">You are <em>property-rich and cash-thin</em>. That's the honest assessment.</h2>
+  <p class="sec-lede">
+    Across the year you accumulated meaningful assets. But they aren't evenly liquid &mdash; in fact, the bulk is locked into Spring Apartments until handover or resale, which is years away. Here is the structure as it stands today.
+  </p>
+
+  <div class="chart-grid">
+    <div class="chart">
+      <h3>Estimated asset allocation today</h3>
+      <p class="subtitle">Based on this year's flows. Bank balances are inferred from net cash flow; verify against current statements.</p>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Spring Apartments equity</span><span class="cat-pct">illiquid · 1+ year</span></div><div class="cat-amt">PKR 31.4 L</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:100%;background:linear-gradient(90deg,var(--crimson),rgba(200,68,68,0.5))"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Loans receivable (Danish, Tabish, Sami)</span><span class="cat-pct">semi-liquid · social</span></div><div class="cat-amt">PKR 27.8 L</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:88%;background:linear-gradient(90deg,#a07a3a,rgba(160,122,58,0.5))"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Al Meezan MCF (liquid)</span><span class="cat-pct">your stated balance</span></div><div class="cat-amt">PKR 7.3 L</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:23%;background:linear-gradient(90deg,var(--teal),rgba(74,155,142,0.5))"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Marina Sports City plot file</span><span class="cat-pct">illiquid · years</span></div><div class="cat-amt">PKR 2.2 L</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:7%;background:linear-gradient(90deg,var(--crimson),rgba(200,68,68,0.5))"></div></div>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-head"><div><span class="cat-name">Finqalab (liquid)</span><span class="cat-pct">small</span></div><div class="cat-amt">PKR ~0.6 L</div></div>
+        <div class="cat-track"><div class="cat-fill" style="width:2%;background:linear-gradient(90deg,var(--teal),rgba(74,155,142,0.5))"></div></div>
+      </div>
+      <p style="font-size:12px;color:var(--ink-3);margin-top:18px;line-height:1.6;font-style:italic">Bank-account cash and the Faysal Noor float aren't visible in this dataset &mdash; the ratios below assume PKR 5–10 L of operating cash in Meezan, your own number to verify.</p>
+    </div>
+
+    <div class="chart">
+      <h3>Liquidity ratios (rough, indicative)</h3>
+      <p class="subtitle">Convention: liquid = MCF + Finqalab + bank cash. Semi-liquid = loans receivable. Illiquid = property equity.</p>
+      <div style="margin:24px 0">
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin-bottom:4px">
+          <span>Liquid (cash + funds)</span><span class="mono" style="color:var(--teal)">~17%</span>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:17%;background:var(--teal)"></div></div>
+      </div>
+      <div style="margin:24px 0">
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin-bottom:4px">
+          <span>Semi-liquid (friend receivables)</span><span class="mono" style="color:var(--gold)">~35%</span>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:35%;background:var(--gold)"></div></div>
+      </div>
+      <div style="margin:24px 0">
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin-bottom:4px">
+          <span>Illiquid (property)</span><span class="mono" style="color:var(--crimson)">~48%</span>
+        </div>
+        <div class="cat-track"><div class="cat-fill" style="width:48%;background:var(--crimson)"></div></div>
+      </div>
+      <p style="font-size:12px;color:var(--ink-3);margin-top:24px;line-height:1.7"><strong style="color:var(--ink)">Rules of thumb for someone in your stage</strong>: ~25–35% liquid, ~10–25% semi-liquid, ~40–60% illiquid. Your liquid layer is at the low end; the semi-liquid layer is unusually large because it's friends-not-instruments.</p>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Insight Twenty</div>
+    <div class="insight-title">Your emergency runway, if today went sideways, is about 7 months &mdash; one bad incident from being short.</div>
+    <div class="insight-body">
+      Monthly personal expense run-rate: <span class="pkr-num">PKR 1.08 L</span>. MCF balance: <span class="pkr-num">PKR 7.3 L</span> &mdash; or about <strong>6.8 months</strong> of cover. The standard recommendation is 6–12 months; you're at the floor.
+      <br><br>
+      Now factor in that one FIP relapse, a Yaris breakdown, an unbilled Cubicle reimbursement delay, or a single client-payment slip could pull a month or two of runway out fast. <strong>You don't have a buffer above the buffer.</strong>
+      <br><br>
+      The honest move next year: target MCF balance of <span class="pkr-num">PKR 12–15 L</span> before accelerating any further Spring prepayment. Spring will still be there; an emergency may not give you a week of warning.
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Insight Twenty-One</div>
+    <div class="insight-title">Your largest single asset class is "friends I lent money to."</div>
+    <div class="insight-body">
+      PKR 27.8 L of net worth is held in receivables from Danish, Tabish and Abdul Sami. That's a larger share of your asset base than MCF, Finqalab and Marina combined. Each of those loans was the right call as an act of friendship &mdash; <strong>but as an asset class, it's a concentrated, no-yield, no-deadline position</strong>.
+      <br><br>
+      You can't reasonably ask for that money on demand without straining the relationships. So treat that PKR 27.8 L as locked up for planning purposes &mdash; not 35% semi-liquid, but closer to 35% illiquid-for-now. Under that frame, your real instant liquidity is barely 17%, and your buffer above run-rate is thin.
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 14: THREE TO SKIP -->
+<section>
+<div class="wrap">
+  <div class="sec-num">xiv. three to skip next time</div>
+  <h2 class="sec-title">If you wanted PKR 4 lakh back this year, here's where it was.</h2>
+  <p class="sec-lede">
+    Not the coffees. Not the gifts. Not the donations or the dependents or the cats. Three lines in this file are, on honest reflection, the ones with the lowest joy-per-rupee return. None will surprise you.
+  </p>
+
+  <div class="insight">
+    <div class="insight-num">Skip One · PKR 1.14 L</div>
+    <div class="insight-title">The PTA tax on the OnePlus 13.</div>
+    <div class="insight-body">
+      The phone was PKR 2.39 L; the PTA tax was PKR 1.14 L on top &mdash; <strong>a 47.7% effective import duty</strong> on a flagship you already had a working alternative for. The tax doesn't make the phone better; it pays purely for the right to use it in Pakistan.
+      <br><br>
+      If your previous phone was still usable, the entire PKR 3.53 L expense was the year's most cuttable purely-personal indulgence. If you'll buy a flagship again, the move is locally-distributed-and-warranted, even at a slightly higher sticker, because the PTA component shrinks. The PKR 1.14 L this year bought no joy &mdash; only a SIM lock.
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Skip Two · PKR 65,901</div>
+    <div class="insight-title">The Nov 14 Dolmen Mall clothing run &mdash; four stores, one afternoon.</div>
+    <div class="insight-body">
+      Monark (PKR 18,401) + Charcoal (PKR 17,680) + Walkeaze (PKR 14,910) + KIJI (PKR 14,910). Four wardrobes worth of clothing, every brand a different aesthetic, all in one trip.
+      <br><br>
+      Decision research is consistent on this: shopping in batches like this produces <strong>worse satisfaction-per-rupee than single, considered purchases</strong>. You buy variety because the trip is a treat in itself, not because the wardrobe needs four jackets. Half this clothing typically sits unworn within 6 months.
+      <br><br>
+      The kinder rule next year: one store, one item, with a 48-hour wait. Total avoided: realistic PKR 30–40k of underused clothing.
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-num">Skip Three · PKR ~73,000</div>
+    <div class="insight-title">Bose Speakers + Dawlance Air Fryer + Clinix Cushions + Journey Cloud accidental purchase.</div>
+    <div class="insight-body">
+      The Bose Speakers (PKR 32,556) and Dawlance Air Fryer XXL (PKR 39,999) are quality-of-life appliances. The honest test is the <strong>uses-per-month count</strong> &mdash; if the air fryer has been used fewer than 8 times since Nov 2025 (most kitchens average around 5), your cost-per-use is PKR 1,000+ and a PKR 500 Daraz model would have served the same purpose.
+      <br><br>
+      The Clinix wedge pillow + travel pillow (PKR 13,501) and the Journey Cloud "accidental purchase" (PKR 14,200, tagged exactly that way in your own ledger) round it out. The Journey Cloud entry is the most striking line in the file: <strong>a four-figure subscription you actively did not intend to buy</strong>.
+      <br><br>
+      Honest verdict: subscriptions and one-shot premium-brand appliances are where small fortunes vanish without joy. A quarterly subscription audit, plus a "would I buy the Daraz version?" question before any premium-brand appliance, would have netted PKR 50–60k this year.
+    </div>
+  </div>
+
+  <div class="insight teal">
+    <div class="insight-num">but also</div>
+    <div class="insight-title">Nothing else here qualifies as wasted.</div>
+    <div class="insight-body">
+      The hair transplant was wanted and planned, not impulsive. The Skardu trip was earned. Alishba's iPhone was a gift. The kaffara donations are part of who you are, not a leak. The 237 Foodpanda orders are largely the price of working a 12 AM job and staying sane.
+      <br><br>
+      If you trimmed these three categories alone next year, you'd recover roughly <span class="pkr-num">PKR 4 L</span> &mdash; nearly the gap between your current MCF balance and the 12–15 L target. <strong>Plug those, leave everything else alone</strong>, and the buffer fixes itself.
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- THE PULL QUOTE -->
+<div class="wrap">
+  <div class="pq">
+    You did not have an expensive year. You had a <span style="color:var(--gold);font-style:normal">consequential</span> year &mdash; and you carried it.
+  </div>
+</div>
+
+<!-- SECTION 15: VERDICT -->
+<section>
+<div class="wrap">
+  <div class="sec-num">xv. the verdict</div>
+  <h2 class="sec-title">If your year had a tagline, it would be: <em>responsibility, carefully tracked.</em></h2>
+  <p class="sec-lede">
+    Most people fund themselves first and their dependents last. Your file shows the inverse: Alishba first, Abujan second, the cats third, your Spring apartment fourth, donations fifth &mdash; and yourself somewhere after that.
+    The only year-defining expenses where <em>you</em> were the primary beneficiary were the hair transplant, the Macbook, and the Spring apartment that you'll someday live in.
+  </p>
+
+  <div class="two-col">
+    <div class="verdict-card">
+      <h4>What was money well spent</h4>
+      <p><strong>Spring Apartments (PKR 40.49 L).</strong> A real asset, paid down monthly. The defining wealth move of the year.</p>
+      <p><strong>Macbook M3 Pro (PKR 4.10 L).</strong> Tool for income generation. Pays for itself.</p>
+      <p><strong>FIP treatment for JJ (PKR ~2.10 L).</strong> The most ethically loaded line in your year. No regret, ever.</p>
+      <p><strong>Abujan's PKR 80k/month stipend.</strong> The cleanest love-act in your ledger.</p>
+      <p><strong>MCF + Finqalab as working capital.</strong> Used as buffer not fortress &mdash; this is the mature use of a sharia-compliant fund.</p>
+    </div>
+    <div class="verdict-card">
+      <h4>What deserves a hard look next year</h4>
+      <p><strong>Build the MCF buffer to PKR 12–15 L before any further Spring acceleration.</strong> Your runway is one bad month from short. Spring will still be there in six months; an emergency doesn't book a week ahead.</p>
+      <p><strong>The three from xiv.</strong> PTA flagship-phone tax, the multi-store mall day, and the under-used premium appliances. Together ~PKR 4 L recoverable.</p>
+      <p><strong>1 AM impulse food only.</strong> The daytime coffees and Friday dinners are load-bearing. The line worth trimming is the post-midnight food you'd undo by morning.</p>
+      <p><strong>Friend receivables (Danish + Tabish + Sami, PKR 27.8 L).</strong> No call required &mdash; the help was the right call. But internally treat that capital as locked when planning your own moves; don't let it inflate your sense of available cash.</p>
+    </div>
+  </div>
+
+  <div class="insight teal" style="margin-top:48px">
+    <div class="insight-num">closing observation</div>
+    <div class="insight-title">The most striking number isn't a rupee figure.</div>
+    <div class="insight-body">
+      It's <strong style="color:var(--teal)">366 / 366</strong> &mdash; you logged a transaction every single day of the year. Every analytical insight here exists only because of that discipline.
+      <br><br>
+      The year that emerges from your file is one of profound responsibility &mdash; to Alishba, to Abujan and Mama, to JJ and Lily, to the friends whose bills route through your accounts, to causes you donate to anonymously, to a flat that doesn't exist yet, and (last, and barely) to yourself.
+      <br><br>
+      <strong>You did not have an expensive year. You had a consequential year. The numbers say you carried it well.</strong>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+  <div class="ornament">⁂</div>
+  <p>Generated from Money Manager export · 2,210 expenses · 245 income events · 2,347 transfers · 366 days</p>
+  <p style="margin-top:8px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase">Hisaab Annual Report · Jun 2025 → Jun 2026</p>
+</div>
+</footer>
+
+</body>
+</html>
