@@ -1,0 +1,106 @@
+[
+ {
+  "month": "Jun 25",
+  "liquid": 1181889,
+  "card": 0,
+  "held": 68623,
+  "free": 1113266,
+  "cover": 0.99
+ },
+ {
+  "month": "Jul 25",
+  "liquid": 1618020,
+  "card": 0,
+  "held": 126818,
+  "free": 1491202,
+  "cover": 1.32
+ },
+ {
+  "month": "Aug 25",
+  "liquid": 928352,
+  "card": -147126,
+  "held": 88681,
+  "free": 692545,
+  "cover": 0.61
+ },
+ {
+  "month": "Sep 25",
+  "liquid": 1222939,
+  "card": -95762,
+  "held": 37329,
+  "free": 1089848,
+  "cover": 0.97
+ },
+ {
+  "month": "Oct 25",
+  "liquid": 765328,
+  "card": -41792,
+  "held": 38047,
+  "free": 685489,
+  "cover": 0.61
+ },
+ {
+  "month": "Nov 25",
+  "liquid": 696634,
+  "card": -69387,
+  "held": 88990,
+  "free": 538257,
+  "cover": 0.48
+ },
+ {
+  "month": "Dec 25",
+  "liquid": 354887,
+  "card": -225364,
+  "held": 493903,
+  "free": -364380,
+  "cover": -0.32
+ },
+ {
+  "month": "Jan 26",
+  "liquid": 1253720,
+  "card": -37563,
+  "held": 51683,
+  "free": 1164474,
+  "cover": 1.03
+ },
+ {
+  "month": "Feb 26",
+  "liquid": 1025512,
+  "card": -25057,
+  "held": 750,
+  "free": 999705,
+  "cover": 0.89
+ },
+ {
+  "month": "Mar 26",
+  "liquid": 781477,
+  "card": -60690,
+  "held": 750,
+  "free": 720037,
+  "cover": 0.64
+ },
+ {
+  "month": "Apr 26",
+  "liquid": 1273725,
+  "card": -40126,
+  "held": 205037,
+  "free": 1028562,
+  "cover": 0.91
+ },
+ {
+  "month": "May 26",
+  "liquid": 963280,
+  "card": -379553,
+  "held": 43232,
+  "free": 540495,
+  "cover": 0.48
+ },
+ {
+  "month": "Jun 26",
+  "liquid": 1059942,
+  "card": -125532,
+  "held": 721510,
+  "free": 212900,
+  "cover": 0.19
+ }
+]

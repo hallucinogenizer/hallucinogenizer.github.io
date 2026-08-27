@@ -1,0 +1,229 @@
+{
+ "monthly": [
+  {
+   "month": "Jul 25",
+   "income": 950728,
+   "spend": 754296,
+   "liquid": 1618020,
+   "card": 0
+  },
+  {
+   "month": "Aug 25",
+   "income": 645265,
+   "spend": 600253,
+   "liquid": 928352,
+   "card": -147126
+  },
+  {
+   "month": "Sep 25",
+   "income": 2061651,
+   "spend": 1065395,
+   "liquid": 1222939,
+   "card": -95762
+  },
+  {
+   "month": "Oct 25",
+   "income": 1005320,
+   "spend": 1059097,
+   "liquid": 765328,
+   "card": -41792
+  },
+  {
+   "month": "Nov 25",
+   "income": 1079712,
+   "spend": 1174672,
+   "liquid": 696634,
+   "card": -69387
+  },
+  {
+   "month": "Dec 25",
+   "income": 1388230,
+   "spend": 1085460,
+   "liquid": 354887,
+   "card": -225364
+  },
+  {
+   "month": "Jan 26",
+   "income": 4443473,
+   "spend": 1594632,
+   "liquid": 1253720,
+   "card": -37563
+  },
+  {
+   "month": "Feb 26",
+   "income": 1376023,
+   "spend": 1272743,
+   "liquid": 1025512,
+   "card": -25057
+  },
+  {
+   "month": "Mar 26",
+   "income": 1383272,
+   "spend": 1122982,
+   "liquid": 781477,
+   "card": -60690
+  },
+  {
+   "month": "Apr 26",
+   "income": 1381537,
+   "spend": 917060,
+   "liquid": 1273725,
+   "card": -40126
+  },
+  {
+   "month": "May 26",
+   "income": 1379554,
+   "spend": 1784932,
+   "liquid": 963280,
+   "card": -379553
+  },
+  {
+   "month": "Jun 26",
+   "income": 1370125,
+   "spend": 1096231,
+   "liquid": 1059942,
+   "card": -125532
+  }
+ ],
+ "categories": [
+  {
+   "name": "Family",
+   "amount": 5723585
+  },
+  {
+   "name": "Technology",
+   "amount": 1248856
+  },
+  {
+   "name": "Household",
+   "amount": 1195104
+  },
+  {
+   "name": "Transportation",
+   "amount": 1163837
+  },
+  {
+   "name": "Food",
+   "amount": 914030
+  },
+  {
+   "name": "Miscellaneous",
+   "amount": 658409
+  },
+  {
+   "name": "Donation",
+   "amount": 581146
+  },
+  {
+   "name": "Tour/Travel",
+   "amount": 457875
+  },
+  {
+   "name": "Beauty",
+   "amount": 375485
+  },
+  {
+   "name": "Social Life",
+   "amount": 217217
+  },
+  {
+   "name": "Tax",
+   "amount": 217012
+  },
+  {
+   "name": "Apparel",
+   "amount": 202127
+  },
+  {
+   "name": "Health",
+   "amount": 184014
+  },
+  {
+   "name": "Self-development",
+   "amount": 111019
+  },
+  {
+   "name": "Culture",
+   "amount": 83298
+  },
+  {
+   "name": "Bank Charges",
+   "amount": 59182
+  },
+  {
+   "name": "Religion",
+   "amount": 41440
+  },
+  {
+   "name": "Investment",
+   "amount": 35614
+  },
+  {
+   "name": "Entertainment",
+   "amount": 34573
+  },
+  {
+   "name": "Work",
+   "amount": 23169
+  },
+  {
+   "name": "Education",
+   "amount": 761
+  }
+ ],
+ "loanbook": [
+  {
+   "name": "Danish",
+   "amount": 1500000
+  },
+  {
+   "name": "Tabish",
+   "amount": 984716
+  },
+  {
+   "name": "Abdul Sami",
+   "amount": 376282
+  },
+  {
+   "name": "Ahmad Bhatti",
+   "amount": 28699
+  },
+  {
+   "name": "Aun",
+   "amount": 6537
+  },
+  {
+   "name": "Alishba",
+   "amount": 5008
+  },
+  {
+   "name": "Fahad",
+   "amount": 2343
+  },
+  {
+   "name": "Abdul Wahab",
+   "amount": 1777
+  },
+  {
+   "name": "Abujan",
+   "amount": -32399
+  },
+  {
+   "name": "Wasiq",
+   "amount": -182027
+  },
+  {
+   "name": "Parents Spring",
+   "amount": -1504980
+  }
+ ],
+ "net_income": 18464890,
+ "credited": 19618284,
+ "personal_spend": 13527753,
+ "business_cost": 863528,
+ "plugs": 373422,
+ "spring_fy": 4523502,
+ "marina": 781001,
+ "nw_open": 2341180,
+ "nw_close": 7142897
+}

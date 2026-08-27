@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FY26 Financial Report — Rohan Hussain</title>
+<style>
+:root{
+  --bg:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --base:#c3c2b7; --rule:rgba(11,11,11,.10);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#0ca30c; --warn:#fab219; --critical:#d03b3b; --track:#e9e8e2; --track2:#d5d4cc;
+  --callout:#f2f1ed;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --base:#383835; --rule:rgba(255,255,255,.10);
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#0ca30c; --warn:#fab219; --critical:#d03b3b; --track:#2c2c2a; --track2:#3a3a37;
+    --callout:#201f1e;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --base:#383835; --rule:rgba(255,255,255,.10);
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#0ca30c; --warn:#fab219; --critical:#d03b3b; --track:#2c2c2a; --track2:#3a3a37;
+  --callout:#201f1e;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;
+  -webkit-font-smoothing:antialiased;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:56px 24px 120px}
+header.top{border-bottom:1px solid var(--rule);padding-bottom:30px;margin-bottom:44px}
+.kicker{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-size:clamp(30px,5vw,42px);line-height:1.14;margin:14px 0 12px;letter-spacing:-.02em;font-weight:680}
+.sub{color:var(--ink2);font-size:17px;margin:0;max-width:62ch}
+h2{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;margin:60px 0 6px;padding-top:22px;border-top:1px solid var(--rule)}
+h3{font-size:20px;margin:32px 0 8px;letter-spacing:-.01em;font-weight:640}
+.lede{font-size:20px;line-height:1.5;color:var(--ink);margin:8px 0 26px;letter-spacing:-.01em}
+p{margin:0 0 16px;color:var(--ink2)}
+p strong,li strong{color:var(--ink);font-weight:620}
+.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:28px 0 8px}
+.hero div{background:var(--surface);padding:16px 18px;display:flex;flex-direction:column}
+.hero .lbl{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;min-height:2.6em}
+.hero .val{font-size:25px;font-weight:660;letter-spacing:-.02em;margin-top:2px;color:var(--ink)}
+.hero .note{font-size:12.5px;color:var(--muted);margin-top:auto;padding-top:8px;line-height:1.4}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:22px;margin:26px 0}
+figure{margin:26px 0}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink2);margin:0 0 12px}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.sw{width:11px;height:11px;border-radius:2.5px;display:inline-block}
+.cv{width:100%;height:auto;display:block;overflow:visible}
+.grid{stroke:var(--grid);stroke-width:1}
+.base{stroke:var(--base);stroke-width:1}
+.ref{stroke:var(--s2);stroke-width:1;stroke-opacity:.75}
+.reflab{fill:var(--s2);font-size:10.5px;font-weight:600}
+.ax{fill:var(--muted);font-size:11px}
+.rl{fill:var(--ink2);font-size:12.5px}
+.rv{fill:var(--muted);font-size:11.5px;font-variant-numeric:tabular-nums}
+.note{fill:var(--ink2);font-size:11px;font-weight:600}
+.neg-t{fill:var(--critical)}
+.seg{fill:var(--ink);font-size:13px;font-weight:660}
+.seg2{fill:var(--muted);font-size:11px}
+.seg3{fill:var(--critical);font-size:11.5px;font-weight:600}
+rect.s1{fill:var(--s1)} rect.s2{fill:var(--s2)} rect.s3{fill:var(--s3)}
+rect.dim{fill-opacity:.42}
+rect.good{fill:var(--good)} rect.warn{fill:var(--warn)} rect.critical{fill:var(--critical)}
+rect.neg{fill:var(--critical)}
+rect.track{fill:var(--track)} rect.track2{fill:var(--track2)}
+.tw{overflow-x:auto;margin:22px 0;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:430px}
+th,td{padding:10px 14px;text-align:right;border-bottom:1px solid var(--rule)}
+th,td{text-align:right}
+td.t,th.t{text-align:left}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+thead th{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:650}
+tbody tr:last-child td{border-bottom:none}
+tbody td{font-variant-numeric:tabular-nums;color:var(--ink2)}
+tbody td:first-child{color:var(--ink)}
+tr.tot td{font-weight:660;color:var(--ink);border-top:1px solid var(--base)}
+.pos{color:var(--good)} .negv{color:var(--critical)}
+blockquote{margin:26px 0;padding:18px 22px;background:var(--callout);
+  border-left:3px solid var(--s1);border-radius:0 8px 8px 0}
+blockquote p:last-child{margin-bottom:0}
+blockquote.alert{border-left-color:var(--critical)}
+blockquote.ok{border-left-color:var(--good)}
+ul,ol{color:var(--ink2);padding-left:22px;margin:0 0 18px}
+li{margin-bottom:9px}
+.tag{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  font-weight:650;padding:3px 8px;border-radius:5px;background:var(--callout);color:var(--ink2)}
+.tag.bad{background:rgba(208,59,59,.13);color:var(--critical)}
+.tag.good{background:rgba(12,163,12,.13);color:var(--good)}
+footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);
+  font-size:13px;color:var(--muted)}
+.big{font-size:clamp(34px,6vw,52px);font-weight:680;letter-spacing:-.03em;color:var(--ink);
+  line-height:1.05;margin:6px 0 10px}
+</style>
+</head>
+<body><div class="wrap">
+<header class="top">
+  <div class="kicker">Fiscal year 1 July 2025 – 30 June 2026 · Rohan Hussain</div>
+  <h1>You earned 1.85 crore, saved a fifth of it, gave away more than half of what you spent, and ended the year with five days of cash.</h1>
+  <p class="sub">Both halves of that sentence are true, and neither is a mistake in the arithmetic.
+  This report is built from 8,811 ledger rows, your tax-filing income sheet, and the Springs contract.
+  Every figure was recomputed independently and adversarially checked.</p>
+</header>
+
+<div class="hero">
+  <div><div class="lbl">Net own earnings</div><div class="val">1.85 cr</div><div class="note">18,464,890 · 15.39 L/mo</div></div>
+  <div><div class="lbl">Spending incl. gifts</div><div class="val">1.47 cr</div><div class="note">14,747,871 · 12.29 L/mo</div></div>
+  <div><div class="lbl">Spent on others</div><div class="val">56.9%</div><div class="note">8,389,908 of it</div></div>
+  <div><div class="lbl">Net worth</div><div class="val">+35.8 L</div><div class="note">22.0 L → 57.8 L · 2.63× · after writing off qarz</div></div>
+  <div><div class="lbl">Free liquid at close</div><div class="val negv">1.8 L</div><div class="note">0.16 months · 4.8 days</div></div>
+</div>
+
+<h2>The verdict, first</h2>
+<p class="lede">You are not overspending, and you are not bad with money. You are running a
+structurally illiquid balance sheet, and the cause is not generosity — it is the order in which
+you fund things.</p>
+
+<p>Three things are simultaneously true about your year, and holding all three at once is the
+whole point of this report.</p>
+
+<ol>
+<li><strong>You saved a fifth of a 1.85-crore income.</strong> On the ledger, net worth went from
+2,341,180 to 7,142,897 and the reconciliation is exact to the rupee. But
+1,360,998 of that closing figure is qarz to Tabish and Abdul Sami that you do not expect back,
+so on an honest basis net worth is 5,781,899 and the year's saving is 3,581,599:
+<strong>19.4%, not 26%</strong>. Still a strong year. Just not the one the ledger reports.</li>
+<li><strong>Almost none of it is reachable.</strong> Free liquid cash fell from 1,113,266 to
+212,900, or 181,851 once the sanctions-blocked Wise balance comes out. You spent 79%
+of the year holding less than one month of expenses, and on 31 December the figure was negative.</li>
+<li><strong>The generosity is larger than the categories admit, and mostly not the problem.</strong>
+Once the qarz is counted as the giving it is, <strong>56.9% of your outgoings — 8,389,908 of
+14,747,871 — went to someone other than you.</strong> What hurt you was not the level. It was
+funding it out of your buffer and your investments rather than out of surplus, and then borrowing back
+from the same people when you ran short.</li>
+</ol>
+
+<p>And one framing that the rest of this report will keep returning to, because it is the single most
+useful thing in it: <strong>you did not overspend, you over-committed.</strong> Those are different
+failures with different fixes, and almost everything that went wrong this year followed from the
+second one.</p>
+
+<blockquote class="alert">
+<p><strong>The comparison that frames the year.</strong> The Springs possession payment is
+3,101,200. What you have lent to Danish, Tabish and Abdul Sami is 3,008,498, and those
+three have repaid 20%, 25% and 6% of everything they have ever received.</p>
+<p>The largest single obligation in front of you is almost exactly the money you have out with three
+people. Your salary now covers that obligation, so this is not a crisis. But it is the year's central
+decision stated as arithmetic: you have parked the price of the apartment with three men who do not
+repay, and you are funding the apartment out of cash flow instead.</p>
+</blockquote>
+
+<h2>What came in</h2>
+<p>Your tax sheet and the app disagree, and both are right — they measure different things. The
+bridge closes to within 242 rupees, which is the strongest evidence that your record-keeping is sound.</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Basis</th><th class="n">Amount</th><th class="t">What it is</th></tr></thead><tbody><tr><td class="t">Cash credited to bank</td><td class="n">19,618,284</td><td class="t">Everything that hit your accounts</td></tr><tr><td class="t">Ledger gross income</td><td class="n">19,192,998</td><td class="t">As recorded, incl. provident-fund accruals, fund profit, plugs</td></tr><tr><td class="t">Net own earnings</td><td class="n">18,464,890</td><td class="t">Your tax-sheet basis: strips contractor pass-through and workspace reimbursement</td></tr></tbody></table></div>
+
+<p>The gap between credited and net own earnings is 1,153,394: 512,176 of FleetGlue
+workspace reimbursement that rode inside your payroll deposits, and 824,677 of Turing
+contractor pay that passed straight through you to Hammad, Xoraiz, Haroon and Maryam.</p>
+
+<blockquote>
+<p><strong>Worth five minutes before your next filing.</strong> Those two deductions sum to
+1,336,853 — about 183,459 <em>more</em> than the actual gap. Xoraiz's three Turing
+payouts total 193,774, within 0.5% of that residual. If his payments were left out of your
+pass-through deduction, you declared roughly 1.83 lakh more income than you earned. You
+over-declared, not under-declared, but it is still worth checking.</p>
+</blockquote>
+
+<h3>The raise backfilled a loss rather than stacking on top of it</h3>
+<p>FleetGlue pays 2.10× what Beyond ONE paid you in cash salary. That is the number you probably
+carry in your head, and it is correct. But Turing stopped in the same quarter, and not by your
+choice — Turing benched you when they ran out of projects, not for performance.</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Period</th><th class="n">All-in own earnings, monthly</th><th class="t">Composition</th></tr></thead><tbody><tr><td class="t">Jul–Oct 2025</td><td class="n">1,262,270</td><td class="t">Beyond ONE total comp + Turing net margin</td></tr><tr><td class="t">Mar–Jun 2026</td><td class="n">1,371,624</td><td class="t">FleetGlue only, net of side-venture losses</td></tr><tr><td class="t">Change</td><td class="n">+8.7%</td><td class="t">Salary doubled; real earning power moved under 10%</td></tr></tbody></table></div>
+
+<p>Turing was a <strong>65.8% gross-margin business</strong>: 2,409,080 of revenue,
+824,677 of contractor cost, 1,584,403 of margin — from four months of activity, and
+8.6% of your net own earnings.</p>
+
+<p>You did not end it — Turing benched you for want of projects. The reason that matters here is
+not the story, it is what it proves about your structure: <strong>an income stream worth
+1,584,403 a year at a 65.8% margin disappeared with no notice, through no fault of yours, and
+never came back.</strong> Revenue was still growing when it stopped (387,879 for June work,
+720,299 for August).</p>
+
+<p>You spent the first four months of the year with two independent incomes. You have spent every
+month since with one. That is the real change in your financial position, and it is larger than the
+pay rise.</p>
+
+<h3>What one employer is now carrying</h3>
+<p>These are the obligations that do not pause if income does. They are owed to your wife, your
+parents, a property developer and a committee — none of whom stop when a pipeline dries up.</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Commitment that survives a job loss</th><th class="n">Annual</th><th class="n">Monthly</th></tr></thead><tbody><tr><td class="t">Stipends at exit run-rate — Alishba 150k, Abujan 80k, Mama 50k</td><td class="n">3,360,000</td><td class="n">280,000</td></tr><tr><td class="t">The Springs — contractual, 474,301 per quarter</td><td class="n">1,897,204</td><td class="n">158,100</td></tr><tr><td class="t">Rohan Committee</td><td class="n">1,800,000</td><td class="n">150,000</td></tr><tr><td class="t">Utilities, internet, mobile, domestic help, car insurance and token tax</td><td class="n">761,402</td><td class="n">63,450</td></tr><tr><td class="t">Live subscriptions</td><td class="n">104,002</td><td class="n">8,667</td></tr><tr><td class="t">Total</td><td class="n">7,922,608</td><td class="n">660,217</td></tr></tbody></table></div>
+
+<blockquote class="alert">
+<p><strong>660,217 a month continues whether or not you are being paid.</strong> Against
+141,776 of free liquid today — once the stranded Wise balance is removed — that is
+<strong>6.4 days of commitments</strong>, not of lifestyle.</p>
+<p>Turing is the proof this is not hypothetical. It is also the argument for the buffer, stated
+better than any savings-rate figure can: you are not building a reserve against bad decisions, you
+are building one against a decision somebody else makes about you.</p>
+</blockquote>
+
+<h3>tripbazar.pk is a purchase, not a business — so price it like one</h3>
+<p>You have been clear that revenue was never the point: you wanted the thing to exist, to be useful,
+and to be yours. Revenue is therefore the wrong test for it, so it is not the test applied here.</p>
+
+<p>It costs 82,934 to date, and the cost is <strong>capped by design</strong>. Sadiqa works
+two hours a day on weekdays at Rs 500 an hour, and will not exceed that allowance. So the ceiling is
+arithmetic: 261 weekdays × 2 hours × Rs 500 = <strong>261,000 a year</strong>, about
+21,750 a month.</p>
+
+<p>The salary looked like it was escalating — 14,667 → 17,334 → 18,275 → 23,308 across April to July
+2026, up 59%. It was not. That is her <em>utilisation</em> climbing toward the allowance, and by July
+it had reached it:</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Work month</th><th class="n">Paid</th><th class="n">Hours</th><th class="t">Hours available</th><th class="n">Utilisation</th></tr></thead><tbody><tr><td class="t">Apr 2026</td><td class="n">14,667</td><td class="n">29.3</td><td class="t">44 (22 weekdays)</td><td class="n">67%</td></tr><tr><td class="t">May 2026</td><td class="n">17,334</td><td class="n">34.7</td><td class="t">42 (21 weekdays)</td><td class="n">83%</td></tr><tr><td class="t">Jun 2026</td><td class="n">18,275</td><td class="n">36.5</td><td class="t">44 (22 weekdays)</td><td class="n">83%</td></tr><tr><td class="t">Jul 2026</td><td class="n">23,308</td><td class="n">46.6</td><td class="t">46 (23 weekdays)</td><td class="n">101%</td></tr></tbody></table></div>
+
+<p>So this line is now at its ceiling and should flatten at roughly 21,750 a month — one of
+the few genuinely predictable numbers in your finances, and about 1.9% of monthly spend. It needs no
+budget because it already has one built into the arrangement. Treat it as settled.</p>
+
+<p>One ledger note rather than a financial one: these salary rows are filed inconsistently — May 2026
+sits under <em>Entertainment</em> while the rest sit under <em>Entrepreneurship</em> — so no
+category-level report will ever show you what the site actually costs. Worth a one-minute
+re-categorisation if you want the number to be visible to your future self.</p>
+
+<p><strong>Web Dev C7</strong>, by contrast, was a revenue attempt and it did not work: five
+enrolments worth 46,000, four refunded within three weeks, against C6's 103,600 the year
+before. On the ledger that business is closed.</p>
+
+<h2>Where it went</h2>
+<figure>
+<div class="legend">
+  <span><i class="sw" style="background:var(--s1)"></i>Net own income</span>
+  <span><i class="sw" style="background:var(--s2)"></i>Personal spend</span>
+</div>
+<svg viewBox="0 0 780 300" class="cv" role="img" aria-label="Monthly net income versus personal spend"><line class="grid" x1="58" y1="256.0" x2="766" y2="256.0"/><text class="ax" x="50" y="260.0" text-anchor="end">0L</text><line class="grid" x1="58" y1="204.3" x2="766" y2="204.3"/><text class="ax" x="50" y="208.3" text-anchor="end">10L</text><line class="grid" x1="58" y1="152.5" x2="766" y2="152.5"/><text class="ax" x="50" y="156.5" text-anchor="end">20L</text><line class="grid" x1="58" y1="100.8" x2="766" y2="100.8"/><text class="ax" x="50" y="104.8" text-anchor="end">30L</text><line class="grid" x1="58" y1="49.0" x2="766" y2="49.0"/><text class="ax" x="50" y="53.0" text-anchor="end">40L</text><rect class="s1" x="69.5" y="206.8" width="17.0" height="49.2" rx="3"><title>Jul 25 income 950,728</title></rect><rect class="s2" x="88.5" y="217.0" width="17.0" height="39.0" rx="3"><title>Jul 25 spend 754,296</title></rect><text class="ax" x="87.5" y="272" text-anchor="middle">Jul</text><rect class="s1" x="128.5" y="222.6" width="17.0" height="33.4" rx="3"><title>Aug 25 income 645,265</title></rect><rect class="s2" x="147.5" y="224.9" width="17.0" height="31.1" rx="3"><title>Aug 25 spend 600,253</title></rect><text class="ax" x="146.5" y="272" text-anchor="middle">Aug</text><rect class="s1" x="187.5" y="149.3" width="17.0" height="106.7" rx="3"><title>Sep 25 income 2,061,651</title></rect><rect class="s2" x="206.5" y="200.9" width="17.0" height="55.1" rx="3"><title>Sep 25 spend 1,065,395</title></rect><text class="ax" x="205.5" y="272" text-anchor="middle">Sep</text><rect class="s1" x="246.5" y="204.0" width="17.0" height="52.0" rx="3"><title>Oct 25 income 1,005,320</title></rect><rect class="s2" x="265.5" y="201.2" width="17.0" height="54.8" rx="3"><title>Oct 25 spend 1,059,097</title></rect><text class="ax" x="264.5" y="272" text-anchor="middle">Oct</text><rect class="s1" x="305.5" y="200.1" width="17.0" height="55.9" rx="3"><title>Nov 25 income 1,079,712</title></rect><rect class="s2" x="324.5" y="195.2" width="17.0" height="60.8" rx="3"><title>Nov 25 spend 1,174,672</title></rect><text class="ax" x="323.5" y="272" text-anchor="middle">Nov</text><rect class="s1" x="364.5" y="184.2" width="17.0" height="71.8" rx="3"><title>Dec 25 income 1,388,230</title></rect><rect class="s2" x="383.5" y="199.8" width="17.0" height="56.2" rx="3"><title>Dec 25 spend 1,085,460</title></rect><text class="ax" x="382.5" y="272" text-anchor="middle">Dec</text><rect class="s1" x="423.5" y="26.1" width="17.0" height="229.9" rx="3"><title>Jan 26 income 4,443,473</title></rect><rect class="s2" x="442.5" y="173.5" width="17.0" height="82.5" rx="3"><title>Jan 26 spend 1,594,632</title></rect><text class="ax" x="441.5" y="272" text-anchor="middle">Jan</text><rect class="s1" x="482.5" y="184.8" width="17.0" height="71.2" rx="3"><title>Feb 26 income 1,376,023</title></rect><rect class="s2" x="501.5" y="190.1" width="17.0" height="65.9" rx="3"><title>Feb 26 spend 1,272,743</title></rect><text class="ax" x="500.5" y="272" text-anchor="middle">Feb</text><rect class="s1" x="541.5" y="184.4" width="17.0" height="71.6" rx="3"><title>Mar 26 income 1,383,272</title></rect><rect class="s2" x="560.5" y="197.9" width="17.0" height="58.1" rx="3"><title>Mar 26 spend 1,122,982</title></rect><text class="ax" x="559.5" y="272" text-anchor="middle">Mar</text><rect class="s1" x="600.5" y="184.5" width="17.0" height="71.5" rx="3"><title>Apr 26 income 1,381,537</title></rect><rect class="s2" x="619.5" y="208.6" width="17.0" height="47.4" rx="3"><title>Apr 26 spend 917,060</title></rect><text class="ax" x="618.5" y="272" text-anchor="middle">Apr</text><rect class="s1" x="659.5" y="184.6" width="17.0" height="71.4" rx="3"><title>May 26 income 1,379,554</title></rect><rect class="s2" x="678.5" y="163.6" width="17.0" height="92.4" rx="3"><title>May 26 spend 1,784,932</title></rect><text class="ax" x="677.5" y="272" text-anchor="middle">May</text><rect class="s1" x="718.5" y="185.1" width="17.0" height="70.9" rx="3"><title>Jun 26 income 1,370,125</title></rect><rect class="s2" x="737.5" y="199.3" width="17.0" height="56.7" rx="3"><title>Jun 26 spend 1,096,231</title></rect><text class="ax" x="736.5" y="272" text-anchor="middle">Jun</text><text class="note" x="435.5" y="18.1" text-anchor="middle">settlement</text><text class="note" x="685.5" y="155.6" text-anchor="middle">peak spend</text><line class="base" x1="58" y1="256" x2="766" y2="256"/></svg>
+<figcaption>January's spike is the Beyond ONE final settlement (2,357,732). May is the year's
+peak spend — the hair transplant, Skardu, and Areeba's hospital bills landing in one fortnight.
+Only two months ran an accounting deficit: August 2025 (−20,195) and May 2026 (−409,611).</figcaption>
+</figure>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Category</th><th class="n">Amount</th><th class="n">Share</th></tr></thead><tbody><tr><td class="t">Family</td><td class="n">5,723,585</td><td class="n">42.3%</td></tr><tr><td class="t">Technology</td><td class="n">1,248,856</td><td class="n">9.2%</td></tr><tr><td class="t">Household</td><td class="n">1,195,104</td><td class="n">8.8%</td></tr><tr><td class="t">Transportation</td><td class="n">1,163,837</td><td class="n">8.6%</td></tr><tr><td class="t">Food</td><td class="n">914,030</td><td class="n">6.8%</td></tr><tr><td class="t">Miscellaneous</td><td class="n">658,409</td><td class="n">4.9%</td></tr><tr><td class="t">Donation</td><td class="n">581,146</td><td class="n">4.3%</td></tr><tr><td class="t">Tour/Travel</td><td class="n">457,875</td><td class="n">3.4%</td></tr><tr><td class="t">Beauty</td><td class="n">375,485</td><td class="n">2.8%</td></tr><tr><td class="t">Social Life</td><td class="n">217,217</td><td class="n">1.6%</td></tr><tr><td class="t">Tax</td><td class="n">217,012</td><td class="n">1.6%</td></tr><tr><td class="t">Apparel</td><td class="n">202,127</td><td class="n">1.5%</td></tr><tr><td class="t">Health</td><td class="n">184,014</td><td class="n">1.4%</td></tr><tr><td class="t">Self-development</td><td class="n">111,019</td><td class="n">0.8%</td></tr><tr><td class="t">Other — Culture, bank charges, religion, investment, entertainment, work, education</td><td class="n">278,037</td><td class="n">2.1%</td></tr><tr><td class="t">Total</td><td class="n">13,527,753</td><td class="n">100%</td></tr></tbody></table></div>
+
+<h3>Nearly a third of the year was structurally unrepeatable</h3>
+<p>35 identifiable one-off events account for <strong>4,015,994 — 29.7% of personal
+spend</strong>. Strip them and the run-rate falls from 11.27 L/month to 7.93 L/month.</p>
+
+<p>But do not budget on 7.93 L. The allowances stepped up permanently in January, so the second half
+ran at 8.90 L/month against the first half's 6.95 L. <strong>Your forward run-rate is about
+8.9–9.0 L/month</strong>, before the new commitments.</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">One-off</th><th class="n">Amount</th><th class="t">Recurs?</th></tr></thead><tbody><tr><td class="t">Device refresh — MacBook Pro M3 Pro 4.10L, OnePlus 13 all-in 3.53L, Alishba's iPhone 15 Pro Max 3.40L, monitors, speakers, UPS, router</td><td class="n">1,636,896</td><td class="t">Every 4–5 years</td></tr><tr><td class="t">Skardu trip</td><td class="n">403,347</td><td class="t">Annual, but 2.8× your 3-year average</td></tr><tr><td class="t">Hair transplant, all-in across 5 categories</td><td class="n">396,180</td><td class="t">No</td></tr><tr><td class="t">Other people's medical emergencies — Azam Uncle's angioplasty 2.28L the largest</td><td class="n">437,392</td><td class="t">No ceiling, no insurance</td></tr><tr><td class="t">Weddings and social obligation — Maryam's jahez the bulk</td><td class="n">387,258</td><td class="t">Season-dependent</td></tr><tr><td class="t">JJ's FIP course — 2.10L of it GS-441524 vials in 32 days</td><td class="n">275,840</td><td class="t">No, course complete</td></tr><tr><td class="t">Kaffara pledge penalties, all in a 6-week burst Jul–Aug 2025</td><td class="n">101,000</td><td class="t">Behavioural</td></tr></tbody></table></div>
+
+<p>Two details from that table are worth pulling out. The OnePlus 13 cost <strong>1.48× its sticker
+price</strong> — 239,060 handset plus 114,000 of PTA import tax landing two months
+later as a separate shock; budget any future import at 150%. And the hair transplant is scattered
+across five categories, so a Beauty groupby sees only 345,264 of the 396,180 — the
+15,000 paid to the technicians sits under Donation.</p>
+
+<blockquote>
+<p><strong>Without the one-offs your savings rate would have been 48.5% instead of 26%.</strong>
+That 22-point gap is the honest story of the year. You did not overspend on lifestyle. You
+compressed a device refresh, a cosmetic procedure, two family medical emergencies, a wedding season
+and a cat's FIP course into twelve months.</p>
+</blockquote>
+
+<h2>Who it went to</h2>
+<p class="lede">Counting the qarz as the giving it is, 8,389,908 of your 14,747,871 of
+outgoings — 56.9% — was consumed by someone other than you.</p>
+
+<p>The chart below is the expense ledger alone, which is the 53.0% version (7,169,790 of
+13,527,753). It excludes the 1,220,118 you gave Tabish and Abdul Sami during the
+year, because the ledger books that as lending rather than spending.</p>
+
+<figure>
+<svg viewBox="0 0 780 280" class="cv" role="img"><text class="rl" x="190" y="19" text-anchor="end">Rohan / joint household</text><rect class="s1" x="200" y="8" width="464.0" height="15" rx="3"><title>Rohan / joint household: 6,357,963</title></rect><text class="rv" x="672.0" y="20">6,357,963 · 47.0%</text><text class="rl" x="190" y="46" text-anchor="end">Alishba (wife)</text><rect class="s1" x="200" y="35" width="238.3" height="15" rx="3"><title>Alishba (wife): 3,265,342</title></rect><text class="rv" x="446.3" y="47">3,265,342 · 24.1%</text><text class="rl" x="190" y="73" text-anchor="end">Abujan (father)</text><rect class="s1" x="200" y="62" width="63.8" height="15" rx="3"><title>Abujan (father): 873,553</title></rect><text class="rv" x="271.8" y="74">873,553 · 6.5%</text><text class="rl" x="190" y="100" text-anchor="end">Wife&#x27;s family</text><rect class="s1" x="200" y="89" width="56.2" height="15" rx="3"><title>Wife&#x27;s family: 770,701</title></rect><text class="rv" x="264.2" y="101">770,701 · 5.7%</text><text class="rl" x="190" y="127" text-anchor="end">Mama (mother)</text><rect class="s1" x="200" y="116" width="44.2" height="15" rx="3"><title>Mama (mother): 605,236</title></rect><text class="rv" x="252.2" y="128">605,236 · 4.5%</text><text class="rl" x="190" y="154" text-anchor="end">Cats — JJ &amp; Lily</text><rect class="s1" x="200" y="143" width="42.1" height="15" rx="3"><title>Cats — JJ &amp; Lily: 577,108</title></rect><text class="rv" x="250.1" y="155">577,108 · 4.3%</text><text class="rl" x="190" y="181" text-anchor="end">Friends</text><rect class="s1" x="200" y="170" width="41.2" height="15" rx="3"><title>Friends: 564,575</title></rect><text class="rv" x="249.2" y="182">564,575 · 4.2%</text><text class="rl" x="190" y="208" text-anchor="end">Donations / charity</text><rect class="s1" x="200" y="197" width="23.4" height="15" rx="3"><title>Donations / charity: 320,937</title></rect><text class="rv" x="231.4" y="209">320,937 · 2.4%</text><text class="rl" x="190" y="235" text-anchor="end">Aliyan &amp; Minahil</text><rect class="s1" x="200" y="224" width="9.4" height="15" rx="3"><title>Aliyan &amp; Minahil: 129,178</title></rect><text class="rv" x="217.4" y="236">129,178 · 1.0%</text><text class="rl" x="190" y="262" text-anchor="end">Umaid, Fiza, Mahad</text><rect class="s1" x="200" y="251" width="4.6" height="15" rx="3"><title>Umaid, Fiza, Mahad: 63,160</title></rect><text class="rv" x="212.6" y="263">63,160 · 0.5%</text></svg>
+<figcaption>Attributed by name from the transaction note, not the category. Where the note and the
+reimbursement description name different people, the note wins — the description usually names who
+paid you back. "Rohan / joint household" is a ceiling, not a floor: unnamed food and household rows
+are shared too, so the real share going to others is higher than 53%.</figcaption>
+</figure>
+
+<p><strong>Alishba at 3,265,342 costs more than both your parents combined, twice over.</strong>
+Her stipend is 1,609,922 of that; the other 1,626,955 is everything else — so she costs
+roughly double her own allowance. Net of identified reimbursements from her, call it 29.4–30.5 lakh.</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Target month</th><th class="t">Alishba base stipend</th><th class="t">Extra top-ups</th></tr></thead><tbody><tr><td class="t">Aug 2025</td><td class="t">75,000</td><td class="t">—</td></tr><tr><td class="t">Sep 2025</td><td class="t">100,000</td><td class="t">—</td></tr><tr><td class="t">Oct 2025</td><td class="t">93,462</td><td class="t">—</td></tr><tr><td class="t">Nov 2025</td><td class="t">100,000</td><td class="t">—</td></tr><tr><td class="t">Dec 2025</td><td class="t">150,000</td><td class="t">—</td></tr><tr><td class="t">Jan 2026</td><td class="t">150,000</td><td class="t">90,000</td></tr><tr><td class="t">Feb 2026</td><td class="t">150,000</td><td class="t">25,000</td></tr><tr><td class="t">Mar 2026</td><td class="t">150,000</td><td class="t">30,000</td></tr><tr><td class="t">Apr 2026</td><td class="t">150,000</td><td class="t">30,000</td></tr><tr><td class="t">May 2026</td><td class="t">150,000</td><td class="t">—</td></tr><tr><td class="t">Jun 2026</td><td class="t">100,000 gross / 50,000 net</td><td class="t">—</td></tr></tbody></table></div>
+
+<p>Two step-ups — +33% in September, +50% in December — doubled the base in four months. The
+"Extra" payments are the part worth noticing: they ran 25–30k a month from January to April and
+functioned as a second, undeclared stipend. Anyone budgeting 150k for her was under by ~18% for
+four months running.</p>
+
+<p><strong>Your father's stipend is mostly not pocket money.</strong> It doubled from 35,000 to
+80,000 in January (+129%), but of the 929,065 that funded his ledger, 307,500 is
+Sahowari electricity, 159,000 is caretakers and handymen, 98,570 is family dinners,
+24,000 is club dues. It is structurally a household-running cost that will inflate with
+tariffs whether or not you ever raise the stipend. All-in cost of his care: about
+799,766–877,866 depending on whether you count the Qurbani and the geyser that were
+merely paid through his ledger. There is <strong>no double-counting</strong> — I checked, and the
+funding rows are transfers while the stipend rows are expenses.</p>
+
+<p><strong>The wife's side of the family cost 770,701</strong>, of which 343,943 is
+medical. Azam Uncle's angioplasty was 347,258 gross across 23 rows in five weeks — but he
+sent 100,000 back, and that reimbursement is invisible in the expense ledger because it
+arrived as a transfer. Net, about 247,258. Areeba's LUMS course was 56,212, her CMH
+admission 55,604. Maryam's wedding cost you about 184,893 spread across the Donation and
+Family categories, where no category-level report will ever surface it as spending on one person.</p>
+
+<p><strong>The cats cost 577,108</strong> — 4.3% of personal spend — and 48% of that was
+JJ getting sick. His FIP course was 277,284, of which 210,000 was
+four GS-441524 payments compressed into 32 days. That course is finished and drops out of next year;
+baseline cat ownership is about 178,420, roughly 15,000 a month. A further 113,493 went on animals that
+aren't yours — stray cat food, a stray kitten's vet bills, a donation to Laiba's FIP case.</p>
+
+<h2>The liquidity paradox</h2>
+<p class="lede">You saved a fifth of your income and finished the year with less spendable cash than
+you started. This is the single most important pattern in your finances.</p>
+
+<figure>
+<svg viewBox="0 0 780 260" class="cv" role="img" aria-label="Free liquid cash at each month end"><line class="grid" x1="58" y1="216.0" x2="766" y2="216.0"/><text class="ax" x="50" y="220.0" text-anchor="end">-5L</text><line class="grid" x1="58" y1="169.3" x2="766" y2="169.3"/><text class="ax" x="50" y="173.3" text-anchor="end">0L</text><line class="grid" x1="58" y1="122.7" x2="766" y2="122.7"/><text class="ax" x="50" y="126.7" text-anchor="end">5L</text><line class="grid" x1="58" y1="76.0" x2="766" y2="76.0"/><text class="ax" x="50" y="80.0" text-anchor="end">10L</text><line class="grid" x1="58" y1="29.3" x2="766" y2="29.3"/><text class="ax" x="50" y="33.3" text-anchor="end">15L</text><line class="ref" x1="58" y1="64.1" x2="766" y2="64.1"/><text class="reflab" x="762" y="57.1" text-anchor="end">one month of spending (11.27L)</text><rect class="s1" x="74.5" y="30.2" width="26.0" height="139.2" rx="3"><title>Jul 25: 1,491,202 free liquid</title></rect><text class="ax" x="87.5" y="232" text-anchor="middle">Jul</text><rect class="s1" x="133.5" y="104.7" width="26.0" height="64.6" rx="3"><title>Aug 25: 692,545 free liquid</title></rect><text class="ax" x="146.5" y="232" text-anchor="middle">Aug</text><rect class="s1" x="192.5" y="67.6" width="26.0" height="101.7" rx="3"><title>Sep 25: 1,089,848 free liquid</title></rect><text class="ax" x="205.5" y="232" text-anchor="middle">Sep</text><rect class="s1" x="251.5" y="105.4" width="26.0" height="64.0" rx="3"><title>Oct 25: 685,489 free liquid</title></rect><text class="ax" x="264.5" y="232" text-anchor="middle">Oct</text><rect class="s1" x="310.5" y="119.1" width="26.0" height="50.2" rx="3"><title>Nov 25: 538,257 free liquid</title></rect><text class="ax" x="323.5" y="232" text-anchor="middle">Nov</text><rect class="neg" x="369.5" y="169.3" width="26.0" height="34.0" rx="3"><title>Dec 25: −364,380 free liquid</title></rect><text class="ax" x="382.5" y="232" text-anchor="middle">Dec</text><rect class="s1" x="428.5" y="60.6" width="26.0" height="108.7" rx="3"><title>Jan 26: 1,164,474 free liquid</title></rect><text class="ax" x="441.5" y="232" text-anchor="middle">Jan</text><rect class="s1" x="487.5" y="76.0" width="26.0" height="93.3" rx="3"><title>Feb 26: 999,705 free liquid</title></rect><text class="ax" x="500.5" y="232" text-anchor="middle">Feb</text><rect class="s1" x="546.5" y="102.1" width="26.0" height="67.2" rx="3"><title>Mar 26: 720,037 free liquid</title></rect><text class="ax" x="559.5" y="232" text-anchor="middle">Mar</text><rect class="s1" x="605.5" y="73.3" width="26.0" height="96.0" rx="3"><title>Apr 26: 1,028,562 free liquid</title></rect><text class="ax" x="618.5" y="232" text-anchor="middle">Apr</text><rect class="s1" x="664.5" y="118.9" width="26.0" height="50.4" rx="3"><title>May 26: 540,495 free liquid</title></rect><text class="ax" x="677.5" y="232" text-anchor="middle">May</text><rect class="s1" x="723.5" y="149.5" width="26.0" height="19.9" rx="3"><title>Jun 26: 212,900 free liquid</title></rect><text class="ax" x="736.5" y="232" text-anchor="middle">Jun</text><text class="note neg-t" x="382.5" y="219.3" text-anchor="middle">−3.6L</text><text class="note" x="736.5" y="141.5" text-anchor="middle">2.1L</text><line class="base" x1="58" y1="169.3" x2="766" y2="169.3"/></svg>
+<figcaption>Free liquid cash at each month end: bank, cash, wallets, mutual fund and brokerage, less
+the credit-card balance and less money you were holding for or had borrowed from others. Your
+parents' 15.05 lakh is excluded as long-term capital. December 2025 is negative because you were
+holding 493,903 of other people's money at the time.</figcaption>
+</figure>
+
+<p>Here is where the 4,801,717 of net-worth growth physically went. This is a complete
+bridge, not a selection — every account that moved during the year is in it, and it sums exactly:</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Where it went / what funded it</th><th class="n">FY26 change</th></tr></thead><tbody><tr><td class="t">The Springs apartment and the Marina plot file</td><td class="n">+4,671,502</td></tr><tr><td class="t">Lent to Danish, Tabish and Abdul Sami</td><td class="n">+2,728,708</td></tr><tr><td class="t">FleetGlue office receivable</td><td class="n">+107,301</td></tr><tr><td class="t">Khaliq Younus committee contribution</td><td class="n">+75,000</td></tr><tr><td class="t">All other friend and family ledgers, net</td><td class="n">−54,916</td></tr><tr><td class="t">Cash, banks and wallets, net</td><td class="n">+453,551</td></tr><tr><td class="t">Borrowed from your parents for Spring</td><td class="n">−1,504,980</td></tr><tr><td class="t">Holding Umaid's Spring money at year end</td><td class="n">−507,084</td></tr><tr><td class="t">Borrowed from Wasiq</td><td class="n">−179,927</td></tr><tr><td class="t">Credit-card float grown</td><td class="n">−125,532</td></tr><tr><td class="t">Al Meezan mutual fund drained</td><td class="n">−575,498</td></tr><tr><td class="t">Provident fund encashed and spent</td><td class="n">−286,408</td></tr><tr><td class="t">Net worth growth</td><td class="n">+4,801,717</td></tr></tbody></table></div>
+
+<p><strong>On the committees, since the two are easy to conflate.</strong> The Rohan Committee is
+<em>not</em> in the figure above — you paid into it for the first time on 5 July 2026, five days after
+this fiscal year closed, so it belongs to FY27. What is in the figure is the 75,000 you put
+into the <strong>Khaliq Younus committee</strong> on 18 June 2026.</p>
+
+<p>That 75,000 has since changed character. You started that committee and were due to collect in
+December; Ahmad Bhatti has taken your turn for his wedding and will repay you the 75,000 in December
+instead. So it is no longer a committee position — it is a receivable from Bhatti, and Bhatti is the
+best credit in your book (94% lifetime, and a time-weighted balance of 24,105 against a
+1,471,020 peak). The risk is close to nil.</p>
+
+<p>The thing to notice is the date. That 75,000 now lands in <strong>December 2026 — the same month
+as the 3,101,200 possession payment</strong>. It is a small help arriving in an already
+crowded month, and it is one more thing that has to actually happen on time.</p>
+
+<p>Spring alone absorbed <strong>94.2% of the entire year's net-worth gain</strong>. A third of it
+(1,504,980, exactly 33.3%) is your parents' money, on which you have repaid nothing and which
+has not moved since 10 November 2025. Your own equity in the apartment is 3,018,522.</p>
+
+<blockquote class="alert">
+<p><strong>You held less than one month of spending on 289 of 365 days.</strong> Under half a month
+on 68 days. Under 300,000 on 20 days. Only three month-ends cleared one month of cover — July,
+September and January — and all three were spent down the following month.</p>
+</blockquote>
+
+<h3>The mutual fund is not an investment, it is an overdraft you built yourself</h3>
+<p>Al Meezan opened the year at 622,858 and closed at 47,360. In between,
+3,053,282 went in across 20 deposits and 3,650,745 came out across 28 withdrawals —
+6.4× turnover, money sitting an average of 57 days. In the account's first six months after opening
+it saw <em>zero</em> withdrawals. In FY26 it saw 28.</p>
+
+<p>The largest single use was lending: <strong>1,018,000, 27.9% of everything withdrawn,
+went straight out as loans to friends</strong> — and your own notes say so. "For loaning to Bhatti"
+(450,000). "Transferred so I can loan money to Tabish for his school principal's father's hospital
+emergency" (68,000). "For Danish Daman" (500,000 in two tranches). Your own Spring instalments took
+947,745. Cash-flow rescues took 450,000, including "Salary late, Alishba needs"
+(120,000). The last withdrawal of the year, on 29 June: "Wanna start next month from 0/0."</p>
+
+<p>The fund earned 8.4% gross, 4.5% net of losses and fees. It was doing its job. It is now empty,
+which means the next lumpy year has to come out of cash flow or credit.</p>
+
+<h2>The credit card treadmill</h2>
+<p class="lede">Your read on this is right — but the mechanism is not the one you described, and
+that changes the fix.</p>
+
+<figure>
+<div class="legend">
+  <span><i class="sw" style="background:var(--s1)"></i>Balance at month end</span>
+  <span><i class="sw" style="background:var(--s2);opacity:.42"></i>Peak debt within the month</span>
+</div>
+<svg viewBox="0 0 780 250" class="cv" role="img" aria-label="Credit card debt by month, peak within month and at month end"><line class="grid" x1="58" y1="20.0" x2="766" y2="20.0"/><text class="ax" x="50" y="24.0" text-anchor="end">0L</text><line class="grid" x1="58" y1="80.0" x2="766" y2="80.0"/><text class="ax" x="50" y="84.0" text-anchor="end">2L</text><line class="grid" x1="58" y1="140.0" x2="766" y2="140.0"/><text class="ax" x="50" y="144.0" text-anchor="end">4L</text><line class="grid" x1="58" y1="200.0" x2="766" y2="200.0"/><text class="ax" x="50" y="204.0" text-anchor="end">6L</text><rect class="s2 dim" x="69.5" y="20" width="17.0" height="0.0" rx="3"><title>Jul 25 peak debt 0</title></rect><rect class="s1" x="88.5" y="20" width="17.0" height="0.0" rx="3"><title>Jul 25 month-end 0</title></rect><text class="ax" x="87.5" y="222" text-anchor="middle">Jul</text><rect class="s2 dim" x="128.5" y="20" width="17.0" height="44.1" rx="3"><title>Aug 25 peak debt −147,126</title></rect><rect class="s1" x="147.5" y="20" width="17.0" height="44.1" rx="3"><title>Aug 25 month-end −147,126</title></rect><text class="ax" x="146.5" y="222" text-anchor="middle">Aug</text><rect class="s2 dim" x="187.5" y="20" width="17.0" height="48.0" rx="3"><title>Sep 25 peak debt −160,104</title></rect><rect class="s1" x="206.5" y="20" width="17.0" height="28.7" rx="3"><title>Sep 25 month-end −95,762</title></rect><text class="ax" x="205.5" y="222" text-anchor="middle">Sep</text><rect class="s2 dim" x="246.5" y="20" width="17.0" height="65.3" rx="3"><title>Oct 25 peak debt −217,505</title></rect><rect class="s1" x="265.5" y="20" width="17.0" height="12.5" rx="3"><title>Oct 25 month-end −41,792</title></rect><text class="ax" x="264.5" y="222" text-anchor="middle">Oct</text><rect class="s2 dim" x="305.5" y="20" width="17.0" height="173.1" rx="3"><title>Nov 25 peak debt −576,992</title></rect><rect class="s1" x="324.5" y="20" width="17.0" height="20.8" rx="3"><title>Nov 25 month-end −69,387</title></rect><text class="ax" x="323.5" y="222" text-anchor="middle">Nov</text><rect class="s2 dim" x="364.5" y="20" width="17.0" height="67.6" rx="3"><title>Dec 25 peak debt −225,364</title></rect><rect class="s1" x="383.5" y="20" width="17.0" height="67.6" rx="3"><title>Dec 25 month-end −225,364</title></rect><text class="ax" x="382.5" y="222" text-anchor="middle">Dec</text><rect class="s2 dim" x="423.5" y="20" width="17.0" height="82.5" rx="3"><title>Jan 26 peak debt −275,075</title></rect><rect class="s1" x="442.5" y="20" width="17.0" height="11.3" rx="3"><title>Jan 26 month-end −37,563</title></rect><text class="ax" x="441.5" y="222" text-anchor="middle">Jan</text><rect class="s2 dim" x="482.5" y="20" width="17.0" height="132.9" rx="3"><title>Feb 26 peak debt −442,919</title></rect><rect class="s1" x="501.5" y="20" width="17.0" height="7.5" rx="3"><title>Feb 26 month-end −25,057</title></rect><text class="ax" x="500.5" y="222" text-anchor="middle">Feb</text><rect class="s2 dim" x="541.5" y="20" width="17.0" height="81.1" rx="3"><title>Mar 26 peak debt −270,279</title></rect><rect class="s1" x="560.5" y="20" width="17.0" height="18.2" rx="3"><title>Mar 26 month-end −60,690</title></rect><text class="ax" x="559.5" y="222" text-anchor="middle">Mar</text><rect class="s2 dim" x="600.5" y="20" width="17.0" height="24.8" rx="3"><title>Apr 26 peak debt −82,758</title></rect><rect class="s1" x="619.5" y="20" width="17.0" height="12.0" rx="3"><title>Apr 26 month-end −40,126</title></rect><text class="ax" x="618.5" y="222" text-anchor="middle">Apr</text><rect class="s2 dim" x="659.5" y="20" width="17.0" height="158.5" rx="3"><title>May 26 peak debt −528,480</title></rect><rect class="s1" x="678.5" y="20" width="17.0" height="113.9" rx="3"><title>May 26 month-end −379,553</title></rect><text class="ax" x="677.5" y="222" text-anchor="middle">May</text><rect class="s2 dim" x="718.5" y="20" width="17.0" height="155.8" rx="3"><title>Jun 26 peak debt −519,190</title></rect><rect class="s1" x="737.5" y="20" width="17.0" height="37.7" rx="3"><title>Jun 26 month-end −125,532</title></rect><text class="ax" x="736.5" y="222" text-anchor="middle">Jun</text><text class="note" x="323.5" y="209.1" text-anchor="middle">5.77L peak</text><line class="base" x1="58" y1="20" x2="766" y2="20"/></svg>
+<figcaption>Faysal Noor World. Limit 10 lakh, statement on the 10th. The month-end figure is what
+you would see on a statement; the peak is what you actually owed at the worst moment of each month.</figcaption>
+</figure>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Measure</th><th class="t">FY26</th></tr></thead><tbody><tr><td class="t">Charged to the card</td><td class="t">5,305,344 across 938 rows</td></tr><tr><td class="t">— of which direct personal expense</td><td class="t">3,578,705 · 26% of all personal spend</td></tr><tr><td class="t">Repaid</td><td class="t">5,179,812 across just 36 payment events</td></tr><tr><td class="t">Days carrying a balance</td><td class="t">301 of 365</td></tr><tr><td class="t">Peak debt</td><td class="t">576,992 on 27 Nov 2025 · 58% of limit</td></tr><tr><td class="t">Average bill payment per month</td><td class="t">431,651 · 29.4% of average monthly income</td></tr><tr><td class="t">Interest, markup or late fees paid</td><td class="t">0 — none anywhere in the ledger</td></tr><tr><td class="t">Actual annual cost</td><td class="t">26,103 (26,000 annual fee + 103 of transfer charges)</td></tr></tbody></table></div>
+
+<p>So the cycle is real: <strong>29.4% of every month's income is committed to last month's
+spending before the month begins.</strong> That is the treadmill, and 26% of your personal spend
+runs on it.</p>
+
+<p>But you are not paying for it in interest — you are paying for it in <em>timing</em>. And here is
+the part that is genuinely fixable:</p>
+
+<blockquote>
+<p><strong>You pay the card early, on payday, instead of when it is due.</strong> Fifteen payments
+totalling 2,531,830 are labelled by you as "Advance Bill Payment". Fourteen of 36 payments
+land on days 1–10 — at or before the statement even generates. The median payment day is the 14th.</p>
+</blockquote>
+
+<p>Your statement generates on the 10th and the bill is due at month end. So every purchase buys
+you between <strong>18 and 50 days of free credit, averaging 35</strong>, and you are handing most of
+that back by paying on payday instead of on the deadline.</p>
+
+<p>I modelled what paying on the due date would actually have done, charge by charge across all 938 of
+them. The honest answer is smaller than a first pass suggests, because your credit limit binds:</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Payment policy</th><th class="n">Average card balance</th><th class="t">Peak</th><th class="t">Extra cash you would hold</th></tr></thead><tbody><tr><td class="t">What you did (pay on payday)</td><td class="n">153,452</td><td class="t">576,992 (58% of limit)</td><td class="t">—</td></tr><tr><td class="t">Pay on the due date, ignoring the limit</td><td class="n">495,188</td><td class="t">1,364,208 (136% of limit)</td><td class="t">341,736</td></tr><tr><td class="t">Pay on the due date, capped at 850,000</td><td class="n">334,518</td><td class="t">850,000 (85% of limit)</td><td class="t">181,066</td></tr></tbody></table></div>
+
+<p>The middle row is not available to you. February 2026 alone carried 1,019,965 of charges,
+and a pure pay-at-deadline policy would have pushed you through your 10 lakh limit on 27 February. The
+realistic version is the third row: pay at the deadline, but make an early top-up in heavy months to
+stay clear of the ceiling. That needed 21 such top-ups across the year and yields about
+<strong>181,066</strong> of extra permanent cash, or 250,000 if you are willing to run
+closer to the limit.</p>
+
+<blockquote>
+<p><strong>Size this honestly: it is worth 1.8 to 2.5 lakh, and it is not your biggest lever.</strong>
+What recommends it is not size but cost. It is free, it needs no change in what you spend, and it
+works from this month.</p>
+<p>It also carries one risk your current habit does not. Paying <em>at</em> the deadline costs
+nothing; paying <em>after</em> it is penalised heavily. Clearing the card the moment salary lands is
+financially suboptimal but operationally safe, because you cannot miss a deadline you have already
+beaten by three weeks. Moving to deadline payment trades a small certain loss for a small gain plus a
+tail risk: one missed month of markup on a 500,000 balance would wipe out a year of the
+benefit. So do it with a standing instruction dated a few days before month end, not a reminder. If
+you would not trust yourself with that, keep doing what you are doing.</p>
+</blockquote>
+
+<p>One correction to how you might be thinking about the limit as a safety net: <strong>your 10-lakh
+limit is not a 10-lakh reserve.</strong> Only 50,000 of it is cashable. For a bank transfer to a
+property developer — which is what the possession payment is — the card is worth 50,000, not 10 lakh.
+It cannot bridge Spring.</p>
+
+<h2>The loan book</h2>
+<p class="lede">Your judgment about who to lend to is better than you probably think. Your judgment
+about <em>how much</em> and <em>from what money</em> is the problem.</p>
+
+<figure>
+<svg viewBox="0 0 780 323" class="cv" role="img" aria-label="Lifetime repayment rate by counterparty"><text class="rl" x="122" y="29" text-anchor="end">Fahad</text><rect class="track" x="132" y="18" width="498" height="15" rx="3"/><rect class="good" x="132" y="18" width="498.0" height="15" rx="3"><title>Fahad: 623,295 back of 565,189</title></rect><text class="rv" x="638" y="30">110% · 5.65 L out</text><text class="rl" x="122" y="56" text-anchor="end">Abdul Wahab</text><rect class="track" x="132" y="45" width="498" height="15" rx="3"/><rect class="good" x="132" y="45" width="492.4" height="15" rx="3"><title>Abdul Wahab: 155,036 back of 156,813</title></rect><text class="rv" x="638" y="57">99% · 1.57 L out</text><text class="rl" x="122" y="83" text-anchor="end">Aliyan</text><rect class="track" x="132" y="72" width="498" height="15" rx="3"/><rect class="good" x="132" y="72" width="485.0" height="15" rx="3"><title>Aliyan: 556,276 back of 571,153</title></rect><text class="rv" x="638" y="84">97% · 5.71 L out</text><text class="rl" x="122" y="110" text-anchor="end">Wasiq</text><rect class="track" x="132" y="99" width="498" height="15" rx="3"/><rect class="good" x="132" y="99" width="471.8" height="15" rx="3"><title>Wasiq: 2,196,814 back of 2,318,734</title></rect><text class="rv" x="638" y="111">95% · 23.19 L out</text><text class="rl" x="122" y="137" text-anchor="end">Ahmad Bhatti</text><rect class="track" x="132" y="126" width="498" height="15" rx="3"/><rect class="good" x="132" y="126" width="468.6" height="15" rx="3"><title>Ahmad Bhatti: 3,268,678 back of 3,473,809</title></rect><text class="rv" x="638" y="138">94% · 34.74 L out</text><text class="rl" x="122" y="164" text-anchor="end">Aun</text><rect class="track" x="132" y="153" width="498" height="15" rx="3"/><rect class="good" x="132" y="153" width="442.2" height="15" rx="3"><title>Aun: 310,562 back of 349,783</title></rect><text class="rv" x="638" y="165">89% · 3.50 L out</text><text class="rl" x="122" y="191" text-anchor="end">Alishba</text><rect class="track" x="132" y="180" width="498" height="15" rx="3"/><rect class="warn" x="132" y="180" width="361.7" height="15" rx="3"><title>Alishba: 634,186 back of 873,156</title></rect><text class="rv" x="638" y="192">73% · 8.73 L out</text><text class="rl" x="122" y="218" text-anchor="end">Mama</text><rect class="track" x="132" y="207" width="498" height="15" rx="3"/><rect class="warn" x="132" y="207" width="338.6" height="15" rx="3"><title>Mama: 559,000 back of 822,236</title></rect><text class="rv" x="638" y="219">68% · 8.22 L out</text><text class="rl" x="122" y="245" text-anchor="end">Tabish</text><rect class="track" x="132" y="234" width="498" height="15" rx="3"/><rect class="critical" x="132" y="234" width="127.0" height="15" rx="3"><title>Tabish: 410,871 back of 1,611,576</title></rect><text class="rv" x="638" y="246">25% · 16.12 L out</text><text class="rl" x="122" y="272" text-anchor="end">Danish</text><rect class="track" x="132" y="261" width="498" height="15" rx="3"/><rect class="critical" x="132" y="261" width="98.6" height="15" rx="3"><title>Danish: 412,000 back of 2,081,699</title></rect><text class="rv" x="638" y="273">20% · 20.82 L out</text><text class="rl" x="122" y="299" text-anchor="end">Abdul Sami</text><rect class="track" x="132" y="288" width="498" height="15" rx="3"/><rect class="critical" x="132" y="288" width="29.2" height="15" rx="3"><title>Abdul Sami: 25,000 back of 426,282</title></rect><text class="rv" x="638" y="300">6% · 4.26 L out</text><line class="ref" x1="555.3" y1="10" x2="555.3" y2="315"/><text class="reflab" x="559.3" y="10">85%</text></svg>
+<figcaption>Lifetime repayment rate by counterparty, from inception of the ledger (Dec 2021) to
+27 Aug 2026. Green ≥85%, amber 60–85%, red below 60%. Bar length is the recovery rate; the label
+shows total ever advanced.</figcaption>
+</figure>
+
+<p>Across 4.7 years you have advanced 13,300,430 and recovered 69% of it. The headline rate is
+not the point though, because the book is really two unrelated things: money that circulates, and
+money that was never coming back.</p>
+
+<p><strong>The reciprocal set settles reliably.</strong> Fahad 110%, Wahab 99%, Aliyan 97%,
+Wasiq 95%, Bhatti 94%, Aun 89%. Ahmad Bhatti is the extreme case: he took 2,857,078 across
+169 advances in FY26 — including 1,430,000 for a car on 5 December — and returned
+2,851,600. That 14.3 lakh was outstanding for <em>under nine hours</em>. His time-weighted
+average balance for the whole year was 24,105. He costs you nothing.</p>
+
+<p><strong>The need-based set does not settle at all.</strong> Danish 20%, Tabish 25%,
+Abdul Sami 6%. And that is where your money is:</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Person</th><th class="n">At 30 Jun 26</th><th class="n">Today</th><th class="t">Recovery</th><th class="t">Advances</th></tr></thead><tbody><tr><td class="t">Danish</td><td class="n">1,500,000</td><td class="n">1,500,000</td><td class="t">20%</td><td class="t">16 since Sep 2022</td></tr><tr><td class="t">Tabish</td><td class="n">984,716</td><td class="n">1,107,216</td><td class="t">25%</td><td class="t">104 since Sep 2022</td></tr><tr><td class="t">Abdul Sami</td><td class="n">376,282</td><td class="n">401,282</td><td class="t">6%</td><td class="t">18 since Sep 2022</td></tr><tr><td class="t">Three-name total</td><td class="n">2,860,998</td><td class="n">3,008,498</td><td class="t">—</td><td class="t">—</td></tr></tbody></table></div>
+
+<p>All three closed the year at <strong>their highest balance ever recorded</strong> — FY26 peak
+equals FY26 close for each of them. On the currently open balances, genuine repayment is 6,866
+against 2,860,998 outstanding: about 0.2%.</p>
+
+<ul>
+<li><strong>Tabish is not a loan, it is a standing subsidy of roughly 78,000 a month.</strong> 104
+advances, a median of 10,000 every four days, and the balance rose in 11 of 12 months. Since FY26
+closed he has taken another 122,500 across nine advances and repaid nothing.</li>
+<li><strong>The Danish 15 lakh is 15× your largest prior advance to him</strong>, is three tranches
+for emigration costs, has received zero repayment in the 5.5 months since March — and the first
+500,000 was not your money. It came directly out of Wasiq's ledger. You borrowed from one friend to
+lend to another.</li>
+<li><strong>Abdul Sami has had 18 advances over four years against a single ambiguous 25,000
+inflow.</strong> Recovery is 6% at best and plausibly zero.</li>
+</ul>
+
+<p>Averaged across every day of the year, 1,417,768 was permanently parked with those three
+men — against a time-weighted total of 1,581,193 in every bank, fund and brokerage you own.
+<strong>On 168 of 365 days, what three friends owed you exceeded everything you held.</strong></p>
+
+<blockquote class="alert">
+<p><strong>27–28 January 2026 is the whole pattern in two days.</strong></p>
+<p>On 27 Jan, the day before your Beyond ONE settlement landed, you borrowed 725,000 from
+five friends across eight hours — Wahab 100,000 and Wasiq 150,000 at 09:38, Tabish 50,000 and Bhatti
+250,000 at 15:08, Danish 175,000 at 16:13. In the middle of that, at 15:21, you spent 360,000
+on a MacBook Pro. Your liquid balance that morning was 218,540.</p>
+<p>Danish owed you 10 lakh at the time. You borrowed 175,000 from him.</p>
+<p>The settlement hit at 15:52 the next day. Within 72 minutes you had repaid all five, cleared
+305,294 to the card, closed the 193,374 installment plan — and lent Danish a fresh
+500,000 for his visa fee and Abdul Sami another 50,000. The largest single inflow of your working
+life had a holding period of about an hour.</p>
+</blockquote>
+
+<h2>The apartment, and the deadline you are walking into</h2>
+<figure>
+<svg viewBox="0 0 780 116" class="cv" role="img" aria-label="Spring apartment payment progress"><rect class="s1" x="0.0" y="24" width="234.3" height="30" rx="3"><title>Paid to date: 4,697,803</title></rect><text class="seg" x="118.2" y="70" text-anchor="middle">46.98 L</text><text class="seg2" x="118.2" y="86" text-anchor="middle">30%</text><rect class="critical" x="238.3" y="24" width="154.0" height="30" rx="3"><title>Payment on possession: 3,101,200</title></rect><text class="seg" x="314.3" y="70" text-anchor="middle">31.01 L</text><text class="seg2" x="314.3" y="86" text-anchor="middle">20%</text><rect class="track2" x="394.3" y="24" width="385.7" height="30" rx="3"><title>Remaining instalments to 2030: 7,706,998</title></rect><text class="seg" x="586.2" y="70" text-anchor="middle">77.07 L</text><text class="seg2" x="586.2" y="86" text-anchor="middle">50%</text><text class="rl" x="0" y="14">Contract net price 15,506,001 · 1-bed, 815 sqft, The Springs, Canal Road</text><text class="seg3" x="314.3" y="106" text-anchor="middle">due ~Dec 2026</text></svg>
+<figcaption>From the Annexure-A post-possession plan: 1-bed, 815 sqft, apartment 4,168, net price
+15,506,001 after a 2% trade discount. Your payments reconcile against the contract schedule
+to within 5 rupees.</figcaption>
+</figure>
+
+<p>You have paid 4,697,803 — 30.3% of the contract. The instalment schedule runs to
+1 July 2030 and includes two balloon payments of 620,240 in 2028. The Oct 2026 quarter is
+part-paid: 174,301 of 474,301.</p>
+
+<p>Then there is the 20% <strong>payment on possession: 3,101,200</strong>. Spring say
+possession lands around the end of this year, with 60 days' notice. You have told me you do not have
+it. Here is what the arithmetic says about that:</p>
+
+<p>Your salary is now <strong>$80,000 a year</strong>, paid in 26 fortnightly instalments of
+$3,076.92, with the raise taking effect from the 28 August 2026 payment. It arrives as remittance and
+is effectively untaxed at about 0.5%. At 271 to the dollar that is <strong>1,797,633 a
+month</strong>, up from 1,483,048 on the old $66,000.</p>
+
+<p>That changes the possession question from "can you?" to "by when?":</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Building the possession payment</th><th class="t">Amount</th></tr></thead><tbody><tr><td class="t">Monthly income, net of 0.5%</td><td class="t">1,797,633</td></tr><tr><td class="t">Less living at last year's 11.27 L run-rate</td><td class="t">−1,127,313</td></tr><tr><td class="t">Less the Rohan Committee contribution</td><td class="t">−150,000</td></tr><tr><td class="t">Monthly accumulation</td><td class="t">+520,320</td></tr><tr><td class="t">Opening free liquid today, net of the stranded Wise</td><td class="t">141,776</td></tr><tr><td class="t">Plus the Oct 2026 Spring balance still to pay</td><td class="t">−300,600</td></tr><tr><td class="t">Months of saving needed to reach 3,101,200</td><td class="t">6.3</td></tr><tr><td class="t">So the money is there from</td><td class="t">around March 2027</td></tr></tbody></table></div>
+
+<p>Two things then make this comfortable rather than tight. Annexure-A puts possession
+<em>between 20 and 36 months</em> with 60 days' notice, and since your token was 22 July 2025 the
+contractual earliest is roughly March to May 2027 — which is about when the money is there anyway. And
+Spring have told you that you may take <strong>up to a year</strong> to make the possession payment
+once it is called.</p>
+
+<p>That second point removes the cliff. Spread over twelve months the payment is 258,433 a
+month, and it can run alongside the quarterly instalments:</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Paying possession over 12 months</th><th class="n">Per month</th></tr></thead><tbody><tr><td class="t">Monthly accumulation on $80,000</td><td class="n">+520,320</td></tr><tr><td class="t">Possession payment, 3,101,200 over 12 months</td><td class="n">−258,433</td></tr><tr><td class="t">Quarterly instalments continuing, 474,301 each</td><td class="n">−158,100</td></tr><tr><td class="t">Net, with no rental income</td><td class="n">+103,786</td></tr><tr><td class="t">Net, if the flat is let at 70,000</td><td class="n">+173,786</td></tr><tr><td class="t">Net, if the flat is let at 80,000</td><td class="n">+183,786</td></tr></tbody></table></div>
+
+<blockquote>
+<p><strong>So the apartment is affordable, on three conditions.</strong> It needs the $80,000 to hold,
+it needs your spending to stay near the 11.27 L run-rate, and it needs Spring's year of grace to be
+real rather than a verbal courtesy.</p>
+<p>That third one is the one to nail down, because the payment plan you signed says nothing about it.
+Annexure-A lists "Payment on Possession, 20%, 3,101,200" as a single line with no grace period
+attached. Three things worth getting in writing before you rely on it:</p>
+<ol>
+<li>The year to pay, confirmed in writing rather than in conversation.</li>
+<li><strong>Whether you get the keys while you are still paying.</strong> This is the financially
+important one. If possession is withheld until the 20% is settled, you lose a year of rent — around
+900,000 — and the deferral is worth much less than it looks. If you hold the keys and pay over
+the year, the rent covers roughly a third of the payment itself.</li>
+<li>Whether any markup or late charge attaches to the deferred balance. A year of financing on 31 lakh
+is not a rounding error if it is priced.</li>
+</ol>
+</blockquote>
+
+<blockquote class="alert">
+<p><strong>Read the contract on timing before you plan around December.</strong> Annexure-A says
+possession falls <em>between 20 and 36 months</em>, communicated 60 days in advance. Your token was
+22 July 2025 and the plan was signed in September 2025, so the contractual <em>earliest</em>
+possession is around March to May 2027. A December 2026 handover would be roughly five months ahead
+of the contract minimum.</p>
+<p>That distinction is worth more to you than any spending change in this report. On the $80,000
+salary, a December call leaves you 1,178,743 short and a May call leaves you
+1,374,257 clear — because both committee payouts land in February and April, before a
+spring 2027 deadline and after a December one. Get the expected date in writing.</p>
+</blockquote>
+
+<p><strong>On the rental plan:</strong> 70–80k a month on a 15,506,001 asset is a 5.4–6.2%
+gross yield, which is a reasonable Lahore number. But it will not make the apartment self-funding.
+Rent of 80,000 gives you 240,000 a quarter against a 474,301 quarterly instalment —
+you would still be short 234,301 every quarter until 2030, before maintenance, tax or
+vacancy. Possession improves the picture; it does not solve it.</p>
+
+<h2>What next year already owes</h2>
+<p>These are commitments, not choices. Two of them did not exist during FY26.</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">Commitment</th><th class="n">Next 12 months</th><th class="t">Note</th></tr></thead><tbody><tr><td class="t">The Springs — Oct 2026 balance, possession, Jan/Apr/Jul quarters</td><td class="n">4,824,103</td><td class="t">Contractual</td></tr><tr><td class="t">Rohan Committee contributions</td><td class="n">1,800,000</td><td class="t">150k/mo; started Jul 2026</td></tr><tr><td class="t">Aliyan's wedding hall food</td><td class="n">600,000</td><td class="t">600k of 700k outstanding, due ~Feb 2027</td></tr><tr><td class="t">Personal living at FY26's actual run-rate</td><td class="n">13,527,756</td><td class="t">11.27 L/mo</td></tr><tr><td class="t">Sub-total</td><td class="n">20,751,859</td><td class="t"></td></tr><tr><td class="t">Less committee payouts (Feb + Apr 2027)</td><td class="n">−1,500,000</td><td class="t">750k each</td></tr><tr><td class="t">Total required</td><td class="n">19,251,859</td><td class="t">= 16.04 L/month</td></tr><tr><td class="t">Income, 4 instalments at $66k then 22 at $80k</td><td class="n">20,990,806</td><td class="t">= 17.49 L/month</td></tr><tr><td class="t">Headroom</td><td class="n">1,738,947</td><td class="t">= +1.45 L/month</td></tr></tbody></table></div>
+
+<blockquote>
+<p><strong>It balances, with about 144,912 a month spare.</strong> Worth being clear how
+narrow that is: on the old $66,000 salary the same commitments would have run a
+1,455,289 deficit for the year. The raise is not an improvement to a working plan, it is the
+thing that makes the plan work. Your commitments were sized for an income you did not have until
+today.</p>
+<p>144,912 a month of slack against 660,217 a month of obligations means one bad
+month still hurts. It is enough to rebuild a buffer over a year. It is not enough to absorb another
+FY26 — a device refresh, two medical emergencies, a wedding and a sick cat.</p>
+</blockquote>
+
+<p>That is the conservative case. If you held spending to the 8.9 L normalised base instead of last
+year's 11.27 L actual, the headroom widens to about 4.83 L a month — but last year's "one-offs" were
+a device refresh, two medical emergencies, a wedding and a sick cat, and some version of those
+recurs. Budgeting on the base rate is how the 8.9 L becomes 11.27 L again.</p>
+
+<p>Either way it works on paper, and three things still make it fragile. You start from
+172,825. December alone needs 4,378,513 against 1,850,000 of income. And the
+committee payouts that would help arrive in <em>February and April</em> — two to four months
+<em>after</em> the possession payment falls due.</p>
+
+<blockquote class="ok">
+<p><strong>The biggest upside variable is not in the table.</strong> If Turing comes back at the rate
+it was running, that is roughly 1,584,403 of margin a year — about 1.32 L a month — on a
+65.8% margin with the contractor bench already tested. It would close the possession shortfall on
+its own. It is also entirely outside your control, which is exactly why it should not be in the
+plan: budget as though it never returns, and treat it as a windfall that rebuilds the buffer rather
+than one that gets redeployed within the hour, as the January settlement was.</p>
+</blockquote>
+
+<p><strong>On tax:</strong> your pay arrives as remittance and is effectively untaxed at roughly
+0.5%, which is why the ledger contains no income tax at all. The 217,012 sitting in the Tax
+category is phone import duty, a lawyer's filing fee, Spring property tax and one 9,538 withholding.
+That is a real structural advantage: a salaried employee taking home 1,483,048 a month in
+Pakistan would be paying several lakh a year that you are not. It is also worth keeping properly
+filed and documented, because it is a large position to hold on an informal footing.</p>
+
+<p><strong>One currency note.</strong> You earn in dollars and spend in rupees, so rupee weakness
+raises your income in real terms and rupee strength cuts it. On the $80,000 salary, the difference
+between 265 and 280 to the dollar is 1,194,000 a year. That is roughly two Spring quarters,
+decided by something entirely outside your control, and it cuts both ways.</p>
+
+<h2>On "wealth is in generosity"</h2>
+<p class="lede">You asked me to test this and said I could criticise it. Here is the honest version,
+in three parts.</p>
+
+<h3>1. The causal claim is not supported — but a real network-income channel exists, and it worked the other way round</h3>
+<p>Your income went from 1.8 lakh a month in 2023 to about 14.8 lakh now, with 18 lakh agreed. That is roughly 8× in three
+years and it is a genuine achievement. The ledger can tell me <em>how</em> it happened, and giving
+money away is not visible anywhere in the mechanism.</p>
+<p>What is visible: you ran two incomes at once for four months, then moved to a USD-denominated
+remote role that pays 2.10× your old salary. That is the step change. Nothing in 8,811 rows connects
+41 advances to Tabish with a FleetGlue offer.</p>
+<p>But there <em>is</em> a network-income channel in your data, and it is Turing — a 65.8%
+gross-margin business built entirely on people you know, which earned you 1,584,403 in four
+months. Note the direction: you made that money by <strong>organising your network commercially and
+paying them a share</strong>, not by giving to it. Hammad, Xoraiz, Haroon and Maryam were
+contractors, not beneficiaries. That is the version of "my network is my wealth" that shows up in
+the numbers. And it was taken from you rather than given up: Turing benched you for lack of
+projects, and you would take it back tomorrow.</p>
+<p>None of which proves generosity doesn't help. Referrals, reputation and goodwill are real and
+this ledger genuinely cannot see them. But you should hold the belief as a belief, not as something
+the data confirms — because the data does not.</p>
+
+<h3>2. As spending, it is defensible and you are not being taken advantage of at scale</h3>
+<p>53% of your spending goes to other people and you save 26% anyway. Most people who give that
+freely at that income do not also save a quarter. Your parents' stipends are modest against your
+income. The medical spending on your in-laws bought a man an angioplasty. Your recovery rate on
+reciprocal lending is 94–110%. Your domestic staff cost 107,550 for the year — one-thirtieth
+of the family allowance line.</p>
+<p>And on the one occasion generosity was tested hard — JJ's FIP, 2.1 lakh inside five weeks with no
+warning — you paid it and the cat lived. I am not going to call that a bad allocation of capital.</p>
+
+<h3>3. The failure is sequencing, and it is specific</h3>
+<p>You fund generosity from the buffer and the investments, not from surplus. The evidence is in
+your own notes, not my inference:</p>
+<ul>
+<li>1,018,000 withdrawn from your only invested account explicitly to lend to friends</li>
+<li>500,000 to Danish sourced directly from Wasiq's ledger — borrowed money, on-lent interest-free</li>
+<li>725,000 borrowed from five friends in one day, including 175,000 from a man who owed
+you 10 lakh</li>
+<li>A 15.05 lakh interest-free loan from your parents, unrepaid, while 30 lakh of your own sits
+unrepaid with three friends</li>
+<li>The Aug 2026 committee payment half-funded from Wasiq's ledger</li>
+</ul>
+<p>That last symmetry is the one I would sit with. <strong>You borrow interest-free from your parents
+and lend interest-free to your friends.</strong> A third of your apartment is your mother and
+father's money that you have not begun to repay, and simultaneously 30 lakh of yours is with three
+men who have returned 0.2% of it. Both of those are generosity. They point in opposite directions.</p>
+
+<blockquote>
+<p><strong>Two of these three are not loans, and you know it.</strong> Tabish and Abdul Sami are
+qarz-e-hasana: both are dentists in real hardship, both have said they intend to repay, and you do not
+expect the money back for years, if ever. They sit in the ledger as loans because of what they said,
+not because of what you expect. Danish is different — that one is a genuine receivable and you expect
+it back inside a year or two.</p>
+<p>So the honest split of the 3,008,498 is not "three friends who don't pay". It is
+1,500,000 of asset and <strong>1,508,498 of money already given away.</strong></p>
+<p>Nothing in that needs defending. Supporting two destitute professionals is a choice you are
+entitled to make on your income, and the report has counted it as spending rather than lending
+throughout. The one thing worth changing is <em>where the decision happens</em>. You gave
+1,220,118 in FY26 through Tabish and Abdul Sami, and you never decided to give
+1,220,118 — it arrived 10,000 at a time, every four days, across 104 advances. Every other
+channel of your giving has a decision point: the stipends are set monthly, the donations are chosen,
+the kaffara has a rule. This one has none, which is why it is the only giving line that grew 27 lakh
+in a year without a conversation.</p>
+</blockquote>
+
+<h2>What I would actually do</h2>
+<p>Five things, in order of how much they move the needle. Nothing here requires you to be less
+generous.</p>
+
+<ol>
+<li><strong>Pause new qarz for four months.</strong> Tabish's run-rate alone is
+770,905 a year and he has repaid 1% of it. This is the largest lever you have, it is entirely
+within your control, and four months of it covers most of the possession shortfall on its own. It
+requires one conversation, not a change in who you are.</li>
+<li><strong>Stop paying the credit card on payday; pay it at the deadline instead.</strong> Worth
+about 181,066 of permanent free cash, capped by your credit limit rather than by choice. Small
+next to the qarz line, but free and available immediately. Use a standing instruction dated a few days
+before month end, not a reminder, because late payment is penalised heavily and your current early
+habit is at least safe from that.</li>
+<li><strong>Get Spring's terms in writing, this month.</strong> Three specifics: the expected
+possession date, the year you have been offered to pay the 3,101,200, and above all
+<em>whether you hold the keys while you pay</em>. That last one is worth about 900,000 of rent
+over the year and it is the difference between the deferral being a real reprieve and a softer
+deadline. None of it is in Annexure-A, so none of it is yours until it is written down. This costs
+nothing but an email and it de-risks the largest number in your plan.</li>
+<li><strong>Rebuild a current-account float of about 3 lakh and leave it alone.</strong> You raided the
+mutual fund 28 times for sums as small as 40,000 because your transactional account runs at zero —
+it sat below 50,000 on 63 days of the year and hit 7,846 in March. The fund churn is the symptom;
+the missing float is the disease.</li>
+<li><strong>Budget the qarz as the giving it is.</strong> Not zero, and not smaller necessarily —
+a decided number. Tabish and Abdul Sami cost you 1,220,118 in FY26 and you are on track for
+more; at 50,000 a month you would be giving 600,000 a year deliberately and would still be
+exactly the same person to them. Move it out of the loan ledger and into the monthly budget beside the
+stipends, so it competes with your other choices instead of accumulating underneath them.</li>
+<li><strong>Finish the health cover you have started, beginning with Alishba.</strong> You have
+already done the hardest part: your mother has a proper EFU plan from July 2026, and your father is
+too old to be eligible, which is a real constraint rather than an omission. What is left is the cheap
+part you have not done. FleetGlue provides nothing, so you and Alishba are uncovered — and here is
+where last year's 904,880 of medical actually went:
+in-laws 388,885 (43%), Alishba 177,156 (20%), your mother 112,027 (12%),
+your father 30,189 (3%). You insured the 12%. <strong>Alishba is the second-largest line and
+the cheapest person in the family to cover</strong>, being young and healthy. The in-laws are the
+biggest exposure and the hardest to insure; for them the honest instrument is a funded reserve, not a
+policy. A 4–5 lakh medical contingency line plus cover for the two of you would close almost all of
+it.</li>
+</ol>
+
+<h2>The verdict</h2>
+<p class="lede">No, you are not overspending. You never were. What you did was something else, and
+it does not have a household name, which is probably why you have been calling it overspending and
+feeling bad about the wrong thing: <strong>you over-committed.</strong></p>
+
+<h3>Are you overspending? No, and it is not close.</h3>
+<p>You spent 529,830 a month on yourself. That is 43.1% of your outgoings and
+<strong>34.4% of your net income</strong>. The other two thirds went to other people or into assets.
+You saved 19.4% in a year that absorbed a device refresh, a hair transplant, two family medical
+emergencies, a wedding season and a cat's FIP course, none of which repeat. Strip the one-offs and
+your base run-rate is 8.9 L a month against an income that is now 18.0 L.</p>
+
+<p>You also pay nothing to anyone for the use of money. In 4.7 years of records there is not one
+rupee of interest, markup or late fee. Your credit card cost you 26,103 for the year and
+26,000 of that was the annual fee. You used 0% installments correctly and closed them early.
+Most people at your income are financing a car or revolving a card balance. You are financing
+nothing.</p>
+
+<h3>The real mistake: you over-committed, which is not the same thing</h3>
+<p>These two get confused constantly, and the difference decides what you should actually change.</p>
+
+<ul>
+<li><strong>Overspending</strong> is consuming more than you earn. You test it with a savings rate and
+a discretionary share. Every one of your numbers says no.</li>
+<li><strong>Over-committing</strong> is promising money you do not yet have. You test it by adding up
+what you are contractually or morally obliged to pay next month and dividing by what you earn. This is
+where your problem lives, and it is invisible in a spending report.</li>
+</ul>
+
+<p>Here is every standing obligation you took on, in the order you took it, against what you were
+earning at the time:</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">When</th><th class="t">What you committed to</th><th class="n">Standing per month</th><th class="t">Income per month</th><th class="t">% committed</th></tr></thead><tbody><tr><td class="t">Jul 2025</td><td class="t">Alishba 75k, Abujan 35k, Mama 30k</td><td class="n">140,000</td><td class="t">1,262,270</td><td class="t">11%</td></tr><tr><td class="t">Jul–Sep 2025</td><td class="t"><strong>The Springs</strong> — 1.55 cr contract signed; instalments begin at 404,980; Alishba to 100k</td><td class="n">544,980</td><td class="t">1,262,270</td><td class="t">43%</td></tr><tr><td class="t">Oct 2025</td><td class="t"><strong>Turing is benched. Your income falls by a third.</strong></td><td class="n">544,980</td><td class="t">—</td><td class="t">—</td></tr><tr><td class="t">Dec 2025</td><td class="t">Alishba to 150,000 (+50%)</td><td class="n">594,980</td><td class="t">1,378,000</td><td class="t">43%</td></tr><tr><td class="t">Jan 2026</td><td class="t">Abujan to 80,000 (+129%)</td><td class="n">639,980</td><td class="t">1,378,000</td><td class="t">46%</td></tr><tr><td class="t">Feb 2026</td><td class="t">Mama to 50,000 (+67%)</td><td class="n">684,980</td><td class="t">1,378,000</td><td class="t"><strong>50%</strong></td></tr><tr><td class="t">Jun 2026</td><td class="t">Khaliq Younus committee, 75,000</td><td class="n">438,100</td><td class="t">1,483,048</td><td class="t">30%</td></tr><tr><td class="t">Jul 2026</td><td class="t">Rohan Committee begins, 150,000/month</td><td class="n">588,100</td><td class="t">1,483,048</td><td class="t">40%</td></tr><tr><td class="t">Aug 2026</td><td class="t">Aliyan's wedding food, 700,000 pledged</td><td class="n">588,100</td><td class="t">1,483,048</td><td class="t">40%</td></tr><tr><td class="t">28 Aug 2026</td><td class="t"><strong>The raise finally lands.</strong></td><td class="n">588,100</td><td class="t">1,797,633</td><td class="t">33%</td></tr></tbody></table></div>
+
+<blockquote class="alert">
+<p><strong>Your standing commitments went up 4.2× — from 140,000 to 588,100 a month.
+Your earning power over the same period went up 17.5%.</strong></p>
+<p>And the sequence is the part that should sting. You signed a 1.55 crore apartment contract in
+September 2025 while running two incomes. Turing was benched three weeks later. <strong>Five of the
+six increases you made after that — Alishba, Abujan, Mama, the committee, Aliyan's wedding — were
+committed after you had already lost the income that would have paid for them.</strong></p>
+<p>By February 2026 half of every FleetGlue rupee was spoken for before the month began. Across FY27
+your obligations came to <strong>108% of your old salary</strong>. Not 90%. Over one hundred percent.
+That is the arithmetic definition of over-committed, and it is why a year in which you did nothing
+extravagant still left you with eight days of cash.</p>
+</blockquote>
+
+<p>The raise closed the gap this morning: the same obligations are now 89% of income. But notice what
+that means. <strong>You did not solve this. It was solved for you, by an employer, on a date you did
+not control</strong> — and the last time an employer moved that lever, in October 2025, it moved
+against you.</p>
+
+<p>This is also why the distinction matters practically. If you were overspending, the fix would be
+discipline: spend less, want less. You do not need that fix and it would not have helped. The fix for
+over-committing is different and much narrower: <strong>make commitments against income you already
+hold, not income you expect</strong>, and keep a reserve sized to the commitments rather than to the
+lifestyle. Your commitments now need 660,217 a month, come what may. That is the number to
+hold three months of, and it is the number your buffer has never once been measured against.</p>
+
+<h3>Are you bad at financial management? In one specific way, badly. In most others, unusually good.</h3>
+<p>The honest split, because a single grade would be useless:</p>
+
+<div class="tw"><table class=""><thead><tr><th class="t">You are genuinely good at this</th><th class="t">Evidence</th></tr></thead><tbody><tr><td class="t">Record-keeping</td><td class="t">8,811 rows over 4.7 years reconciling to within 6,073 of your real bank balance from a zero start. I found exactly one structural error in the entire history. The Split/Merge system you invented is a working double-entry design you built yourself.</td></tr><tr><td class="t">Never paying for money</td><td class="t">Zero interest, zero markup, zero late fees, ever. 0% installments used correctly.</td></tr><tr><td class="t">Knowing who settles</td><td class="t">94–110% recovery from Bhatti, Wasiq, Fahad, Wahab and Aliyan across hundreds of advances. You read the reciprocal set correctly.</td></tr><tr><td class="t">Insurance judgement, when you make it</td><td class="t">Removing the depreciation clause cost 72,100 and returned a fully-covered disaster claim.</td></tr><tr><td class="t">Facing the numbers</td><td class="t">You commissioned this, corrected me eleven times, and did not once argue with a figure that was against you.</td></tr></tbody></table></div>
+
+<div class="tw"><table class=""><thead><tr><th class="t">You are bad at this</th><th class="t">Evidence</th></tr></thead><tbody><tr><td class="t">Liquidity — the big one</td><td class="t">Under one month of cover on 289 of 365 days. Free liquid today is 181,851 against 660,217 a month of commitments: 8.3 days. This is not a flaw among several. It is the flaw.</td></tr><tr><td class="t">Order of funding</td><td class="t">The buffer is funded last, which means never. Your only invested account became an overdraft: 28 withdrawals, 10,18,000 of it to lend to friends. The 23.57 lakh provident-fund windfall had a holding period of about one hour.</td></tr><tr><td class="t">Gates on giving</td><td class="t">1,220,118 given to Tabish and Abdul Sami in one year, 10,000 at a time across 104 advances. Every other giving channel you have is decided; this one has no gate.</td></tr><tr><td class="t">Insuring the medical exposure — partly addressed</td><td class="t">Six people depend on you and family medical went 122,515 → 720,866 in one year. You bought your mother a proper EFU plan in July 2026 (28,740) and your father is too old to be eligible. Still uncovered: yourself, Alishba, and the in-laws — who were 43% of last year's medical bill.</td></tr><tr><td class="t">Long-horizon provision — being addressed</td><td class="t">There was none across the whole period: no pension, no retirement account, no long-only holding. A voluntary pension scheme account is being opened now, which closes this.</td></tr></tbody></table></div>
+
+<blockquote class="alert">
+<p><strong>The one-sentence verdict: you are an excellent bookkeeper, a strong earner and a poor
+treasurer.</strong> You know exactly where every rupee went. You have no idea where the next one is
+coming from if something goes wrong, because every rupee has a job before it arrives.</p>
+</blockquote>
+
+<p>One more thing, because it bears on how you talk about yourself. You came to this thinking you do
+not save. You save a fifth of a 1.85-crore income and you tripled your net worth. The feeling of not
+saving is real, and it has a cause, but the cause is not indiscipline: it is that you never <em>see</em>
+the money, because it is deployed the day it lands. Do not confuse an empty account with a wasted
+year. They look identical from the inside and they are not the same thing.</p>
+
+<h3>What I would do differently</h3>
+<p>You said you would not do these, and that is fine. Some of this is technique and some of it is
+values, so I have marked which is which.</p>
+
+<ol>
+<li><strong>Hold three months of commitments in cash before buying anything illiquid.</strong> That is
+1,980,651, and at your current accumulation it takes 3.8 months to build. <em>This is the
+values one.</em> Holding it would have meant buying the apartment a year later, or buying a cheaper
+one. I would have made that trade. You would not, and you have said so.</li>
+<li><strong>Fund giving from surplus only, never from the buffer or the investments.</strong> Technique,
+not values. Every rupee you gave this year was a rupee you were entitled to give. Taking
+1,018,000 of it out of your only invested account is what turned generosity into fragility. Same
+total, different tap.</li>
+<li><strong>Never lend to someone you are also borrowing from.</strong> Technique. On 27 January you
+borrowed 175,000 from Danish while he owed you 10 lakh, and 50,000 from Tabish while he owed
+you 9 lakh. Whatever that is, it is not lending and it is not borrowing. I would treat it as a hard
+rule with no exceptions, because the exceptions are exactly the days you are least able to judge.</li>
+<li><strong>Buy health cover before buying property.</strong> Technique. An angioplasty, a hospital
+admission and a diabetic parent in one year, against a 2,950 micro-policy, is an uninsured position on
+the only risk that can take the apartment away from you.</li>
+<li><strong>Not run a committee while holding eight days of cash.</strong> Technique. A committee is
+forced illiquid saving. It is a good instrument for someone who overspends and a bad one for someone
+whose problem is that his money is already all locked up. You are locking 150,000 a month
+away until February to solve a problem you do not have, while the problem you do have is cash.</li>
+<li><strong>Write the qarz off in the ledger.</strong> Technique. Tabish and Abdul Sami are gifts. Carry
+them as gifts and your balance sheet stops flattering you by 1,508,498, and every new one
+becomes a decision instead of an entry.</li>
+<li><strong>Get a second income back.</strong> Technique. Turing was 65.8% margin and it vanished
+through no fault of yours. One employer now carries 660,217 a month of obligations to your
+wife, both parents, a developer and a committee.</li>
+</ol>
+
+<p>Notice what is not on that list. Not one item says give less, support fewer people, or spend less on
+your family. <strong>Every change I would make is about timing, sequence and source — not about
+amount or recipient.</strong> You could keep every single act of generosity in this ledger, every
+rupee of it, and fix the entire problem by changing the order you do things in. That is the actual
+finding of this report, and it is a much better position to be in than the one you thought you were in
+when you asked.</p>
+
+<p>And on the belief itself: I cannot show that generosity produced your income. Your income grew
+roughly 8× in three years because you moved to a USD-denominated remote role and ran two incomes at
+once, and the one network-driven business in your data made money by <em>employing</em> your network
+rather than giving to it. But I also cannot show that it did not. Referrals, reputation and the
+willingness of five friends to hand you 725,000 in a single afternoon do not appear as line
+items, and that last one is not nothing. Hold the belief as a belief. Just stop funding it from the
+emergency money.</p>
+
+<h2>Method, and what this cannot tell you</h2>
+<p><strong>A correction was applied to your ledger before any of this was computed.</strong> A
+transfer on 4 March 2026 was recorded in the wrong direction: 400,000 was booked as arriving from
+Umaid's ledger when it was in fact money you paid out to Spring on his behalf. It shared an
+identical millisecond timestamp with the 3 March row, which is the fingerprint of a duplicated entry
+that was then edited. Fixing it moved Meezan Bank from 802,787 to 2,787 and brought Umaid's routing
+account to −7,084, which is the Zarmeen birthday gift and nothing else. A backup of the original
+file sits beside the workbook.</p>
+
+<p>That fix also validated the dataset: your main bank account now reconciles to within 6,073 of
+reality from a zero opening balance across 4.7 years and 8,811 rows. That is why this report contains
+a real balance sheet rather than flow figures only.</p>
+
+<ul>
+<li><strong>Pass-throughs excluded</strong> from every figure: Zaeem's custody deposits
+(29,039,460 of transfer volume — money parked with you and returned), your routing of Umaid's
+Spring instalments (12,027,973), and FleetGlue's office reimbursements (512,176).
+None of these touch a single expense row, so the spending analysis cannot be contaminated by them.</li>
+<li><strong>"Do hisaab" plugs are treated as real spending</strong>, per your explanation that they
+represent transactions you forgot to record. They total 373,422 of expense — and about
+507,161 once unflagged credit-card true-ups are included, which is 3.7% of personal spend, or
+roughly 42,000 a month. Read every monthly figure in this report as ±30,000.</li>
+<li><strong>420,701 of your declared income is a row you labelled "Idk why Beyond ONE paid
+this extra."</strong> It is the difference between the provident fund actually encashed
+(1,477,599) and the accruals you had booked. Most likely the employer's matching share, but
+2.3% of your declared FY26 earnings has no confirmed source.</li>
+<li><strong>Beneficiary attribution is keyword-based on transaction notes</strong> and is a floor,
+not a precise split. Shared household and food rows default to "joint".</li>
+<li><strong>Alishba's jewellery business is off-ledger and currently loss-making.</strong> It ran
+net negative and is halted, with no restart date. Nothing of it appears in these 8,811 rows, so it is
+neither a hidden income source nor a quantified cost — but it is a latent one, and when it resumes it
+will need working capital from somewhere. Worth putting a figure and a ceiling on it before it
+restarts rather than after.</li>
+<li><strong>Two things happened just outside this report's window and are not in its numbers:</strong>
+your mother's EFU health plan (28,740, 16 July 2026) and the voluntary pension scheme account
+being opened now. Both are FY27 events. They do not change a single figure here, but they do mean two
+of the five weaknesses named in the verdict were already being addressed while it was being
+written.</li>
+<li><strong>Not in this ledger:</strong> the value of the Yaris, carried at zero; any provision for
+retirement or long-horizon saving, of which there is none; and the terms of Spring's offer to let you
+pay the possession amount over a year, which is currently a conversation rather than a document.</li>
+<li><strong>Write off the Wise balance.</strong> The ledger carries 31,049 in Wise, last
+moved 11 October 2023 — 1,050 days ago. That account was blocked following US sanctions, so this is
+not a dormant balance, it is a stranded one. Carrying it overstates your assets by
+31,049, which is 15% of your entire free liquid position (212,900) at year end.
+Alongside it: "Equity" 34,375 booked once as income in Jan 2025 and never valued since,
+Crypto 5,298 last moved Feb 2022, Chughtai Gold 1,000, and a single uncollected medical
+reimbursement claim of 1,452 from May 2025 — 72,174 in total that should be confirmed or
+removed.</li>
+<li><strong>The car insurance jump was a decision, and it paid for itself.</strong> The premium went
+63,000 → 135,100 at the January renewal after two flat years, because you had the depreciation
+clause removed. A major natural-disaster damage claim was then settled in full with no depreciation
+applied to the car's value, and the ledger backs that up: there is no repair expense anywhere in FY26
+for a loss of that size. The extra 72,100 bought a claim worth considerably more. Nothing to
+chase; worth remembering as the one insurance decision you have made, and as the argument for the
+health cover you do not have.</li>
+<li><strong>One thing genuinely worth a phone call:</strong> a 14,200 charge you yourself
+labelled "Journey cloud accidental purchase" on 5 Nov 2025 was never refunded. No matching credit
+appears anywhere in the ledger.</li>
+</ul>
+
+<footer>
+<p>Built from <em>Money Manager_28-08-2026.xlsx</em> (8,811 rows, Dec 2021 – Aug 2026), your
+FY2025-26 income and tax-filing sheet, and the Springs Annexure-A payment plan. Fiscal year
+1 Jul 2025 – 30 Jun 2026 on transaction date. All amounts PKR. Figures were computed independently
+and each headline claim was re-derived by a separate adversarial pass; where the two disagreed, the
+recomputed figure is the one shown.</p>
+</footer>
+</div></body>
+</html>
