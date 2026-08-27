@@ -266,6 +266,110 @@ footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);
   line-height:1.05;margin:6px 0 10px}
 """
 
+LOCK_CSS = """
+html.locked, html.locked body{overflow:hidden;height:100%}
+html.locked .wrap{display:none}
+#lock{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+  background:var(--bg);padding:24px}
+#lock[hidden]{display:none}
+.lockbox{width:100%;max-width:320px;text-align:center}
+.lockicon{font-size:26px;line-height:1;margin-bottom:18px}
+.locktitle{font-size:17px;font-weight:640;color:var(--ink);letter-spacing:-.01em}
+.locksub{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.5}
+.dots{display:flex;gap:14px;justify-content:center;margin:30px 0 8px}
+.dot{width:13px;height:13px;border-radius:50%;border:1.5px solid var(--base);
+  transition:background .12s,border-color .12s,transform .12s}
+.dot.on{background:var(--s1);border-color:var(--s1);transform:scale(1.12)}
+.lockerr{font-size:12.5px;color:var(--critical);min-height:1.3em;margin-bottom:14px;
+  opacity:0;transition:opacity .15s}
+.lockerr.show{opacity:1}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.pad button{appearance:none;border:1px solid var(--rule);background:var(--surface);color:var(--ink);
+  font:inherit;font-size:19px;font-weight:560;padding:15px 0;border-radius:11px;cursor:pointer;
+  transition:background .1s,transform .06s;-webkit-tap-highlight-color:transparent}
+.pad button:hover{background:var(--callout)}
+.pad button:active{transform:scale(.96)}
+.pad button.wide{grid-column:span 1;font-size:14px;font-weight:600;color:var(--ink2)}
+.pad button:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+@keyframes shake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}
+  30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
+.shake{animation:shake .45s cubic-bezier(.36,.07,.19,.97)}
+"""
+
+LOCK_HTML = """
+<div id="lock" role="dialog" aria-modal="true" aria-labelledby="lockt">
+  <div class="lockbox" id="lockbox">
+    <div class="lockicon" aria-hidden="true">&#128274;</div>
+    <div class="locktitle" id="lockt">FY26 Financial Report</div>
+    <div class="locksub">Enter the 4-digit passcode</div>
+    <div class="dots" id="dots" aria-hidden="true">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+    <div class="lockerr" id="lockerr" role="alert"></div>
+    <div class="pad" id="pad">
+      <button type="button" data-k="1">1</button><button type="button" data-k="2">2</button><button type="button" data-k="3">3</button>
+      <button type="button" data-k="4">4</button><button type="button" data-k="5">5</button><button type="button" data-k="6">6</button>
+      <button type="button" data-k="7">7</button><button type="button" data-k="8">8</button><button type="button" data-k="9">9</button>
+      <button type="button" class="wide" data-act="clear">Clear</button>
+      <button type="button" data-k="0">0</button>
+      <button type="button" class="wide" data-act="del">Delete</button>
+    </div>
+  </div>
+</div>
+"""
+
+LOCK_JS = """
+<script>
+(function(){
+  var H=2088400725, KEY='fy26.unlocked', root=document.documentElement;
+  var lock=document.getElementById('lock'), dots=document.getElementById('dots'),
+      err=document.getElementById('lockerr'), box=document.getElementById('lockbox'),
+      pad=document.getElementById('pad'), buf='';
+  function hash(s){var h=5381;for(var i=0;i<s.length;i++){h=((h*33)+s.charCodeAt(i))>>>0;}return h;}
+  function stored(){try{return sessionStorage.getItem(KEY)==='1';}catch(e){return false;}}
+  function remember(){try{sessionStorage.setItem(KEY,'1');}catch(e){}}
+  function paint(){
+    var d=dots.children;
+    for(var i=0;i<d.length;i++){d[i].className='dot'+(i<buf.length?' on':'');}
+  }
+  function open_(){
+    root.classList.remove('locked'); lock.setAttribute('hidden','');
+    document.removeEventListener('keydown',onKey);
+  }
+  function fail(){
+    err.textContent='Incorrect passcode'; err.classList.add('show');
+    box.classList.add('shake');
+    setTimeout(function(){box.classList.remove('shake');},460);
+    buf=''; paint();
+  }
+  function push(c){
+    if(buf.length>=4) return;
+    err.classList.remove('show');
+    buf+=c; paint();
+    if(buf.length===4){
+      var v=buf;
+      setTimeout(function(){ if(hash(v)===H){remember();open_();} else {fail();} },140);
+    }
+  }
+  function onKey(e){
+    if(e.key>='0'&&e.key<='9'){push(e.key);e.preventDefault();}
+    else if(e.key==='Backspace'){buf=buf.slice(0,-1);paint();err.classList.remove('show');e.preventDefault();}
+    else if(e.key==='Escape'){buf='';paint();e.preventDefault();}
+  }
+  pad.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    if(b.dataset.k) push(b.dataset.k);
+    else if(b.dataset.act==='clear'){buf='';paint();err.classList.remove('show');}
+    else if(b.dataset.act==='del'){buf=buf.slice(0,-1);paint();err.classList.remove('show');}
+  });
+  if(stored()){ open_(); return; }
+  root.classList.add('locked');
+  document.addEventListener('keydown',onKey);
+  paint();
+})();
+</script>
+"""
+
 def _isnum(v):
     t = str(v).replace(",", "").replace("−", "").replace("+", "").replace("%", "")
     t = t.replace("=", "").replace("L", "").replace("cr", "").replace("/month", "").strip()
@@ -297,9 +401,9 @@ body = f"""
 <header class="top">
   <div class="kicker">Fiscal year 1 July 2025 – 30 June 2026 · Rohan Hussain</div>
   <h1>You earned 1.85 crore, saved a fifth of it, gave away more than half of what you spent, and ended the year with five days of cash.</h1>
-  <p class="sub">Both halves of that sentence are true, and neither is a mistake in the arithmetic.
-  This report is built from 8,811 ledger rows, your tax-filing income sheet, and the Springs contract.
-  Every figure was recomputed independently and adversarially checked.</p>
+  <p class="sub">All four of those are true at once, and none of them is an arithmetic mistake. Built
+  from 8,811 ledger rows, your tax-filing income sheet, and the Springs Annexure-A payment plan. Every
+  figure was recomputed independently and adversarially checked.</p>
 </header>
 
 <div class="hero">
@@ -311,9 +415,9 @@ body = f"""
 </div>
 
 <h2>The verdict, first</h2>
-<p class="lede">You are not overspending, and you are not bad with money. You are running a
-structurally illiquid balance sheet, and the cause is not generosity — it is the order in which
-you fund things.</p>
+<p class="lede">You are not overspending and you are not bad with money. You over-committed: you
+promised more, to more people, than the income you actually had — and then funded the promises out of
+your buffer instead of your surplus.</p>
 
 <p>Three things are simultaneously true about your year, and holding all three at once is the
 whole point of this report.</p>
@@ -1237,14 +1341,14 @@ recomputed figure is the one shown.</p>
 """
 
 doc = f"""<!doctype html>
-<html lang="en">
+<html lang="en" class="locked">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FY26 Financial Report — Rohan Hussain</title>
-<style>{CSS}</style>
+<style>{CSS}{LOCK_CSS}</style>
 </head>
-<body><div class="wrap">{body}</div></body>
+<body>{LOCK_HTML}<div class="wrap">{body}</div>{LOCK_JS}</body>
 </html>"""
 
 import os
