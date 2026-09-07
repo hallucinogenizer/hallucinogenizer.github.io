@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en" class="locked">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weekly Review, 31 Aug &ndash; 6 Sep 2026 &mdash; Rohan Hussain</title>
+<style>
+:root{
+  --bg:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --base:#c3c2b7; --rule:rgba(11,11,11,.10);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#0ca30c; --warn:#fab219; --critical:#d03b3b; --track:#e9e8e2; --track2:#d5d4cc;
+  --callout:#f2f1ed;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --base:#383835; --rule:rgba(255,255,255,.10);
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#0ca30c; --warn:#fab219; --critical:#d03b3b; --track:#2c2c2a; --track2:#3a3a37;
+    --callout:#201f1e;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --base:#383835; --rule:rgba(255,255,255,.10);
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#0ca30c; --warn:#fab219; --critical:#d03b3b; --track:#2c2c2a; --track2:#3a3a37;
+  --callout:#201f1e;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;
+  -webkit-font-smoothing:antialiased;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:56px 24px 120px}
+header.top{border-bottom:1px solid var(--rule);padding-bottom:30px;margin-bottom:44px}
+.kicker{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-size:clamp(30px,5vw,42px);line-height:1.14;margin:14px 0 12px;letter-spacing:-.02em;font-weight:680}
+.sub{color:var(--ink2);font-size:17px;margin:0;max-width:62ch}
+h2{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;margin:60px 0 6px;padding-top:22px;border-top:1px solid var(--rule)}
+h3{font-size:20px;margin:32px 0 8px;letter-spacing:-.01em;font-weight:640}
+.lede{font-size:20px;line-height:1.5;color:var(--ink);margin:8px 0 26px;letter-spacing:-.01em}
+p{margin:0 0 16px;color:var(--ink2)}
+p strong,li strong{color:var(--ink);font-weight:620}
+.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:28px 0 8px}
+.hero div{background:var(--surface);padding:16px 18px;display:flex;flex-direction:column}
+.hero .lbl{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;min-height:2.6em}
+.hero .val{font-size:25px;font-weight:660;letter-spacing:-.02em;margin-top:2px;color:var(--ink)}
+.hero .note{font-size:12.5px;color:var(--muted);margin-top:auto;padding-top:8px;line-height:1.4}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:22px;margin:26px 0}
+figure{margin:26px 0}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink2);margin:0 0 12px}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.sw{width:11px;height:11px;border-radius:2.5px;display:inline-block}
+.cv{width:100%;height:auto;display:block;overflow:visible}
+.grid{stroke:var(--grid);stroke-width:1}
+.base{stroke:var(--base);stroke-width:1}
+.ref{stroke:var(--s2);stroke-width:1;stroke-opacity:.75}
+.reflab{fill:var(--s2);font-size:10.5px;font-weight:600}
+.ax{fill:var(--muted);font-size:11px}
+.rl{fill:var(--ink2);font-size:12.5px}
+.rv{fill:var(--muted);font-size:11.5px;font-variant-numeric:tabular-nums}
+.note{fill:var(--ink2);font-size:11px;font-weight:600}
+.neg-t{fill:var(--critical)}
+.seg{fill:var(--ink);font-size:13px;font-weight:660}
+.seg2{fill:var(--muted);font-size:11px}
+.seg3{fill:var(--critical);font-size:11.5px;font-weight:600}
+rect.s1{fill:var(--s1)} rect.s2{fill:var(--s2)} rect.s3{fill:var(--s3)}
+rect.dim{fill-opacity:.42}
+rect.good{fill:var(--good)} rect.warn{fill:var(--warn)} rect.critical{fill:var(--critical)}
+rect.neg{fill:var(--critical)}
+rect.track{fill:var(--track)} rect.track2{fill:var(--track2)}
+.tw{overflow-x:auto;margin:22px 0;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:430px}
+th,td{padding:10px 14px;text-align:right;border-bottom:1px solid var(--rule)}
+th,td{text-align:right}
+td.t,th.t{text-align:left}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+thead th{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:650}
+tbody tr:last-child td{border-bottom:none}
+tbody td{font-variant-numeric:tabular-nums;color:var(--ink2)}
+tbody td:first-child{color:var(--ink)}
+tr.tot td{font-weight:660;color:var(--ink);border-top:1px solid var(--base)}
+.pos{color:var(--good)} .negv{color:var(--critical)}
+blockquote{margin:26px 0;padding:18px 22px;background:var(--callout);
+  border-left:3px solid var(--s1);border-radius:0 8px 8px 0}
+blockquote p:last-child{margin-bottom:0}
+blockquote.alert{border-left-color:var(--critical)}
+blockquote.ok{border-left-color:var(--good)}
+ul,ol{color:var(--ink2);padding-left:22px;margin:0 0 18px}
+li{margin-bottom:9px}
+.tag{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  font-weight:650;padding:3px 8px;border-radius:5px;background:var(--callout);color:var(--ink2)}
+.tag.bad{background:rgba(208,59,59,.13);color:var(--critical)}
+.tag.good{background:rgba(12,163,12,.13);color:var(--good)}
+footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);
+  font-size:13px;color:var(--muted)}
+.big{font-size:clamp(34px,6vw,52px);font-weight:680;letter-spacing:-.03em;color:var(--ink);
+  line-height:1.05;margin:6px 0 10px}
+
+html.locked, html.locked body{overflow:hidden;height:100%}
+html.locked .wrap{display:none}
+#lock{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+  background:var(--bg);padding:24px}
+#lock[hidden]{display:none}
+.lockbox{width:100%;max-width:320px;text-align:center}
+.lockicon{font-size:26px;line-height:1;margin-bottom:18px}
+.locktitle{font-size:17px;font-weight:640;color:var(--ink);letter-spacing:-.01em}
+.locksub{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.5}
+.dots{display:flex;gap:14px;justify-content:center;margin:30px 0 8px}
+.dot{width:13px;height:13px;border-radius:50%;border:1.5px solid var(--base);
+  transition:background .12s,border-color .12s,transform .12s}
+.dot.on{background:var(--s1);border-color:var(--s1);transform:scale(1.12)}
+.lockerr{font-size:12.5px;color:var(--critical);min-height:1.3em;margin-bottom:14px;
+  opacity:0;transition:opacity .15s}
+.lockerr.show{opacity:1}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.pad button{appearance:none;border:1px solid var(--rule);background:var(--surface);color:var(--ink);
+  font:inherit;font-size:19px;font-weight:560;padding:15px 0;border-radius:11px;cursor:pointer;
+  transition:background .1s,transform .06s;-webkit-tap-highlight-color:transparent}
+.pad button:hover{background:var(--callout)}
+.pad button:active{transform:scale(.96)}
+.pad button.wide{grid-column:span 1;font-size:14px;font-weight:600;color:var(--ink2)}
+.pad button:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+@keyframes shake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}
+  30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
+.shake{animation:shake .45s cubic-bezier(.36,.07,.19,.97)}
+</style>
+</head>
+<body>
+<div id="lock" role="dialog" aria-modal="true" aria-labelledby="lockt">
+  <div class="lockbox" id="lockbox">
+    <div class="lockicon" aria-hidden="true">&#128274;</div>
+    <div class="locktitle" id="lockt">Weekly Review</div>
+    <div class="locksub">Enter the 4-digit passcode</div>
+    <div class="dots" id="dots" aria-hidden="true">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+    <div class="lockerr" id="lockerr" role="alert"></div>
+    <div class="pad" id="pad">
+      <button type="button" data-k="1">1</button><button type="button" data-k="2">2</button><button type="button" data-k="3">3</button>
+      <button type="button" data-k="4">4</button><button type="button" data-k="5">5</button><button type="button" data-k="6">6</button>
+      <button type="button" data-k="7">7</button><button type="button" data-k="8">8</button><button type="button" data-k="9">9</button>
+      <button type="button" class="wide" data-act="clear">Clear</button>
+      <button type="button" data-k="0">0</button>
+      <button type="button" class="wide" data-act="del">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<header class="top">
+  <div class="kicker">Week of Monday 31 August &ndash; Sunday 6 September 2026 &middot; Rohan Hussain</div>
+  <h1>Your cheapest week since June, and about half of the reason your run-rate has risen turns out
+  to be your wife&rsquo;s family and the petrol pump.</h1>
+  <p class="sub">Eighty-one ledger rows across seven days, no salary in the window, and a booked
+  total well under your average. The total is not the story. Measured over six months against the same
+  six months of 2025, food and transport together are running about 11.4 lakh a year higher &mdash;
+  and roughly half of that increase now has a name.</p>
+</header>
+
+<div class="hero">
+  <div><div class="lbl">Money in</div><div class="val">0</div><div class="note">No income row of any kind in seven days</div></div>
+  <div><div class="lbl">Booked spending</div><div class="val">1.62 L</div><div class="note">161,975 &middot; lowest since the week of 22 June</div></div>
+  <div><div class="lbl">Spent on food</div><div class="val negv">49,467</div><div class="note">Every form. Mar&ndash;Aug 2025 averaged 16,807</div></div>
+  <div><div class="lbl">Food + transport growth</div><div class="val negv">11.4 L</div><div class="note">Per year, March&ndash;August vs 2025. 5.6 L of it explained</div></div>
+  <div><div class="lbl">Spendable cash at close</div><div class="val">3,106</div><div class="note">From 232,351 on Monday morning</div></div>
+</div>
+
+<h2>The verdict</h2>
+<p class="lede">On the totals this was a good week. On the two lines that have moved this year it was
+an ordinary one, and ordinary now costs about 11.4 lakh a year more than it did &mdash; of which about
+half is the petrol pump, a sick sister-in-law and a cook you hired to feed her household.</p>
+
+<p>Before anything else: <strong>none of what follows is about your giving.</strong> The qarz, the
+stipends, your father&rsquo;s bills, the donations &mdash; those are decisions you have made and
+restated, and I am treating them as fixed. This report is about the money that leaves without a
+decision attached to it.</p>
+
+<p><strong>One. The headline number is genuinely good.</strong> 161,975 of booked expense is 48% below
+your trailing twelve-week mean of 310,497 and the lowest since the week of 22 June. There was no
+technology, no travel and no social spending at all. On its own that is a well-run week.</p>
+
+<p><strong>Two. It hid the only two things worth finding.</strong> Counting food in every form &mdash;
+Food category, groceries, the chef, the split parents that are meals &mdash; this week cost
+<strong>49,467</strong> against a Mar&ndash;Aug 2025 average of 16,807. That is not a one-week spike: the
+past six months average 31,111 a week against 16,807 in the same six months of 2025 &mdash; up 85%.
+Transport is 17,072 against 9,480, up 80%. Together those two lines are worth <strong>1,138,608 a
+year</strong> more than they were, and your Transportation category still reads <em>below</em> average
+this week, because the average it is measured against is a year old.</p>
+
+<p><strong>Three. Two things you did this week were new and right.</strong> You did not touch Al
+Meezan once in seven days without income &mdash; you let Meezan Bank fall from 321,325 to 98,212 and
+left the fund at 240,185. And you opened the voluntary pension account on 1 September, which closes
+the largest structural gap in your FY26 position.</p>
+
+<blockquote class="alert">
+<p><strong>The line that matters.</strong> Your raise from $66,000 to $80,000 is worth about
+3,794,000 a year. Food and transport have grown by 1,138,608 against the same six months last year
+&mdash; <strong>30% of the raise</strong>. <strong>558,168 of that now has a name</strong>: the pump,
+the coffee, Anila, the daily run to Harbanspura, and one borrowed car. The remaining 580,440 does not,
+and almost all of it sits in one place.</p>
+</blockquote>
+
+<h2>What could have been avoided</h2>
+
+<h3>Food is up 85%, and the weather is a small part of it</h3>
+
+<figure>
+<div class="legend">
+  <span><span class="sw" style="background:var(--s1)"></span>Everything except Anila</span>
+  <span><span class="sw" style="background:var(--s2)"></span>Anila</span>
+  <span><span class="sw" style="background:var(--s2);opacity:.6"></span>Mar&ndash;Aug 2025 average</span>
+</div>
+<svg class="cv" viewBox="0 0 820 330" role="img" aria-label="Weekly spend on food in every form, mid-July to 6 September 2026"><line class="grid" x1="52" y1="284.0" x2="808" y2="284.0"/><text class="ax" x="44" y="288.0" text-anchor="end">0k</text><line class="grid" x1="52" y1="244.0" x2="808" y2="244.0"/><text class="ax" x="44" y="248.0" text-anchor="end">10k</text><line class="grid" x1="52" y1="204.0" x2="808" y2="204.0"/><text class="ax" x="44" y="208.0" text-anchor="end">20k</text><line class="grid" x1="52" y1="164.0" x2="808" y2="164.0"/><text class="ax" x="44" y="168.0" text-anchor="end">30k</text><line class="grid" x1="52" y1="124.0" x2="808" y2="124.0"/><text class="ax" x="44" y="128.0" text-anchor="end">40k</text><line class="grid" x1="52" y1="84.0" x2="808" y2="84.0"/><text class="ax" x="44" y="88.0" text-anchor="end">50k</text><line class="grid" x1="52" y1="44.0" x2="808" y2="44.0"/><text class="ax" x="44" y="48.0" text-anchor="end">60k</text><line class="ref" x1="52" y1="216.8" x2="808" y2="216.8" stroke-dasharray="4 3"/><text class="reflab" x="55" y="230.8">Mar&#8211;Aug 2025 average: 16,807</text><rect class="s1" x="73.2" y="168.9" width="52.0" height="115.1" rx="2"/><text class="seg2" x="99.2" y="161.9" text-anchor="middle">28,768</text><text class="ax" x="99.2" y="302" text-anchor="middle">13 Jul</text><rect class="s1" x="167.8" y="108.0" width="52.0" height="176.0" rx="2"/><rect class="s2" x="167.8" y="103.2" width="52.0" height="4.8" rx="2"/><text class="seg2" x="193.8" y="96.2" text-anchor="middle">45,193</text><text class="ax" x="193.8" y="302" text-anchor="middle">20 Jul</text><rect class="s1" x="262.2" y="126.7" width="52.0" height="157.3" rx="2"/><rect class="s2" x="262.2" y="106.7" width="52.0" height="20.0" rx="2"/><text class="seg2" x="288.2" y="99.7" text-anchor="middle">44,329</text><text class="ax" x="288.2" y="302" text-anchor="middle">27 Jul</text><rect class="s1" x="356.8" y="108.7" width="52.0" height="175.3" rx="2"/><rect class="s2" x="356.8" y="40.1" width="52.0" height="68.6" rx="2"/><text class="seg2" x="382.8" y="33.1" text-anchor="middle">60,980</text><text class="ax" x="382.8" y="302" text-anchor="middle">3 Aug</text><rect class="s1" x="451.2" y="156.2" width="52.0" height="127.8" rx="2"/><rect class="s2" x="451.2" y="131.2" width="52.0" height="25.0" rx="2"/><text class="seg2" x="477.2" y="124.2" text-anchor="middle">38,199</text><text class="ax" x="477.2" y="302" text-anchor="middle">10 Aug</text><rect class="s1" x="545.8" y="122.8" width="52.0" height="161.2" rx="2"/><rect class="s2" x="545.8" y="61.6" width="52.0" height="61.2" rx="2"/><text class="seg2" x="571.8" y="54.6" text-anchor="middle">55,601</text><text class="ax" x="571.8" y="302" text-anchor="middle">17 Aug</text><rect class="s1" x="640.2" y="184.1" width="52.0" height="99.9" rx="2"/><rect class="s2" x="640.2" y="135.1" width="52.0" height="49.1" rx="2"/><text class="seg2" x="666.2" y="128.1" text-anchor="middle">37,235</text><text class="ax" x="666.2" y="302" text-anchor="middle">24 Aug</text><rect class="s1" x="734.8" y="131.7" width="52.0" height="152.3" rx="2"/><rect class="s2" x="734.8" y="86.1" width="52.0" height="45.6" rx="2"/><text class="seg2" x="760.8" y="79.1" text-anchor="middle">49,467</text><text class="ax" x="760.8" y="302" text-anchor="middle">31 Aug</text><line class="base" x1="52" y1="284" x2="808" y2="284"/></svg>
+<figcaption>Gross cash out on food in every form, by week. Split parent rows are counted once and
+their legs excluded, so nothing is double-counted; the 2025 comparator is built the same way. Some of
+each bar comes back from Bhatti and Wasiq &mdash; about 6,000 this week &mdash; but that was equally
+true in 2025, so the comparison holds. The bars are the most recent eight weeks; the analysis below
+uses six months either side.</figcaption>
+</figure>
+
+<div class="tw"><table style="min-width:640px"><thead><tr><th class="t"></th><th class="n">Mar&ndash;Aug 2025</th><th class="n">Mar&ndash;Aug 2026</th><th class="n">Change</th><th class="t">Note</th></tr></thead><tbody><tr><td class="t">Food with nothing to do with Anila</td><td class="n">16,807</td><td class="n">28,700</td><td class="n">+71%</td><td class="t">Foodpanda, restaurants, coffee, groceries.</td></tr><tr><td class="t">Chef Anila, incl. Daniyal&rsquo;s runs</td><td class="n">0</td><td class="n">2,411</td><td class="n">new</td><td class="t">First payment 24 July, so spread across six months.</td></tr><tr><td class="t">All food, gross</td><td class="n">16,807</td><td class="n">31,111</td><td class="n">+85%</td><td class="t"></td></tr></tbody></table></div>
+
+<p>Everything that follows compares <strong>March to August 2026 against March to August 2025</strong>
+&mdash; six months against the same six months. That length matters: a shorter window lands on whichever
+weeks happened to be busy, and on this data an eight-week cut would have overstated the transport
+change by nearly double. Six months either side is long enough that seasonality and a heavy fortnight
+both wash out.</p>
+
+<p>On that basis food ran at <strong>16,807 a week in 2025 and 31,111 in 2026</strong>. Same months,
+same weather, same city.</p>
+
+<h3>What the increase actually is</h3>
+
+<p>Same six months, 2025 against 2026, split by what the money bought. The percentage column is each
+line&rsquo;s share of the 14,304 total increase.</p>
+
+<div class="tw"><table style="min-width:620px"><thead><tr><th class="t"></th><th class="n">2025 per week</th><th class="n">2026 per week</th><th class="n">Change</th><th class="n">Share of increase</th></tr></thead><tbody><tr><td class="t">Foodpanda</td><td class="n">1,705</td><td class="n">9,509</td><td class="n">+7,804</td><td class="n">36%</td></tr><tr><td class="t">Restaurants, takeaway, everything else</td><td class="n">10,231</td><td class="n">13,670</td><td class="n">+3,439</td><td class="n">16%</td></tr><tr><td class="t">Coffee</td><td class="n">851</td><td class="n">3,643</td><td class="n">+2,792</td><td class="n">13%</td></tr><tr><td class="t">Chef Anila, including Daniyal&rsquo;s runs</td><td class="n">0</td><td class="n">2,411</td><td class="n">+2,411</td><td class="n">11%</td></tr><tr><td class="t">Groceries</td><td class="n">4,020</td><td class="n">1,878</td><td class="n">&minus;2,142</td><td class="n">&mdash;</td></tr><tr class="tot"><td class="t">All food</td><td class="n">16,807</td><td class="n">31,111</td><td class="n">+14,304</td><td class="n"></td></tr></tbody></table></div>
+
+<p><strong>Coffee is 2,792 a week of it &mdash; 13%, or 145,184 a year.</strong> The ledger backs
+what you said about it: across the recent eight weeks you bought coffee <strong>33 times against 16 in
+the same weeks last year</strong>, and the average ticket <em>fell</em> from 1,452 to 1,070. That is
+not café outings getting dearer. It is twice as many cheaper cups, which is what a working habit looks
+like rather than a leisure one.</p>
+
+<p>The rest is foodpanda (+7,804 a week), restaurants and takeaway (+3,439) and Anila including
+Daniyal&rsquo;s runs (+2,411). Foodpanda alone is <strong>36% of the entire food increase</strong> and
+worth 405,808 a year.</p>
+
+<p>The grocery line falling is partly an artefact: a single 30,925 bulk stock-up at Euro Store on
+29 August 2025 sits inside the 2025 figure. Over six months it matters less than it would over eight
+weeks, which is another argument for the longer window.</p>
+
+<h3>Anila is two different things, and only one of them is a cost</h3>
+
+<div class="tw"><table style="min-width:560px"><thead><tr><th class="t"></th><th class="n">Since 24 July</th><th class="t">What it is</th></tr></thead><tbody><tr><td class="t">Parcel to Alishba&rsquo;s parents&rsquo; house</td><td class="n">51,450</td><td class="t">food only</td></tr><tr><td class="t">Daniyal&rsquo;s runs, Harbanspura half</td><td class="n">2,250</td><td class="t">the delivery</td></tr><tr><td class="t"><strong>Parcel, all in</strong></td><td class="n"><strong>53,700</strong></td><td class="t"><strong>8,742/wk &middot; 455,900/yr</strong></td></tr><tr><td class="t">Office lunch, food</td><td class="n">14,008</td><td class="t">gross</td></tr><tr><td class="t">Daniyal&rsquo;s runs, Cubicle half</td><td class="n">4,408</td><td class="t">the delivery</td></tr><tr><td class="t">Recharged to Bhatti and Wasiq</td><td class="n">&minus;8,672</td><td class="t">their shares</td></tr><tr><td class="t"><strong>Office lunch, your share</strong></td><td class="n"><strong>9,744</strong></td><td class="t"><strong>3,410/wk since 18 Aug</strong></td></tr><tr><td class="t">Groceries bought for her</td><td class="n">3,120</td><td class="t">one canola-oil order</td></tr><tr class="tot"><td class="t">Net cost to you</td><td class="n">66,564</td><td class="t">565,000/yr</td></tr></tbody></table></div>
+
+<p>Daniyal belongs in this table, not in a separate line about delivery habits &mdash; he is the
+rider who collects from Anila and drops at both ends, Harbanspura and the Cubicle, on one run.
+Counting him, Anila costs <strong>66,564 net of what Bhatti and Wasiq pay back, about 565,000 a
+year</strong>, and one run serving both destinations is the cheapest way to do it.</p>
+
+<p><strong>The parcel to your wife&rsquo;s parents&rsquo; house is 53,700 of that &mdash; four fifths
+of it.</strong> That is food for an ill sister-in-law and an elderly
+father-in-law in a house with nobody to cook. It is the same category as the stipends and your
+father&rsquo;s bills: a decision you have made, and I am not going to file it under waste. What it is,
+though, is a <strong>new standing commitment of about 455,900 a year that did not exist eight weeks
+ago</strong>, and the FY26 report&rsquo;s one useful idea was that commitments are what get you, not
+spending. It belongs on the list next to Aliyan&rsquo;s 600,000 and the committee, where you can see
+it.</p>
+
+<p><strong>The cubicle lunch cannot be measured yet, and I tried three times before admitting
+it.</strong> The marker for an office lunch is structural rather than descriptive: it leaves Faysal
+Noor into <em>Split</em> and divides between you, Bhatti and sometimes Wasiq, or it sits as a straight
+expense on Bhatti&rsquo;s ledger. On that definition, office food ran at <strong>7,538 a week across
+forty orders</strong> from 1 June to 17 August. Since the first Anila lunch on 18 August it has run at
+6,066 a week across fourteen orders &mdash; plus your share of Anila including Daniyal, 3,410 a week,
+which puts the line at <strong>9,476 against 7,538</strong>.</p>
+
+<p>On the fullest accounting the office lunch therefore reads as <em>more</em> expensive, not less.
+Two caveats, both real. <strong>One order decides a lot of it</strong>: the 4,976 DUMx on 2 September
+is 29% of the post-Anila fast-food total. And Daniyal&rsquo;s run is shared with the parcel &mdash;
+you are paying him to reach Harbanspura anyway, so the marginal delivery cost of the Cubicle drop is
+half what I have charged it above, and arguably less.</p>
+
+<p>I have now cut this question four ways and had four answers: mildly positive, flat, mildly
+negative, and this. That is what fourteen orders across twenty days buys you. The plan is sound, the
+shared run is efficient, and <strong>there is genuinely nothing here to measure yet.</strong> Ask me
+in a month.</p>
+
+<p>What I will withdraw is the sentence I was going to write &mdash; that hiring a cook replaced
+nothing. She is aimed at office fast food, which is the right target, and my first two attempts to
+test it were both measuring the wrong meals.</p>
+
+<h3>What does not depend on any of that: you order in 2.5 times as often</h3>
+
+<p>Classification is arguable. Counting is not. These are every bought-in prepared meal I can
+identify in the most recent eight weeks against the same eight weeks of 2025, split by the structural
+markers above. This one uses the short window deliberately: it is a count, not a rate, and the point
+is the number of separate decisions.</p>
+
+<div class="tw"><table style="min-width:620px"><thead><tr><th class="t">Who it was with</th><th class="n">2025 orders</th><th class="n">2025 per week</th><th class="n">2026 orders</th><th class="n">2026 per week</th></tr></thead><tbody><tr><td class="t">Office lunch</td><td class="n">12</td><td class="n">3,108</td><td class="n">44</td><td class="n">9,391</td></tr><tr><td class="t">With Alishba and her family</td><td class="n">15</td><td class="n">3,720</td><td class="n">32</td><td class="n">7,537</td></tr><tr><td class="t">Unlabelled</td><td class="n">27</td><td class="n">4,951</td><td class="n">57</td><td class="n">9,787</td></tr><tr class="tot"><td class="t">All bought-in meals</td><td class="n">54</td><td class="n">11,779</td><td class="n">133</td><td class="n">26,715</td></tr></tbody></table></div>
+
+<p>Fifty-four orders in eight weeks last year. <strong>A hundred and thirty-three this year.</strong>
+The mean ticket barely moved. This is a frequency change, not a price change, and it holds whichever
+way the orders are bucketed. (This net is wider than the food total above &mdash; it picks up coffee
+runs and meals paid from friends&rsquo; ledgers &mdash; so the totals here do not tie to the food figures above.)</p>
+
+<p>The office row is genuinely new and largely explains itself: you have had The Cubicle since
+January and you eat there with two colleagues. The family row has doubled. The third row is the one
+that matters: <strong>twenty-seven unlabelled orders in 2025 against fifty-seven now</strong>, worth
+4,836 a week more, or roughly 251,000 a year. Reading down the list &mdash; Pizza Hut at 23:53,
+Steakaway at 00:36, Malik Spicy at 22:42, DUMx at 02:10, Dominos at 01:01 &mdash; it is almost all
+late dinners.</p>
+
+<blockquote class="alert">
+<p><strong>This is the line, and you named it before I did.</strong> Your description of these is
+craving dinners, and avoidable. That makes them the only thing in this report that is neither a
+commitment you chose &mdash; the parcel, the qarz, the stipends &mdash; nor a structural change in
+your life, like having an office. <strong>Fifty-seven orders, 251,000 a year, and every one of them a
+separate small decision taken after midnight.</strong> Getting the count back to last year&rsquo;s
+twenty-seven is worth the entire amount, and it is the only number in here you can move this week
+without asking anybody's permission or giving anything up that you have decided to give.</p>
+</blockquote>
+
+<h3>Transport: most of the fuel rise is the pump, and the rest is Harbanspura</h3>
+
+<div class="tw"><table style="min-width:660px"><thead><tr><th class="t"></th><th class="n">Mar&ndash;Aug 2025</th><th class="n">Mar&ndash;Aug 2026</th><th class="n">Change</th><th class="t">Note</th></tr></thead><tbody><tr><td class="t">Fuel, rupees</td><td class="n">9,230</td><td class="n">14,456</td><td class="n">+57%</td><td class="t">45 fill-ups in each period. Identical.</td></tr><tr><td class="t">Fuel, litres per day</td><td class="n">5.11</td><td class="n">5.96</td><td class="n">+17%</td><td class="t">Priced off the OGRA MS-92 series.</td></tr><tr><td class="t">Pump price per litre</td><td class="n">258</td><td class="n">347</td><td class="n">+34%</td><td class="t"><strong>Most of the fuel rise is the pump, not the road.</strong></td></tr><tr><td class="t">Ride-hailing</td><td class="n">212</td><td class="n">2,450</td><td class="n">&mdash;</td><td class="t">2,145 once the 29 August car-lending day comes out.</td></tr></tbody></table></div>
+
+<p>Petrol in Pakistan moved hard this year. OGRA had MS-92 at about 254 through the spring of 2025,
+then 321 in March 2026, an all-time peak of <strong>458.41 on 3 April</strong>, and 300 to 359 across
+July, August and September. Averaged across the litres you actually bought, your pump price went from
+258 to 347 &mdash; <strong>up 34%</strong>.</p>
+
+<p>Converting your fill-ups to litres separates the pump from the road, and the answer is clear.
+<strong>You made exactly 45 fill-ups in each six-month period.</strong> Volume went from 5.11 litres a
+day to 5.96 &mdash; <strong>up 17%</strong>. So of the 5,226 a week that fuel has risen, about
+<strong>3,171 is the price and about 2,055 is the extra driving</strong>. The pump is the bigger half
+by some way.</p>
+
+<blockquote>
+<p><strong>One caveat, stated plainly.</strong> You buy hi-octane, and HOBC is unregulated with no
+reliable published series, so I priced your litres off the OGRA MS-92 record as a proxy. The reported
+HOBC premium narrowed sharply this year, which if anything means hi-octane rose <em>less</em> than
+MS-92 and the volume share is slightly larger than shown. The direction is safe; the split is
+approximate.</p>
+</blockquote>
+
+<p>And the extra 17% has an explanation you have given me: <strong>your wife&rsquo;s parents live
+about 40km away, her sister is ill, and you are driving out there most days.</strong> The ledger
+agrees. Areeba was admitted to CMH on 19 May 2026 &mdash; 101,770 split that day, discharged on the
+22nd &mdash; and from late June the entries turn into sustained aftercare: Al Noor diagnostics,
+repeated CMH visits, injections, an inflatable pool for sitting baths. Eighty rows naming her since
+January, 660,865 in total. Fuel volume in the most recent quarter runs at 7.2 litres a day against
+4.7 in the same quarter of 2025, which is exactly the period that aftercare covers. About
+<strong>106,860 a year of petrol is that road</strong>, and it is the same journey Daniyal makes with
+the food parcel.</p>
+
+<p>Ride-hailing went from 212 a week to 2,450 &mdash; 2,145 once your brother&rsquo;s borrowed-car
+Saturday comes out. Large in percentage terms, small in rupees, and a category that barely existed for
+you before 2026.</p>
+
+<h3>What the two of them are worth</h3>
+
+<div class="tw"><table style="min-width:560px"><thead><tr><th class="t">Line</th><th class="n">Mar&ndash;Aug 2025</th><th class="n">Mar&ndash;Aug 2026</th><th class="n">Gap per week</th><th class="n">Gap per year</th></tr></thead><tbody><tr><td class="t">Food, all forms</td><td class="n">16,807</td><td class="n">31,111</td><td class="n">14,304</td><td class="n">743,808</td></tr><tr><td class="t">Fuel and ride-hailing</td><td class="n">9,480</td><td class="n">17,072</td><td class="n">7,592</td><td class="n">394,784</td></tr><tr class="tot"><td class="t">Combined</td><td class="n">26,287</td><td class="n">48,183</td><td class="n">21,896</td><td class="n">1,138,608</td></tr></tbody></table></div>
+
+<div class="tw"><table style="min-width:540px"><thead><tr><th class="t">Explained</th><th class="n">Per week</th><th class="n">Per year</th></tr></thead><tbody><tr><td class="t">The pump &mdash; petrol is 34% dearer than a year ago</td><td class="n">3,171</td><td class="n">164,892</td></tr><tr><td class="t">Coffee</td><td class="n">2,792</td><td class="n">145,184</td></tr><tr><td class="t">Chef Anila and Daniyal&rsquo;s runs</td><td class="n">2,411</td><td class="n">125,372</td></tr><tr><td class="t">Driving to Harbanspura &mdash; 17% more fuel by volume</td><td class="n">2,055</td><td class="n">106,860</td></tr><tr><td class="t">Nine InDrives on 29 Aug, your brother had the car</td><td class="n">305</td><td class="n">15,860</td></tr><tr class="tot"><td class="t">Named so far</td><td class="n">10,734</td><td class="n">558,168</td></tr></tbody></table></div>
+
+<p><strong>That is 49% of the increase, and none of it is waste.</strong> The pump is not your
+decision. The coffee is a working habit. Anila and the Harbanspura road are both the same thing
+&mdash; an ill sister-in-law and a father-in-law in a house with nobody to cook, forty kilometres
+away. Set against 18 lakh a month of income, this is a household absorbing a family illness, which is
+what a household is for.</p>
+
+<p>The residue is 11,162 a week, about 580,440 a year, and it is not spread evenly. Foodpanda alone
+is 7,804 of it. That is the section below.</p>
+
+<h2>The seven days</h2>
+
+<figure>
+<div class="legend">
+  <span><span class="sw" style="background:var(--s1)"></span>Weekly booked expense</span>
+  <span><span class="sw" style="background:var(--s2)"></span>This week</span>
+  <span><span class="sw" style="background:var(--s2);opacity:.6"></span>12-week mean</span>
+</div>
+<svg class="cv" viewBox="0 0 820 320" role="img" aria-label="Booked weekly expense, 13 April to 6 September 2026"><line class="grid" x1="46" y1="274.0" x2="808" y2="274.0"/><text class="ax" x="38" y="278.0" text-anchor="end">0</text><line class="grid" x1="46" y1="223.6" x2="808" y2="223.6"/><text class="ax" x="38" y="227.6" text-anchor="end">2L</text><line class="grid" x1="46" y1="173.2" x2="808" y2="173.2"/><text class="ax" x="38" y="177.2" text-anchor="end">4L</text><line class="grid" x1="46" y1="122.8" x2="808" y2="122.8"/><text class="ax" x="38" y="126.8" text-anchor="end">6L</text><line class="grid" x1="46" y1="72.4" x2="808" y2="72.4"/><text class="ax" x="38" y="76.4" text-anchor="end">8L</text><line class="grid" x1="46" y1="22.0" x2="808" y2="22.0"/><text class="ax" x="38" y="26.0" text-anchor="end">10L</text><line class="ref" x1="46" y1="195.8" x2="808" y2="195.8" stroke-dasharray="4 3"/><text class="reflab" x="808" y="188.8" text-anchor="end">12-week mean 310,497</text><rect class="s1 dim" x="51.1" y="207.9" width="26.0" height="66.1" rx="2"/><text class="ax" x="64.1" y="292" text-anchor="middle">13 Apr</text><rect class="s1 dim" x="87.4" y="237.3" width="26.0" height="36.7" rx="2"/><rect class="s1 dim" x="123.7" y="209.4" width="26.0" height="64.6" rx="2"/><text class="ax" x="136.7" y="292" text-anchor="middle">27 Apr</text><rect class="s1" x="160.0" y="153.7" width="26.0" height="120.3" rx="2"/><rect class="s1" x="196.3" y="173.7" width="26.0" height="100.3" rx="2"/><text class="ax" x="209.3" y="292" text-anchor="middle">11 May</text><rect class="s1 dim" x="232.6" y="202.1" width="26.0" height="71.9" rx="2"/><rect class="s1" x="268.9" y="156.6" width="26.0" height="117.4" rx="2"/><text class="ax" x="281.9" y="292" text-anchor="middle">25 May</text><rect class="s1" x="305.1" y="174.6" width="26.0" height="99.4" rx="2"/><rect class="s1 dim" x="341.4" y="203.0" width="26.0" height="71.0" rx="2"/><text class="ax" x="354.4" y="292" text-anchor="middle">8 Jun</text><rect class="s1 dim" x="377.7" y="215.2" width="26.0" height="58.8" rx="2"/><rect class="s1 dim" x="414.0" y="241.4" width="26.0" height="32.6" rx="2"/><text class="ax" x="427.0" y="292" text-anchor="middle">22 Jun</text><rect class="s1 dim" x="450.3" y="206.4" width="26.0" height="67.6" rx="2"/><rect class="s1" x="486.6" y="192.7" width="26.0" height="81.3" rx="2"/><text class="ax" x="499.6" y="292" text-anchor="middle">6 Jul</text><rect class="s1 dim" x="522.9" y="206.2" width="26.0" height="67.8" rx="2"/><rect class="s1 dim" x="559.1" y="228.8" width="26.0" height="45.2" rx="2"/><text class="ax" x="572.1" y="292" text-anchor="middle">20 Jul</text><rect class="s1" x="595.4" y="188.1" width="26.0" height="85.9" rx="2"/><rect class="s1" x="631.7" y="24.2" width="26.0" height="249.8" rx="2"/><text class="seg2" x="644.7" y="17.2" text-anchor="middle">9.91 L</text><text class="ax" x="644.7" y="292" text-anchor="middle">3 Aug</text><rect class="s1 dim" x="668.0" y="221.5" width="26.0" height="52.5" rx="2"/><rect class="s1 dim" x="704.3" y="232.7" width="26.0" height="41.3" rx="2"/><text class="ax" x="717.3" y="292" text-anchor="middle">17 Aug</text><rect class="s1" x="740.6" y="188.9" width="26.0" height="85.1" rx="2"/><rect class="s2" x="776.9" y="233.2" width="26.0" height="40.8" rx="2"/><text class="note" x="789.9" y="225.2" text-anchor="middle" fill="var(--s2)">161,975</text><text class="ax" x="789.9" y="292" text-anchor="middle">31 Aug</text><line class="base" x1="46" y1="274" x2="808" y2="274"/></svg>
+<figcaption>Booked expense by week, 13 April to 6 September 2026. The 3 August spike is the 700,000
+you booked in a single row for Aliyan&rsquo;s wedding-hall food, which is why that week reads 991,262.
+This week is the third-lowest bar on the chart and the only one under 1.7 lakh since June.</figcaption>
+</figure>
+
+<div class="tw"><table style="min-width:620px"><thead><tr><th class="t">Day</th><th class="n">Booked</th><th class="n">Rows</th><th class="t">What happened</th></tr></thead><tbody><tr><td class="t">Mon 31 Aug</td><td class="n">11,541</td><td class="n">5</td><td class="t">Yaris fuel 7,557 &middot; Kindle cover 2,585 &middot; cubicle lunch split four ways &middot; 1,700 out to Fahad</td></tr><tr><td class="t">Tue 1 Sep</td><td class="n">71,516</td><td class="n">11</td><td class="t">Office month paid twice (106,200 out) &middot; both friends settled (134,206 in) &middot; Mama 40,000 &middot; Sadiqa 20,750 &middot; pension account opened</td></tr><tr><td class="t">Wed 2 Sep</td><td class="n">8,570</td><td class="n">4</td><td class="t">Two meals with Alishba and Areeba &middot; a second Daniyal rider run &middot; DUMx with Bhatti 4,976</td></tr><tr><td class="t">Thu 3 Sep</td><td class="n">2,388</td><td class="n">2</td><td class="t">Cheapest day of the week &middot; 3,000 and 5,000 out to Abujan and Mama</td></tr><tr><td class="t">Fri 4 Sep</td><td class="n">15,356</td><td class="n">6</td><td class="t">Aramco Gulberg run 4,330 &middot; InDrive 3,370 &middot; 3,000 petty cash &middot; 1,000 donation</td></tr><tr><td class="t">Sat 5 Sep</td><td class="n">39,402</td><td class="n">11</td><td class="t">Three LESCO bills 42,349 &middot; 6,000 donations &middot; Tabish 15,000 &middot; 11,400 of chef &middot; 50,000 cash out at 22:51</td></tr><tr><td class="t">Sun 6 Sep</td><td class="n">13,202</td><td class="n">4</td><td class="t">Second full tank 9,637 &middot; 12,000 to Saving Pot &middot; 5,000 to Abujan</td></tr><tr class="tot"><td class="t">Week</td><td class="n">161,975</td><td class="n">43</td><td class="t">Zero income across all seven days</td></tr></tbody></table></div>
+
+<p>Tuesday is the whole week in one day. At 02:32 you paid The Cubicle 53,100 for your own September
+desk, which FleetGlue reimburses. At 02:33 you paid another 53,100 for Bhatti&rsquo;s and
+Wasiq&rsquo;s desks and split it to their ledgers, then 7,500 for the dedicated wifi split three ways,
+then billed each of them 27 rupees for the bank fee on the transfer. That is 106,200 out of a 321,325
+balance before three in the morning on the second day of a no-income week. By 14:12 the same day
+Bhatti had sent 60,000 and Wasiq 74,206 and both ledgers were flat.</p>
+
+<figure>
+<svg class="cv" viewBox="0 0 820 300" role="img" aria-label="Spendable cash through the week"><line class="grid" x1="60" y1="256.0" x2="746" y2="256.0"/><text class="ax" x="52" y="260.0" text-anchor="end">0k</text><line class="grid" x1="60" y1="209.6" x2="746" y2="209.6"/><text class="ax" x="52" y="213.6" text-anchor="end">50k</text><line class="grid" x1="60" y1="163.2" x2="746" y2="163.2"/><text class="ax" x="52" y="167.2" text-anchor="end">100k</text><line class="grid" x1="60" y1="116.8" x2="746" y2="116.8"/><text class="ax" x="52" y="120.8" text-anchor="end">150k</text><line class="grid" x1="60" y1="70.4" x2="746" y2="70.4"/><text class="ax" x="52" y="74.4" text-anchor="end">200k</text><line class="grid" x1="60" y1="24.0" x2="746" y2="24.0"/><text class="ax" x="52" y="28.0" text-anchor="end">250k</text><polygon points="60,256 60.0,40.4 158.0,53.1 256.0,96.8 354.0,110.2 452.0,120.6 550.0,136.2 648.0,236.2 746.0,253.1 746,256" fill="var(--s1)" fill-opacity=".10"/><polyline points="60.0,40.4 158.0,53.1 256.0,96.8 354.0,110.2 452.0,120.6 550.0,136.2 648.0,236.2 746.0,253.1" fill="none" stroke="var(--s1)" stroke-width="2.2" stroke-linejoin="round"/><circle cx="60.0" cy="40.4" r="3.4" fill="var(--s1)"/><text class="ax" x="60.0" y="274" text-anchor="middle">Mon open</text><circle cx="158.0" cy="53.1" r="3.4" fill="var(--s1)"/><text class="ax" x="158.0" y="274" text-anchor="middle">Mon</text><circle cx="256.0" cy="96.8" r="3.4" fill="var(--s1)"/><text class="ax" x="256.0" y="274" text-anchor="middle">Tue</text><circle cx="354.0" cy="110.2" r="3.4" fill="var(--s1)"/><text class="ax" x="354.0" y="274" text-anchor="middle">Wed</text><circle cx="452.0" cy="120.6" r="3.4" fill="var(--s1)"/><text class="ax" x="452.0" y="274" text-anchor="middle">Thu</text><circle cx="550.0" cy="136.2" r="3.4" fill="var(--s1)"/><text class="ax" x="550.0" y="274" text-anchor="middle">Fri</text><circle cx="648.0" cy="236.2" r="3.4" fill="var(--s1)"/><text class="ax" x="648.0" y="274" text-anchor="middle">Sat</text><circle cx="746.0" cy="253.1" r="3.4" fill="var(--s1)"/><text class="ax" x="746.0" y="274" text-anchor="middle">Sun</text><text class="note" x="66.0" y="30.4">232,351</text><text class="note" x="754.0" y="249.1" fill="var(--critical)">3,106</text><line class="base" x1="60" y1="256" x2="746" y2="256"/></svg>
+<figcaption>Spendable cash &mdash; Meezan, physical cash, NayaPay and Saving Pot, net of the card
+balance &mdash; at the close of each day. It never recovers, because nothing came in. Saturday alone
+takes 107,735 out of it: three Sahowari electricity bills totalling 42,349, 15,000 to Tabish, 11,400
+of chef, 8,390 of PTCL, 8,084 of Clinix on the card, 6,000 of donations and 6,000 to the kaamwali. The
+50,000 you moved into physical cash that night does not appear here, because cash sits inside this
+line.</figcaption>
+</figure>
+
+<p>The 3,106 figure is the narrow one and it deserves a caveat. Your full free-liquid position at
+Sunday close is 413,115, which is nearly double where FY26 ended. But 240,185 of that is Al Meezan
+and 42,264 is Finqalab, and the point of the third paragraph of this report is that you spent the week
+deliberately not touching them. On the money you were actually willing to use, you finished the week
+with 3,106.</p>
+
+<h2>Where the money went</h2>
+
+<figure>
+<svg class="cv" viewBox="0 0 820 394" role="img" aria-label="True outlay by beneficiary"><text class="rl" x="198" y="25" text-anchor="end">Household &amp; joint living</text><text class="seg2" x="198" y="39" text-anchor="end">bills, groceries, fuel, staff, repairs</text><rect class="track" x="210" y="14" width="518" height="17" rx="3"/><rect class="s1" x="210" y="14" width="518.0" height="17" rx="3"/><text class="rv" x="737.0" y="27">51,137</text><text class="rl" x="198" y="65" text-anchor="end">Abujan</text><text class="seg2" x="198" y="79" text-anchor="end">Sahowari LESCO x3, Abdul Saboor, Naseem Akram</text><rect class="track" x="210" y="54" width="518" height="17" rx="3"/><rect class="s3" x="210" y="54" width="494.3" height="17" rx="3"/><text class="rv" x="713.3" y="67">48,797</text><text class="rl" x="198" y="105" text-anchor="end">Mama</text><text class="seg2" x="198" y="119" text-anchor="end">August pocket money 40,000 + Sajda zakat 5,000</text><rect class="track" x="210" y="94" width="518" height="17" rx="3"/><rect class="s3" x="210" y="94" width="455.8" height="17" rx="3"/><text class="rv" x="674.8" y="107">45,000</text><text class="rl" x="198" y="145" text-anchor="end">Alishba</text><text class="seg2" x="198" y="159" text-anchor="end">food, chef, Clinix, Kindle cover, gifts</text><rect class="track" x="210" y="134" width="518" height="17" rx="3"/><rect class="s3" x="210" y="134" width="302.9" height="17" rx="3"/><text class="rv" x="521.9" y="147">29,903</text><text class="rl" x="198" y="185" text-anchor="end">tripbazar (business)</text><text class="seg2" x="198" y="199" text-anchor="end">Sadiqa August salary 19,250 + bonus 1,500</text><rect class="track" x="210" y="174" width="518" height="17" rx="3"/><rect x="210" y="174" width="210.2" height="17" rx="3" fill="var(--base)"/><text class="rv" x="429.2" y="187">20,750</text><text class="rl" x="198" y="225" text-anchor="end">Tabish (qarz)</text><text class="seg2" x="198" y="239" text-anchor="end">116th advance; balance now 1,147,216</text><rect class="track" x="210" y="214" width="518" height="17" rx="3"/><rect class="critical" x="210" y="214" width="151.9" height="17" rx="3"/><text class="rv" x="370.9" y="227">15,000</text><text class="rl" x="198" y="265" text-anchor="end">Rohan</text><text class="seg2" x="198" y="279" text-anchor="end">own food 8,642, office wifi 2,500, fees and misc 963</text><rect class="track" x="210" y="254" width="518" height="17" rx="3"/><rect class="s2" x="210" y="254" width="122.6" height="17" rx="3"/><text class="rv" x="341.6" y="267">12,105</text><text class="rl" x="198" y="305" text-anchor="end">Donations</text><text class="seg2" x="198" y="319" text-anchor="end">Orange Tree 1,000, cats project 5,000, cash 1,000</text><rect class="track" x="210" y="294" width="518" height="17" rx="3"/><rect class="s3" x="210" y="294" width="70.9" height="17" rx="3"/><text class="rv" x="289.9" y="307">7,000</text><text class="rl" x="198" y="345" text-anchor="end">Areeba</text><text class="seg2" x="198" y="359" text-anchor="end">CMH emergency</text><rect class="track" x="210" y="334" width="518" height="17" rx="3"/><rect class="s3" x="210" y="334" width="10.4" height="17" rx="3"/><text class="rv" x="229.4" y="347">1,030</text></svg>
+<figcaption>True outlay of 230,722 by beneficiary &mdash; booked expenses plus the net growth in the
+three ledgers that function as giving rather than lending. Attribution is on the <em>Note</em> field.
+Household covers the home you and Alishba share and is not attributed to either of you.</figcaption>
+</figure>
+
+<p>Strip out the 20,750 of tripbazar salary, which is a business cost and not personal spending, and
+you are left with 209,972. <strong>Of that, 146,730 &mdash; 69.9% &mdash; went to somebody who is not
+you.</strong> 51,137 was the household. 12,105 was you, and that figure includes 2,500 of office wifi.
+Your own food for the week, eight rows, came to 8,642. Your FY26 figure was 56.9% spent on others;
+this week was 69.9%. That is your philosophy running exactly as designed, on a week where the
+absolute number came in under budget.</p>
+
+<h3>Against your FY26 weekly average</h3>
+
+<div class="tw"><table style="min-width:640px"><thead><tr><th class="t">Category</th><th class="n">This week</th><th class="n">FY26 weekly avg</th><th class="n">Delta</th><th class="t">Reading</th></tr></thead><tbody><tr><td class="t">Family</td><td class="n">58,594</td><td class="n">109,767</td><td class="n">&minus;51,173</td><td class="t">No medical event. 40,000 of it is Mama&rsquo;s stipend and 10,250 is food misfiled as medical.</td></tr><tr><td class="t">Household</td><td class="n">30,573</td><td class="n">22,920</td><td class="n">+7,653</td><td class="t">PTCL 8,390 and three staff payments landed in the same week.</td></tr><tr><td class="t">Food</td><td class="n">20,981</td><td class="n">17,529</td><td class="n">+3,452</td><td class="t">This category badly understates the real figure. See below.</td></tr><tr><td class="t">Entrepreneurship</td><td class="n">20,750</td><td class="n">16,893</td><td class="n">+3,857</td><td class="t">Sadiqa at 38.5 hours. Inside the 261,000 annual ceiling.</td></tr><tr><td class="t">Transportation</td><td class="n">20,564</td><td class="n">22,320</td><td class="n">&minus;1,756</td><td class="t">Flattered by a stale comparator. See below.</td></tr><tr><td class="t">Donation</td><td class="n">7,000</td><td class="n">8,378</td><td class="n">&minus;1,378</td><td class="t">Orange Tree, the cats project, and 1,000 in cash.</td></tr><tr><td class="t">Investment</td><td class="n">2,500</td><td class="n">683</td><td class="n">+1,817</td><td class="t">Mislabelled. This is your share of the office wifi.</td></tr><tr><td class="t">Technology</td><td class="n">0</td><td class="n">23,951</td><td class="n">&minus;23,951</td><td class="t">Nothing.</td></tr><tr><td class="t">Tour / Travel</td><td class="n">0</td><td class="n">8,781</td><td class="n">&minus;8,781</td><td class="t">Nothing.</td></tr><tr><td class="t">Social Life</td><td class="n">0</td><td class="n">4,166</td><td class="n">&minus;4,166</td><td class="t">Nothing.</td></tr><tr><td class="t">Miscellaneous</td><td class="n">872</td><td class="n">12,627</td><td class="n">&minus;11,755</td><td class="t">One unlabelled row on Bhatti&rsquo;s ledger.</td></tr><tr><td class="t">Bank Charges</td><td class="n">141</td><td class="n">1,139</td><td class="n">&minus;998</td><td class="t">Four transfer fees. You billed 27 of it back to Bhatti and 27 to Wasiq.</td></tr><tr class="tot"><td class="t">Total booked</td><td class="n">161,975</td><td class="n">259,436</td><td class="n">&minus;97,461</td><td class="t"></td></tr></tbody></table></div>
+
+<p>Two rows in this table are misleading and both are called out above. <em>Food</em> reads 20,981
+because the category only holds part of the food; the real figure is 49,467. <em>Transportation</em>
+reads below average only because the average is a year stale.</p>
+
+<h2>What else you got right</h2>
+
+<p><strong>You left the mutual fund alone.</strong> Zero withdrawals from Al Meezan in seven days
+without income. The contrast is ten days old: on 26 August you took 65,000 out of it, two days before
+payday, to cover Alishba&rsquo;s 57,000 Kindle, then put 100,000 back on the 28th when the salary
+landed. This week you had every reason to do the same thing and did not. Across FY26 that account
+turned over 6.4 times and 1,018,000 of the withdrawals were explicitly to lend to friends. The balance
+is 240,185 today against 47,360 at year end.</p>
+
+<p><strong>You opened the pension account.</strong> 1 September, Al Meezan Voluntary Pension Scheme,
+1,000 opening deposit. One caveat below.</p>
+
+<p><strong>The reciprocal loan book cleared in full, within twelve hours.</strong> Wasiq&rsquo;s 74,206
+matched his running balance to the rupee: 44,878 carried in from before the week, plus 26,550 of
+office, 2,500 of wifi, 250 of lunch, 27 of bank fee and one rupee of old residue. Bhatti rounded his
+59,270 up to 60,000. You then charged 1,561 of your own spending back to his ledger the same
+afternoon, which is why he sits at &minus;2,291 rather than zero.</p>
+
+<p><strong>You closed August with your father before opening September.</strong> 3,154 came back from
+his ledger on 1 September, and the 1,602 you had entered in the wrong direction was reversed and
+flagged <code>[Accidental]</code> rather than left to decay. Four and a half years of this habit is
+why your ledger reconciles to your real bank balance within about six thousand rupees.</p>
+
+<p><strong>Every bill was paid, none late.</strong> PTCL 8,390, SNGPL 980, three Sahowari LESCO bills
+totalling 42,349, the maali 3,500, the kaamwali 6,000, Amjad&rsquo;s water 1,600 and his handiwork
+4,000. And 12,000 went into the Saving Pot on Sunday night, on a week you earned nothing.</p>
+
+<h2>What else you got wrong</h2>
+
+<p><strong>You are financing FleetGlue.</strong> Office Loans stands at 113,940 &mdash; two months of
+desk rent you have paid on behalf of an employer that pays you in dollars. It was 60,840 on Monday and
+you added another 53,100 to it at half past two in the morning. No interest, no risk, but no reason
+either. Invoice them.</p>
+
+<p><strong>The buffer went to 3,106.</strong> Nothing broke: two salaries land on 11 and 25 September
+and the card is not due until the 30th. But the timing gap between a fortnightly salary and a
+continuous outflow is absorbed entirely by your current account, and your current account is one week
+deep. You spent 79% of last year holding under a month of cover. This week you held four days of it,
+on a week that was 48% cheaper than your average.</p>
+
+<p><strong>The pension account has 1,000 in it.</strong> Opening it was the hard part and you did it.
+But 1,000 is a placeholder, and an account with no standing instruction attached tends to stay a
+placeholder. This is the only line on your entire balance sheet with a thirty-year horizon and nobody
+who can ask you for it back.</p>
+
+<p><strong>Three rows are filed in the wrong place, and one of them will distort a number you care
+about.</strong> 10,250 of food for your wife&rsquo;s household &mdash; two Anila payments of 5,250 and
+3,250, a 1,000 home-food delivery and the 750 cubicle lunch share &mdash; is booked under
+<em>Family / Health &amp; Medicine</em>. Your medical figures are the input to the finding that you,
+Alishba and her parents are all uninsured. If feeding people keeps landing in the medical bucket you
+will read your own exposure as larger than it is by exactly the amount you feed them. Separately, the
+2,500 office wifi is booked as <em>Investment</em>, and one 872 row on Bhatti&rsquo;s ledger has no
+note at all.</p>
+
+<p><strong>73,916 is sitting in physical cash.</strong> You moved 50,000 out at 22:51 on Saturday in
+two transfers of 25,000 and spent 6,000 of it on the kaamwali. Your cash balance has ended every month
+of the past year between 3,337 and 27,916. If there is a payment coming that needs notes, ignore me.
+If there is not, it is idle in the one place that earns nothing, in the same week you refused to spend
+from the account that earns about eleven percent.</p>
+
+<h2>Still open in Split</h2>
+
+<p>Six clusters went into <em>Split</em> this week and their legs are not written yet &mdash; 19,717
+in total. You close these on a lag, so this is a list of open items rather than a finding. It is here
+for two reasons.</p>
+
+<div class="tw"><table style="min-width:640px"><thead><tr><th class="t">When</th><th class="t">What</th><th class="n">Into Split</th><th class="n">Likely yours</th><th class="t">Your own note</th></tr></thead><tbody><tr><td class="t">Sat 5, 23:56</td><td class="t">Clinix</td><td class="n">8,084</td><td class="n">8,084</td><td class="t">Your note splits it 25% medicines, 75% family gift &mdash; two categories, not two people.</td></tr><tr><td class="t">Wed 2, 23:20</td><td class="t">FP DUMx with Bhatti</td><td class="n">4,976</td><td class="n">2,488</td><td class="t">Equal</td></tr><tr><td class="t">Sat 5, 14:25</td><td class="t">Chef Anila cubicle lunch</td><td class="n">2,900</td><td class="n">1,150</td><td class="t">Wasiq 600, Bhatti and you 1,150 each</td></tr><tr><td class="t">Wed 2, 14:28</td><td class="t">Daniyal rider</td><td class="n">1,500</td><td class="n">1,000</td><td class="t">Monday&rsquo;s identical run went 750 / 250 / 250 / 250</td></tr><tr><td class="t">Fri 4, 19:34</td><td class="t">FP takeaway HN Foods</td><td class="n">1,399</td><td class="n">700</td><td class="t">Equal</td></tr><tr><td class="t">Thu 3, 14:41</td><td class="t">Extraction</td><td class="n">858</td><td class="n">286</td><td class="t">WAR equal</td></tr><tr class="tot"><td class="t">Estimated</td><td class="t"></td><td class="n">19,717</td><td class="n">13,708</td><td class="t"></td></tr></tbody></table></div>
+
+<p>First, roughly <strong>6,000 of it belongs to other people</strong> &mdash; four of the six name
+Bhatti or WAR, the two who settled 134,206 between them within twelve hours on Tuesday. Second, and
+this is why it affects the rest of the report: <strong>until the legs are written, the 161,975 is
+provisional.</strong> On the split arithmetic your own notes already contain, about 13,700 of the
+19,717 will land as your own expense, which puts the real booked figure nearer 175,700.</p>
+
+<p>For what it is worth, the ledger cannot actually see your entry lag. Your convention writes every
+leg with the parent&rsquo;s timestamp, so a cluster you close three weeks late still reads as closing
+on the day it happened. All I can tell you is what is open right now.</p>
+
+<h2>The next thirty days</h2>
+
+<p>Two salaries land in this window &mdash; 11 and 25 September, at 833,088 each. Call it 1,666,176
+in.</p>
+
+<div class="tw"><table style="min-width:620px"><thead><tr><th class="t">Out</th><th class="n">Amount</th><th class="t">When</th><th class="t">Note</th></tr></thead><tbody><tr><td class="t">Rohan Committee #3</td><td class="n">150,000</td><td class="t">mid-September</td><td class="t">Third payment. The pot pays out 750,000 in February and 750,000 in April.</td></tr><tr><td class="t">Spring, balance of the October instalment</td><td class="n">200,000</td><td class="t">by 1 October</td><td class="t">274,301 of the 474,301 is already paid, in four chunks since 3 July.</td></tr><tr><td class="t">Sadiqa, September</td><td class="n">~20,750</td><td class="t">1 October</td><td class="t">Business cost, not personal.</td></tr><tr><td class="t">The Cubicle, October</td><td class="n">106,200</td><td class="t">1 October</td><td class="t">Fully recoverable &mdash; 53,100 from FleetGlue, 53,100 from Bhatti and Wasiq.</td></tr><tr><td class="t">Card bill</td><td class="n">241,022 and rising</td><td class="t">statement 10 Sep, due 30 Sep</td><td class="t">Spending already counted below. Listed for timing, not as an extra cost.</td></tr></tbody></table></div>
+
+<p>Against that, living costs. At the rate you just ran &mdash; 230,722 a week of true outlay &mdash;
+thirty days is 988,809. At your FY26 gift-basis rate it is 1,212,154. Adding the committee, the Spring
+balance and Sadiqa, and leaving the recoverable office rent out:</p>
+
+<div class="tw"><table style="min-width:560px"><thead><tr><th class="t">Scenario</th><th class="n">Living</th><th class="n">Committed</th><th class="n">Total out</th><th class="n">In</th><th class="n">Left</th></tr></thead><tbody><tr><td class="t">You repeat this week</td><td class="n">988,809</td><td class="n">370,750</td><td class="n">1,359,559</td><td class="n">1,666,176</td><td class="n"><span class='pos'>+306,617</span></td></tr><tr><td class="t">You run at your FY26 rate</td><td class="n">1,212,154</td><td class="n">370,750</td><td class="n">1,582,904</td><td class="n">1,666,176</td><td class="n"><span class='pos'>+83,272</span></td></tr></tbody></table></div>
+
+<p>Both scenarios work, which is the honest answer. But note what the first one contains: a week with
+no technology, no travel, no social life &mdash; and 49,467 of food. <strong>The cheap scenario is
+already carrying the doubled food bill.</strong> Take food back to its FY26 rate and the same month
+leaves roughly 4.0 lakh instead of 3.1, which over a year is most of what the Spring possession
+payment is going to demand.</p>
+
+<p>Further out, nothing this week changes the shape of the year: 3,101,200 due on Spring possession,
+600,000 for Aliyan around February, and 1,500,000 coming back from the committee in February and
+April.</p>
+
+<h2>What to do this week</h2>
+
+<ol>
+<li><strong>Put the parcel on the commitments list.</strong> 455,900 a year all in, feeding your
+wife&rsquo;s father and sister. It is a decision, not a leak, and it should sit next to Aliyan&rsquo;s
+600,000 and the committee rather than arriving disguised as a food bill.</li>
+<li><strong>Give the Anila lunch a month, then check it.</strong> The test is whether office food
+paid through <em>Split</em> or off Bhatti&rsquo;s ledger falls below its pre-Anila rate net of your
+Anila share including Daniyal. Fourteen orders is not an answer. Fifty will be.</li>
+
+<li><strong>Count the late orders, not the rupees.</strong> Fifty-seven craving dinners in eight
+weeks against twenty-seven last year. That gap is 251,000 a year and you have already called it
+avoidable. It is the one line here you can move on your own, and the unit to watch is the order
+count, not the food total.</li>
+<li><strong>Invoice FleetGlue for 113,940.</strong> Two months of desk rent.</li>
+<li><strong>Put a standing instruction on the pension account.</strong> 1,000 opened it. At 25,000 a
+month you are putting away 300,000 a year &mdash; 1.4% of income, into the only bucket with a
+thirty-year horizon.</li>
+<li><strong>Close the six Split clusters</strong> when you next do the round, and <strong>bank the
+cash</strong> unless it is earmarked.</li>
+</ol>
+
+<h2>Method</h2>
+
+<p>Week defined as Monday 31 August to Sunday 6 September 2026 inclusive, on transaction date. Source
+is the 7 September export, 8,957 rows, of which 81 fall in the window. Balances are reconstructed from
+a zero start in December 2021 using the app&rsquo;s own transfer semantics, which reproduce its
+displayed balances.</p>
+
+<p><em>Booked spending</em> is the sum of rows typed <code>Expense</code>. <em>True outlay</em> adds
+the net growth in the three ledgers that function as giving rather than lending &mdash; Abujan 48,797,
+Tabish 15,000, Mama 5,000 &mdash; using the change in balance rather than the gross funding, so the
+funding and the spending are not counted twice. Transfers to Bhatti, Wasiq, Fahad, Office Loans and
+Split are excluded because they are claims, not spending. <em>Spendable cash</em> is Meezan plus
+physical cash plus NayaPay plus Saving Pot, net of the card. <em>Free liquid</em> is all fourteen
+liquid accounts net of the card and of the 7,084 still owed to Umaid; it includes the 31,049 stranded
+in Wise, which is 382,066 without it.</p>
+
+<p><em>All food</em> is gross cash out: expense rows in <code>Food</code>, in
+<code>Household / General</code> (groceries) and the <code>Family</code> rows whose notes name the
+chef or a meal, plus the <em>Split</em> parent rows whose notes are meals or coffee. Rows sourced from
+<code>Split</code> are excluded so that a parent and its legs are never both counted. <em>Transport</em>
+is <code>Transportation / Car</code> and <code>Transportation / Taxi</code>, which keeps food delivered
+by InDrive out of the transport figure.</p>
+
+<p><strong>All trend comparisons use 1 March to 31 August, 2026 against 2025</strong> &mdash; six
+months against the same six months, both sides computed with identical definitions. That window was
+chosen after testing: an eight-week cut of the same data put the transport change at +153% where six
+months puts it at +80%, because the eight weeks happened to compare a quiet stretch of 2025 against a
+busy one of 2026. Where a shorter window is used it is labelled and it is used for counts, not rates.
+Fuel is converted to litres using the OGRA MS-92 price series, monthly, as a proxy for hi-octane,
+which is unregulated and unpublished.</p>
+
+<p>Comparatives are the FY26 figures: 13,527,753 of personal spend, 14,747,871 including qarz treated
+as gifts, and a trailing twelve-week mean of booked expense from 8 June to 30 August of 310,497. Six
+Split clusters totalling 19,717 were unallocated at the time of writing, so booked spending is
+provisional to that extent. The usual caveat applies on top: unrecorded transactions get trued up
+later as <em>do hisaab</em> plugs at roughly 31,000 a month, so read any single week as plus or minus
+about seven thousand.</p>
+
+<footer>
+Week of 31 August &ndash; 6 September 2026 &middot; generated 8 September 2026 from
+<code>Money Manager_07-09-2026.xlsx</code> &middot; 81 rows in window, 8,957 in file.
+</footer>
+</div>
+
+<script>
+(function(){
+  var H=2088400725, KEY='wk310826.unlocked', root=document.documentElement;
+  var lock=document.getElementById('lock'), dots=document.getElementById('dots'),
+      err=document.getElementById('lockerr'), box=document.getElementById('lockbox'),
+      pad=document.getElementById('pad'), buf='';
+  function hash(s){var h=5381;for(var i=0;i<s.length;i++){h=((h*33)+s.charCodeAt(i))>>>0;}return h;}
+  function stored(){try{return sessionStorage.getItem(KEY)==='1';}catch(e){return false;}}
+  function remember(){try{sessionStorage.setItem(KEY,'1');}catch(e){}}
+  function paint(){
+    var d=dots.children;
+    for(var i=0;i<d.length;i++){d[i].className='dot'+(i<buf.length?' on':'');}
+  }
+  function open_(){
+    root.classList.remove('locked'); lock.setAttribute('hidden','');
+    document.removeEventListener('keydown',onKey);
+  }
+  function fail(){
+    err.textContent='Incorrect passcode'; err.classList.add('show');
+    box.classList.add('shake');
+    setTimeout(function(){box.classList.remove('shake');},460);
+    buf=''; paint();
+  }
+  function push(c){
+    if(buf.length>=4) return;
+    err.classList.remove('show');
+    buf+=c; paint();
+    if(buf.length===4){
+      var v=buf;
+      setTimeout(function(){ if(hash(v)===H){remember();open_();} else {fail();} },140);
+    }
+  }
+  function onKey(e){
+    if(e.key>='0'&&e.key<='9'){push(e.key);e.preventDefault();}
+    else if(e.key==='Backspace'){buf=buf.slice(0,-1);paint();err.classList.remove('show');e.preventDefault();}
+    else if(e.key==='Escape'){buf='';paint();e.preventDefault();}
+  }
+  pad.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    if(b.dataset.k) push(b.dataset.k);
+    else if(b.dataset.act==='clear'){buf='';paint();err.classList.remove('show');}
+    else if(b.dataset.act==='del'){buf=buf.slice(0,-1);paint();err.classList.remove('show');}
+  });
+  if(stored()){ open_(); return; }
+  root.classList.add('locked');
+  document.addEventListener('keydown',onKey);
+  paint();
+})();
+</script>
+</body>
+</html>
