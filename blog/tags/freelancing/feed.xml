@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Rohan Hussain&#39;s Blog</title>
+      <link>https://rohanhussain.com/blog/blog</link>
+      <description>Rohan Hussain&#39;s blog</description>
+      <language>en-us</language>
+      <managingEditor>contact@rohanhussain.com (Rohan Hussain)</managingEditor>
+      <webMaster>contact@rohanhussain.com (Rohan Hussain)</webMaster>
+      <lastBuildDate>Sat, 14 Nov 2026 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://rohanhussain.com/blog/tags/freelancing/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://rohanhussain.com/blog/blog/post/freelance-usd-income-pakistan-prc-9186</guid>
+    <title>Getting your freelance USD income into Pakistan with PRC code 9186</title>
+    <link>https://rohanhussain.com/blog/blog/post/freelance-usd-income-pakistan-prc-9186</link>
+    <description>How payment routes affect your PRC, the Rippling USD settings to check, and how to use supported Elevate Pay routes for freelance IT income in Pakistan.</description>
+    <pubDate>Sat, 14 Nov 2026 00:00:00 GMT</pubDate>
+    <author>contact@rohanhussain.com (Rohan Hussain)</author>
+    <category>Freelancing</category><category>Pakistan</category><category>Software Engineering</category>
+  </item>
+
+    </channel>
+  </rss>
