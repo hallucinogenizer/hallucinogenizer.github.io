@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360" fill="none">
+  <rect x="48" y="32" width="504" height="296" rx="24" fill="#101b27" stroke="#31d5f5" stroke-opacity=".35" stroke-width="2"/>
+  <text x="88" y="87" fill="#b8aea2" font-family="Arial,sans-serif" font-size="18" letter-spacing="3">FREELANCE INCOME</text>
+  <text x="88" y="160" fill="#f6f0e8" font-family="Arial,sans-serif" font-weight="700" font-size="46">USD</text>
+  <path d="M228 144h84m-15-15 15 15-15 15" stroke="#31d5f5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="350" y="160" fill="#f6f0e8" font-family="Arial,sans-serif" font-weight="700" font-size="46">PKR</text>
+  <path d="M88 195h424" stroke="#b8aea2" stroke-opacity=".25"/>
+  <text x="88" y="262" fill="#e9b86e" font-family="Arial,sans-serif" font-weight="700" font-size="39">PRC 9186</text>
+  <text x="89" y="295" fill="#b8aea2" font-family="Arial,sans-serif" font-size="17">Getting the paperwork right</text>
+</svg>
